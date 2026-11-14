@@ -1,0 +1,431 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper-cream: #fdfaf6;
+  --paper-warm: #fcf1ec;
+  --paper-aged: #f5dfdc;
+  --ink-navy: #351221;
+  --ink-muted: #752945;
+  --snoopy-blue: #e11d48;
+  --pastel-blue: #fbcfe8;
+  --deep-blue: #290a18;
+  --gold-accent: #d4af37;
+  --leather-navy: #3b1223;
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #170712;
+  background-image:
+    radial-gradient(circle at 50% 20%, rgba(254, 205, 211, 0.16) 0%, transparent 55%),
+    radial-gradient(circle at 85% 80%, rgba(244, 63, 94, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(236, 72, 153, 0.12) 0%, transparent 50%),
+    linear-gradient(175deg, #12040e 0%, #1e0917 45%, #2a0c20 100%);
+  color: var(--ink-navy);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel), 'Cinzel', serif;
+}
+
+.gold-foil-text {
+  background: linear-gradient(135deg, #fff2cc 0%, #f7dc6f 25%, #d4af37 50%, #aa8012 75%, #f9e79f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.85));
+}
+
+/* Authentic Paper Texture */
+.paper-sheet {
+  background-color: var(--paper-cream);
+  background-image:
+    radial-gradient(rgba(53, 18, 33, 0.035) 1px, transparent 0),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(252, 241, 236, 0.5) 100%);
+  background-size: 16px 16px, 100% 100%;
+}
+
+/* Authentic Page Spine Gutter Shadow (Integrated directly on page edges, so turning pages never have static floating shadows!) */
+.page-arch-left {
+  box-shadow: inset -16px 0 18px -6px rgba(0, 0, 0, 0.16), inset -3px 0 5px rgba(0, 0, 0, 0.22);
+  border-right: 1px solid #e2cbcd;
+}
+
+.page-arch-right {
+  box-shadow: inset 16px 0 18px -6px rgba(0, 0, 0, 0.16), inset 3px 0 5px rgba(0, 0, 0, 0.22);
+  border-left: 1px solid #e2cbcd;
+}
+
+/* Notebook Ruled Lines with Delicate Pink Tint */
+.paper-ruled {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 26px,
+    rgba(244, 63, 94, 0.1) 27px
+  );
+}
+
+/* Romantic Sakura Washi Tape Effect */
+.washi-tape {
+  background: rgba(244, 114, 182, 0.65);
+  border-left: 2px dashed rgba(255, 255, 255, 0.85);
+  border-right: 2px dashed rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 5px rgba(74, 21, 37, 0.14);
+  backdrop-filter: blur(1px);
+}
+
+/* Scalloped Perforated Postage Stamp */
+.postage-stamp {
+  background: #fff5f7;
+  border: 1px solid #f472b6;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(136, 19, 55, 0.12);
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.postage-stamp:hover {
+  transform: translateY(-3px) rotate(-1deg) scale(1.02);
+  box-shadow: 0 8px 16px rgba(136, 19, 55, 0.2);
+}
+.postage-stamp.active-stamp {
+  background: #fce7f3;
+  border-color: #db2777;
+  box-shadow: 0 5px 14px rgba(219, 39, 119, 0.25);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Romantic Ruby Rose Wax Seal Stamp */
+.wax-seal {
+  width: 58px;
+  height: 58px;
+  background: radial-gradient(circle at 35% 35%, #fb7185 0%, #e11d48 50%, #881337 100%);
+  border-radius: 50%;
+  border: 3px double #fecdd3;
+  box-shadow: 0 4px 12px rgba(45, 10, 20, 0.4), inset 0 2px 4px rgba(255,255,255,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Boarding Pass / Date Ticket Card */
+.boarding-pass-card {
+  background: #fffafa;
+  border: 1.5px dashed #f43f5e;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(74, 21, 37, 0.12);
+}
+
+/* Typewriter Blinking Cursor */
+.typewriter-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background-color: #f43f5e;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blinkCursor 0.8s infinite;
+}
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Custom Scrollbar for Inner Pages */
+.page-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.page-scroll::-webkit-scrollbar-thumb {
+  background: rgba(244, 63, 94, 0.25);
+  border-radius: 9999px;
+}
+
+.book-page-leaf {
+  background-color: var(--paper-cream) !important;
+  height: 100% !important;
+  overflow-y: auto !important;
+  box-sizing: border-box;
+}
+
+/* StPageFlip Engine Styles */
+.stf__parent {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  transform: translateZ(0);
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+
+.stf__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.stf__parent canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.stf__block {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  perspective: 2000px;
+}
+
+.stf__item {
+  display: none;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.stf__outerShadow,
+.stf__innerShadow,
+.stf__hardShadow,
+.stf__hardInnerShadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* =========================================================================
+   DELIGHTFUL INTERACTIVE & CINEMATIC STYLES
+   ========================================================================= */
+
+/* Woodstock Flight Path */
+@keyframes woodstockFlyAcross {
+  0% {
+    left: -80px;
+    transform: translateY(0px) rotate(3deg);
+  }
+  25% {
+    transform: translateY(-16px) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(12px) rotate(5deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(-3deg);
+  }
+  100% {
+    left: calc(100vw + 80px);
+    transform: translateY(0px) rotate(2deg);
+  }
+}
+
+/* Romantic Confession Button Pulse Glow */
+@keyframes confessionPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(244, 63, 94, 0.45), 0 0 40px rgba(225, 29, 72, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(244, 63, 94, 0.75), 0 0 65px rgba(251, 113, 133, 0.35);
+    transform: scale(1.018);
+  }
+}
+
+.confession-btn-glow {
+  animation: confessionPulse 2.8s infinite ease-in-out;
+}
+
+/* Shimmer Calligraphy for "Will You Be Mine?" (Pink Gold Shimmer) */
+@keyframes calligraphyShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.will-you-be-mine-shimmer {
+  background: linear-gradient(
+    90deg,
+    #be123c 0%,
+    #e11d48 20%,
+    #d4af37 40%,
+    #fb7185 60%,
+    #9f1239 80%,
+    #be123c 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: calligraphyShimmer 4s linear infinite;
+}
+
+/* Interactive Polaroid 3D Lift & Gloss Glare */
+.polaroid-interactive {
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease;
+  will-change: transform, box-shadow;
+}
+.polaroid-interactive:hover {
+  transform: translateY(-4px) scale(1.025) rotate(-0.5deg);
+  box-shadow: 0 16px 32px -6px rgba(22, 44, 71, 0.22), 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Floating Heart Bubble Easter Egg */
+@keyframes heartFloatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) scale(0.6);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.1);
+  }
+  80% {
+    opacity: 0.9;
+    transform: translateY(-30px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-45px) scale(0.8);
+  }
+}
+
+.animate-heart-bubble {
+  animation: heartFloatUp 1.2s ease-out forwards;
+}
+
+/* Vintage Vinyl Record Styles */
+.vinyl-disc {
+  background: 
+    radial-gradient(circle at center, transparent 29%, rgba(18, 18, 22, 0.98) 30%),
+    repeating-radial-gradient(
+      circle at center,
+      #131316 0px,
+      #222228 2px,
+      #111114 3px,
+      #222228 4px
+    );
+  box-shadow: 
+    0 4px 14px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.vinyl-sheen {
+  background: conic-gradient(
+    from 45deg,
+    transparent 0deg,
+    rgba(255, 255, 255, 0.16) 45deg,
+    transparent 90deg,
+    transparent 180deg,
+    rgba(255, 255, 255, 0.16) 225deg,
+    transparent 270deg
+  );
+  border-radius: 9999px;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-vinyl-spin {
+  animation: spinSlow 3.8s linear infinite;
+}
+
+.animate-vinyl-spin.paused {
+  animation-play-state: paused;
+}
+
+
+
+
+/* =========================================================================
+   3D Flipping Leaf Overlay Layer (Authentic Real-Life Page Flip)
+   ========================================================================= */
+.flipper-leaf {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 35;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.flipper-leaf.flip-forward {
+  right: 0;
+  transform-origin: left center;
+  animation: flipForward 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.flipper-leaf.flip-backward {
+  left: 0;
+  transform-origin: right center;
+  animation: flipBackward 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.leaf-side {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background-color: var(--paper-cream);
+}
+
+.leaf-front {
+  z-index: 2;
+}
+
+.leaf-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+@keyframes flipForward {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: -15px 12px 30px rgba(0, 0, 0, 0.35);
+  }
+  100% {
+    transform: rotateY(-180deg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes flipBackward {
+  0% {
+    transform: rotateY(0deg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 15px 12px 30px rgba(0, 0, 0, 0.35);
+  }
+  100% {
+    transform: rotateY(180deg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}

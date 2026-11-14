@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 580" width="100%" height="100%" preserveAspectRatio="none">
+  <defs>
+    <!-- Deep Royal Navy Leather Gradient Background -->
+    <radialGradient id="navyLeather" cx="50%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#182f50" />
+      <stop offset="45%" stop-color="#102038" />
+      <stop offset="80%" stop-color="#0a1526" />
+      <stop offset="100%" stop-color="#060e1b" />
+    </radialGradient>
+
+    <!-- 24K Antique Gold Metallic Gradient -->
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff8d6" />
+      <stop offset="18%" stop-color="#edd382" />
+      <stop offset="38%" stop-color="#d4af37" />
+      <stop offset="65%" stop-color="#aa8022" />
+      <stop offset="85%" stop-color="#fdf1c8" />
+      <stop offset="100%" stop-color="#8a6409" />
+    </linearGradient>
+
+    <!-- 3D Gold Emboss Drop Shadow -->
+    <filter id="goldGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.85" />
+    </filter>
+
+    <!-- Subtle Damask Arabesque Pattern -->
+    <pattern id="damaskPattern" width="70" height="70" patternUnits="userSpaceOnUse">
+      <path d="M 35 10 C 25 22 15 28 5 28 C 15 35 25 40 35 55 C 45 40 55 35 65 28 C 55 28 45 22 35 10 Z" fill="#203d65" opacity="0.32" />
+      <circle cx="35" cy="35" r="4" fill="#203d65" opacity="0.35" />
+      <path d="M 35 60 C 28 52 18 50 10 50 C 18 56 26 62 35 70 C 44 62 52 56 60 50 C 52 50 42 52 35 60 Z" fill="#203d65" opacity="0.25" />
+    </pattern>
+
+    <!-- Single Elaborate Baroque Corner Ornament -->
+    <g id="ornateCorner" filter="url(#goldGlow)">
+      <!-- Outer Corner Bracket Lines -->
+      <path d="M 16 16 L 90 16 C 82 24 76 34 76 46 C 76 58 66 68 54 68 C 42 68 32 74 24 82 L 16 90 Z" fill="url(#gold)" opacity="0.9" />
+      <!-- Ornate Acanthus Scrolls -->
+      <path d="M 22 22 L 68 22 C 60 30 54 40 54 50 C 40 50 30 56 22 68 Z" fill="#0d1b2f" />
+      <path d="M 28 28 L 56 28 C 50 34 46 40 46 46 C 40 46 34 50 28 56 Z" fill="url(#gold)" />
+      <!-- Radiating Fan Palmette -->
+      <path d="M 20 20 Q 50 50 80 20" stroke="url(#gold)" stroke-width="2" fill="none" />
+      <path d="M 20 20 Q 50 50 20 80" stroke="url(#gold)" stroke-width="2" fill="none" />
+      <path d="M 34 34 Q 60 60 86 34" stroke="url(#gold)" stroke-width="1.5" fill="none" />
+      <path d="M 34 34 Q 60 60 34 86" stroke="url(#gold)" stroke-width="1.5" fill="none" />
+      <!-- Floral Spirals -->
+      <path d="M 46 46 C 52 40 60 36 70 36 C 80 36 86 42 86 50 C 86 58 78 64 70 64 C 62 64 56 58 56 50 Z" stroke="url(#gold)" stroke-width="1.8" fill="none" />
+      <circle cx="70" cy="50" r="3" fill="url(#gold)" />
+      <path d="M 46 46 C 40 52 36 60 36 70 C 36 80 42 86 50 86 C 58 86 64 78 64 70 C 64 62 58 56 50 56 Z" stroke="url(#gold)" stroke-width="1.8" fill="none" />
+      <circle cx="50" cy="70" r="3" fill="url(#gold)" />
+      <circle cx="34" cy="34" r="5" fill="url(#gold)" />
+      <circle cx="34" cy="34" r="2.5" fill="#fffbe8" />
+    </g>
+
+    <!-- Repeating Lace Vine Element for Borders -->
+    <g id="laceUnitH">
+      <path d="M 0 0 C 10 -6 20 -6 30 0 C 20 6 10 6 0 0 Z" fill="url(#gold)" opacity="0.85" />
+      <circle cx="15" cy="0" r="2.5" fill="url(#gold)" />
+      <path d="M 5 0 C 10 -10 20 -10 25 0" stroke="url(#gold)" stroke-width="1.2" fill="none" />
+    </g>
+    <g id="laceUnitV">
+      <path d="M 0 0 C -6 10 -6 20 0 30 C 6 20 6 10 0 0 Z" fill="url(#gold)" opacity="0.85" />
+      <circle cx="0" cy="15" r="2.5" fill="url(#gold)" />
+      <path d="M 0 5 C -10 10 -10 20 0 25" stroke="url(#gold)" stroke-width="1.2" fill="none" />
+    </g>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="420" height="580" fill="url(#navyLeather)" />
+  <rect width="420" height="580" fill="url(#damaskPattern)" />
+
+  <!-- Outer Triple Gilded Rules -->
+  <g filter="url(#goldGlow)">
+    <rect x="12" y="12" width="396" height="556" rx="4" stroke="url(#gold)" stroke-width="2.5" fill="none" />
+    <rect x="18" y="18" width="384" height="544" rx="3" stroke="url(#gold)" stroke-width="1" fill="none" opacity="0.75" />
+    <rect x="42" y="42" width="336" height="496" rx="2" stroke="url(#gold)" stroke-width="1.5" fill="none" opacity="0.9" />
+    <rect x="47" y="47" width="326" height="486" rx="1" stroke="url(#gold)" stroke-width="0.75" stroke-dasharray="4 3" fill="none" opacity="0.7" />
+  </g>
+
+  <!-- 4 Elaborate Baroque Corners -->
+  <use href="#ornateCorner" />
+  <use href="#ornateCorner" transform="translate(420, 0) scale(-1, 1)" />
+  <use href="#ornateCorner" transform="translate(0, 580) scale(1, -1)" />
+  <use href="#ornateCorner" transform="translate(420, 580) scale(-1, -1)" />
+
+  <!-- Running Lace Border: Top & Bottom -->
+  <g transform="translate(105, 30)" filter="url(#goldGlow)">
+    <use href="#laceUnitH" x="0" />
+    <use href="#laceUnitH" x="30" />
+    <use href="#laceUnitH" x="60" />
+    <use href="#laceUnitH" x="90" />
+    <use href="#laceUnitH" x="120" />
+    <use href="#laceUnitH" x="150" />
+    <use href="#laceUnitH" x="180" />
+  </g>
+  <g transform="translate(105, 550)" filter="url(#goldGlow)">
+    <use href="#laceUnitH" x="0" />
+    <use href="#laceUnitH" x="30" />
+    <use href="#laceUnitH" x="60" />
+    <use href="#laceUnitH" x="90" />
+    <use href="#laceUnitH" x="120" />
+    <use href="#laceUnitH" x="150" />
+    <use href="#laceUnitH" x="180" />
+  </g>
+
+  <!-- Running Lace Border: Left & Right -->
+  <g transform="translate(30, 105)" filter="url(#goldGlow)">
+    <use href="#laceUnitV" y="0" />
+    <use href="#laceUnitV" y="30" />
+    <use href="#laceUnitV" y="60" />
+    <use href="#laceUnitV" y="90" />
+    <use href="#laceUnitV" y="120" />
+    <use href="#laceUnitV" y="150" />
+    <use href="#laceUnitV" y="180" />
+    <use href="#laceUnitV" y="210" />
+    <use href="#laceUnitV" y="240" />
+    <use href="#laceUnitV" y="270" />
+    <use href="#laceUnitV" y="300" />
+    <use href="#laceUnitV" y="330" />
+    <use href="#laceUnitV" y="360" />
+  </g>
+  <g transform="translate(390, 105)" filter="url(#goldGlow)">
+    <use href="#laceUnitV" y="0" />
+    <use href="#laceUnitV" y="30" />
+    <use href="#laceUnitV" y="60" />
+    <use href="#laceUnitV" y="90" />
+    <use href="#laceUnitV" y="120" />
+    <use href="#laceUnitV" y="150" />
+    <use href="#laceUnitV" y="180" />
+    <use href="#laceUnitV" y="210" />
+    <use href="#laceUnitV" y="240" />
+    <use href="#laceUnitV" y="270" />
+    <use href="#laceUnitV" y="300" />
+    <use href="#laceUnitV" y="330" />
+    <use href="#laceUnitV" y="360" />
+  </g>
+
+  <!-- Top Center Baroque Cartouche Crest -->
+  <g transform="translate(210, 30)" filter="url(#goldGlow)">
+    <path d="M -30 0 C -18 8 -8 12 0 4 C 8 12 18 8 30 0 C 18 -4 8 -2 0 -6 C -8 -2 -18 -4 -30 0 Z" fill="url(#gold)" />
+    <circle cx="0" cy="4" r="3" fill="#fff9db" />
+  </g>
+
+  <!-- Bottom Center Baroque Cartouche Crest -->
+  <g transform="translate(210, 550)" filter="url(#goldGlow)">
+    <path d="M -30 0 C -18 -8 -8 -12 0 -4 C 8 -12 18 -8 30 0 C 18 4 8 2 0 6 C -8 2 -18 4 -30 0 Z" fill="url(#gold)" />
+    <circle cx="0" cy="-4" r="3" fill="#fff9db" />
+  </g>
+</svg>

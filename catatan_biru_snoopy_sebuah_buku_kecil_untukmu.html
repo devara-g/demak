@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tentang Kamu & Nuansa Pink — Sebuah Buku Kecil Untukmu</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="assets/page-flip.browser.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper-cream: #fffaf5;
+      --paper-warm: #f4eee1;
+      --paper-aged: #ebdcc4;
+      --ink-navy: #162c47;
+      --ink-muted: #476282;
+      --snoopy-blue: #326296;
+      --pastel-blue: #bfd7ea;
+      --deep-blue: #0f1e33;
+      --gold-accent: #d4af37;
+      --leather-navy: #3b1223;
+      --gutter-shadow: rgba(8, 16, 28, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0c1726;
+      background-image:
+        radial-gradient(circle at 50% 20%, rgba(247, 230, 185, 0.12) 0%, transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(59, 110, 165, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 20% 80%, rgba(37, 84, 137, 0.12) 0%, transparent 50%),
+        linear-gradient(175deg, #091322 0%, #0d1e34 45%, #132844 100%);
+      color: var(--ink-navy);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .font-serif-editorial {
+      font-family: 'Fraunces', Georgia, serif;
+    }
+
+    .font-handwriting {
+      font-family: 'Caveat', cursive;
+    }
+
+    .font-typewriter {
+      font-family: 'Courier Prime', monospace;
+    }
+
+    /* =========================================================================
+       Authentic Physical Book Stacking & Hardcover Styling
+       ========================================================================= */
+
+    /* Soft ambient desk shadow cast by the thick book */
+    .book-ambient-shadow {
+      position: absolute;
+      bottom: -18px;
+      left: 2%;
+      right: 2%;
+      height: 38px;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.25) 60%, transparent 80%);
+      filter: blur(12px);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Outer Hardcover Casing with Leather / Buckram Texture */
+    .book-hardcover {
+      background-color: var(--leather-navy);
+      background-image:
+        radial-gradient(ellipse at center, rgba(32, 60, 96, 0.5) 0%, rgba(9, 18, 30, 0.95) 100%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.012) 0px, rgba(255, 255, 255, 0.012) 2px, transparent 2px, transparent 4px);
+      box-shadow:
+        0 30px 70px -10px rgba(4, 10, 18, 0.85),
+        0 0 0 1px rgba(212, 175, 55, 0.3),
+        inset 0 0 25px rgba(0, 0, 0, 0.75);
+      border-radius: 20px;
+      padding: 10px 12px;
+      position: relative;
+    }
+
+    /* Embossed Gold Line on the Hardcover Edge */
+    .book-hardcover::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1.5px solid rgba(220, 185, 95, 0.35);
+      border-radius: 16px;
+      pointer-events: none;
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Antique Brass Metal Corner Ornaments */
+    .book-metal-corner {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      pointer-events: none;
+      z-index: 15;
+      opacity: 0.9;
+    }
+    .corner-tl { top: 3px; left: 3px; border-top: 3px solid #d4af37; border-left: 3px solid #d4af37; border-top-left-radius: 12px; }
+    .corner-tr { top: 3px; right: 3px; border-top: 3px solid #d4af37; border-right: 3px solid #d4af37; border-top-right-radius: 12px; }
+    .corner-bl { bottom: 3px; left: 3px; border-bottom: 3px solid #d4af37; border-left: 3px solid #d4af37; border-bottom-left-radius: 12px; }
+    .corner-br { bottom: 3px; right: 3px; border-bottom: 3px solid #d4af37; border-right: 3px solid #d4af37; border-bottom-right-radius: 12px; }
+
+    .book-metal-corner::after {
+      content: '❖';
+      position: absolute;
+      font-size: 11px;
+      color: #e5c158;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    }
+    .corner-tl::after { top: 2px; left: 3px; }
+    .corner-tr::after { top: 2px; right: 3px; }
+    .corner-bl::after { bottom: 2px; left: 3px; }
+    .corner-br::after { bottom: 2px; right: 3px; }
+
+    /* Stacked Paper Block Edges (Showing Paper Thickness) */
+    .paper-block-edge-right {
+      position: absolute;
+      right: -7px;
+      top: 10px;
+      bottom: 10px;
+      width: 8px;
+      background: repeating-linear-gradient(
+        to bottom,
+        #f5ede0 0px,
+        #ded4bf 1px,
+        #fbf7ee 2px,
+        #d5c8ad 3px
+      );
+      box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.3), 3px 0 6px rgba(0, 0, 0, 0.35);
+      border-radius: 0 3px 3px 0;
+      z-index: 2;
+    }
+
+    .paper-block-edge-bottom {
+      position: absolute;
+      bottom: -6px;
+      left: 14px;
+      right: 14px;
+      height: 7px;
+      background: repeating-linear-gradient(
+        to right,
+        #ded4bf 0px,
+        #f5ede0 1px,
+        #d5c8ad 2px,
+        #fbf7ee 3px
+      );
+      box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.3), 0 4px 7px rgba(0, 0, 0, 0.4);
+      border-radius: 0 0 3px 3px;
+      z-index: 2;
+    }
+
+    /* Headband Fabric (Kain Jahitan Pembatas Buku di Ujung Punggung) */
+    .book-headband {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 38px;
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        #3b6ea5 0px,
+        #3b6ea5 3px,
+        #d4af37 3px,
+        #d4af37 6px,
+        #fbf7ee 6px,
+        #fbf7ee 8px
+      );
+      border-radius: 3px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+      z-index: 18;
+      pointer-events: none;
+    }
+    .headband-top { top: 3px; }
+    .headband-bottom { bottom: 3px; }
+
+    /* Silk Ribbon Bookmark (Pita Pembatas Buku Sutra Biru) */
+    .silk-ribbon {
+      position: absolute;
+      top: -6px;
+      left: calc(50% - 9px);
+      width: 18px;
+      height: 52px;
+      background: linear-gradient(90deg, #1d4ed8 0%, #3b82f6 30%, #93c5fd 60%, #2563eb 85%, #1e40af 100%);
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.35);
+      z-index: 28;
+      cursor: pointer;
+      transform-origin: top center;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .silk-ribbon:hover {
+      transform: rotate(2.5deg) scaleY(1.02);
+    }
+    /* Ribbon Swallowtail Cut */
+    .silk-ribbon::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 9px solid #1e40af;
+      border-right: 9px solid #1e40af;
+      border-bottom: 8px solid transparent;
+    }
+
+    /* =========================================================================
+       Inner Archival Paper Surface & Realistic Center Gutter Shadow
+       ========================================================================= */
+
+    .paper-sheet {
+      background-color: var(--paper-cream);
+      background-image:
+        radial-gradient(rgba(22, 44, 71, 0.035) 1px, transparent 0),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(244, 238, 225, 0.5) 100%);
+      background-size: 16px 16px, 100% 100%;
+      position: relative;
+    }
+
+    .paper-ruled {
+      background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 25px,
+        rgba(59, 110, 165, 0.12) 26px
+      );
+    }
+
+    /* Left Page Curved Spine Dip & Highlight (Preserves clean paper cream background) */
+    .page-arch-left {
+      background-color: var(--paper-cream) !important;
+      background-image:
+        radial-gradient(rgba(22, 44, 71, 0.035) 1px, transparent 0),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, rgba(244, 238, 225, 0.5) 100%) !important;
+      background-size: 16px 16px, 100% 100% !important;
+    }
+
+    /* Right Page Curved Spine Dip & Highlight (Preserves clean paper cream background) */
+    .page-arch-right {
+      background-color: var(--paper-cream) !important;
+      background-image:
+        radial-gradient(rgba(22, 44, 71, 0.035) 1px, transparent 0),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, rgba(244, 238, 225, 0.5) 100%) !important;
+      background-size: 16px 16px, 100% 100% !important;
+    }
+
+    /* Deep Center Binding Gutter Valley Shadow */
+    .book-gutter-valley {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 26px;
+      background: linear-gradient(90deg,
+        rgba(10, 20, 35, 0) 0%,
+        rgba(10, 20, 35, 0.08) 30%,
+        rgba(6, 14, 25, 0.25) 48%,
+        rgba(4, 9, 16, 0.4) 50%,
+        rgba(6, 14, 25, 0.25) 52%,
+        rgba(10, 20, 35, 0.08) 70%,
+        rgba(10, 20, 35, 0) 100%
+      );
+      pointer-events: none;
+      z-index: 22;
+    }
+
+    /* =========================================================================
+       3D Page Turning Mechanics & Realistic Curvature Lighting
+       ========================================================================= */
+
+    .book-scene {
+      perspective: 2600px;
+      transform-style: preserve-3d;
+    }
+
+    .book-pages-shell {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Interactive Dog-Ear Page Corner Curl */
+    .page-corner-curl {
+      position: absolute;
+      bottom: 0;
+      width: 44px;
+      height: 44px;
+      z-index: 24;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 3px 5px;
+      font-size: 10px;
+      color: #3b6ea5;
+      font-family: 'Courier Prime', monospace;
+    }
+    .curl-right {
+      right: 0;
+      justify-content: flex-end;
+      background: linear-gradient(135deg, transparent 50%, rgba(200, 185, 160, 0.5) 50%, rgba(255, 255, 255, 0.95) 100%);
+      border-top-left-radius: 8px;
+      box-shadow: -2px -2px 6px rgba(0,0,0,0.12);
+    }
+    .curl-right:hover {
+      width: 54px;
+      height: 54px;
+      box-shadow: -4px -4px 12px rgba(0,0,0,0.22);
+      color: #1e3a8a;
+    }
+
+    .curl-left {
+      left: 0;
+      justify-content: flex-start;
+      background: linear-gradient(225deg, transparent 50%, rgba(200, 185, 160, 0.5) 50%, rgba(255, 255, 255, 0.95) 100%);
+      border-top-right-radius: 8px;
+      box-shadow: 2px -2px 6px rgba(0,0,0,0.12);
+    }
+    .curl-left:hover {
+      width: 54px;
+      height: 54px;
+      box-shadow: 4px -4px 12px rgba(0,0,0,0.22);
+      color: #1e3a8a;
+    }
+
+    /* 3D Flipping Leaf Overlay Layer */
+    .flipper-leaf {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      height: 100%;
+      z-index: 35;
+      transform-style: preserve-3d;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .flipper-leaf.flip-forward {
+      right: 0;
+      transform-origin: left center;
+      animation: flipForward 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+
+    .flipper-leaf.flip-backward {
+      left: 0;
+      transform-origin: right center;
+      animation: flipBackward 0.65s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+
+    .leaf-side {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      overflow: hidden;
+      background-color: var(--paper-cream);
+    }
+
+    .leaf-front {
+      z-index: 2;
+    }
+
+    .leaf-back {
+      transform: rotateY(180deg);
+      z-index: 1;
+    }
+
+    /* Dynamic Page Lighting & Shadow During Flip */
+    .leaf-dynamic-shadow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 30;
+      transition: opacity 0.2s;
+    }
+
+    @keyframes flipForward {
+      0% {
+        transform: rotateY(0deg);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      50% {
+        box-shadow: -15px 12px 30px rgba(0, 0, 0, 0.35);
+      }
+      100% {
+        transform: rotateY(-180deg);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    @keyframes flipBackward {
+      0% {
+        transform: rotateY(0deg);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      50% {
+        box-shadow: 15px 12px 30px rgba(0, 0, 0, 0.35);
+      }
+      100% {
+        transform: rotateY(180deg);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    /* =========================================================================
+       Decorative Elements: Washi Tape, Postage Stamps, Wax Seal & Boarding Pass
+       ========================================================================= */
+
+    .washi-tape {
+      background: rgba(168, 203, 236, 0.68);
+      border-left: 2px dashed rgba(255, 255, 255, 0.75);
+      border-right: 2px dashed rgba(255, 255, 255, 0.75);
+      box-shadow: 0 2px 4px rgba(27, 50, 79, 0.12);
+      backdrop-filter: blur(1px);
+    }
+
+    /* Authentic Scalloped Perforated Postage Stamp */
+    .postage-stamp {
+      background: #f7fbff;
+      border: 1px solid #99bde4;
+      border-radius: 4px;
+      box-shadow: 0 3px 6px rgba(37, 84, 137, 0.12);
+      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+    .postage-stamp:hover {
+      transform: translateY(-3px) rotate(-1deg) scale(1.02);
+      box-shadow: 0 8px 16px rgba(37, 84, 137, 0.2);
+    }
+    .postage-stamp.active-stamp {
+      background: #dbeafe;
+      border-color: #1e40af;
+      box-shadow: 0 5px 14px rgba(30, 64, 175, 0.25);
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    /* Vintage Typewriter Blinking Cursor */
+    .typewriter-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 15px;
+      background-color: #3b6ea5;
+      margin-left: 2px;
+      vertical-align: middle;
+      animation: blinkCursor 0.8s infinite;
+    }
+    @keyframes blinkCursor {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Royal Blue Wax Seal Stamp */
+    .wax-seal {
+      width: 58px;
+      height: 58px;
+      background: radial-gradient(circle at 35% 35%, #3b82f6 0%, #1d4ed8 50%, #1e3a8a 100%);
+      border-radius: 50%;
+      border: 3px double #93c5fd;
+      box-shadow: 0 4px 12px rgba(10, 25, 47, 0.4), inset 0 2px 4px rgba(255,255,255,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: sealDrop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    @keyframes sealDrop {
+      0% { transform: scale(2.2) rotate(-20deg); opacity: 0; }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    /* Vintage Airline / Train Date Ticket Stub (Boarding Pass) */
+    .boarding-pass-card {
+      background: #fdfbf7;
+      border: 1.5px dashed #3b6ea5;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(27, 50, 79, 0.12);
+    }
+    .boarding-pass-notch {
+      position: absolute;
+      top: 50%;
+      width: 14px;
+      height: 14px;
+      background-color: var(--paper-cream);
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+    .notch-left { left: -7px; border-right: 1.5px dashed #3b6ea5; }
+    .notch-right { right: -7px; border-left: 1.5px dashed #3b6ea5; }
+
+    /* Floating Petal & Stardust Animation */
+    @keyframes floatDownParticle {
+      0% {
+        transform: translateY(-10vh) translateX(0) rotate(0deg) scale(0.8);
+        opacity: 0;
+      }
+      15% { opacity: 0.9; }
+      85% { opacity: 0.9; }
+      100% {
+        transform: translateY(105vh) translateX(45px) rotate(340deg) scale(1);
+        opacity: 0;
+      }
+    }
+    .floating-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 45;
+      animation: floatDownParticle linear forwards;
+    }
+
+    /* Custom Subtle Scrollbar */
+    .page-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .page-scroll::-webkit-scrollbar-thumb {
+      background: rgba(59, 110, 165, 0.3);
+      border-radius: 9999px;
+    }
+
+    /* Bookmark Quick Drawer */
+    .bookmark-drawer {
+      animation: drawerSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes drawerSlide {
+      from { opacity: 0; transform: translateY(-15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    /* StPageFlip Engine Styles */
+    .stf__parent {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      transform: translateZ(0);
+      -ms-touch-action: pan-y;
+      touch-action: pan-y;
+    }
+    .sft__wrapper {
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .stf__parent canvas {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+    .stf__block {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      perspective: 2000px;
+    }
+    .stf__item {
+      display: none;
+      position: absolute;
+      transform-style: preserve-3d;
+    }
+    .stf__outerShadow,
+    .stf__innerShadow,
+    .stf__hardShadow,
+    .stf__hardInnerShadow {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .book-page-leaf {
+      background-color: var(--paper-cream) !important;
+      height: 100% !important;
+      overflow-y: auto !important;
+      box-sizing: border-box;
+    }
+
+  
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+    .gold-foil-text {
+      background: linear-gradient(135deg, #fff2cc 0%, #f7dc6f 25%, #d4af37 50%, #aa8012 75%, #f9e79f 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.85));
+    }
+
+  </style>
+</head>
+<body class="h-screen w-screen overflow-hidden flex flex-col justify-between select-none">
+
+  <!-- Ambient Starfield & Floating Blue Petals Layer -->
+  <div id="particleContainer" class="fixed inset-0 pointer-events-none z-40 overflow-hidden"></div>
+
+  <!-- Top Minimal Archival Toolbar -->
+  <header class="relative z-30 w-full px-3 sm:px-6 pt-2 pb-1 flex items-center justify-between gap-2 max-w-6xl mx-auto shrink-0">
+    <div class="flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-full bg-[#e8f1fa] border border-[#9ec1e6] flex items-center justify-center shadow-sm">
+        <!-- Cute minimalist Snoopy doghouse SVG icon -->
+        <svg class="w-4 h-4 text-[#1a385c]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 10.5L12 3l9 7.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5 9.5V20h14V9.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9.5 20v-5.5a2.5 2.5 0 0 1 5 0V20" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="font-typewriter text-[10px] tracking-widest uppercase text-[#9ec5eb]">EDISI ARSIP · 026</span>
+          <span class="hidden sm:inline-block text-[10px] px-2 py-0.2 rounded-full bg-[#203e63] text-[#cfe4fa] font-medium">Buku Scrapbook Biru</span>
+        </div>
+        <h1 class="text-xs sm:text-sm font-serif-editorial text-[#f3f8fd] tracking-wide">
+          Buku Kecil Untuk <span id="headerRecipientName" class="underline decoration-[#7eb3e8] decoration-wavy underline-offset-4 font-semibold">Kamu</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- Audio & Interactive Toolbar Controls -->
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <!-- Read Aloud -->
+      <button id="btnReadAloud" type="button"
+        class="px-2.5 py-1.5 rounded-full text-xs font-medium bg-[#1a3454]/90 hover:bg-[#25466e] text-[#e1effe] border border-[#4c78a8]/50 flex items-center gap-1.5 transition shadow-sm"
+        title="Bacakan halaman ini dengan suara lembut">
+        <span id="readAloudIcon">🔊</span>
+        <span id="readAloudLabel" class="hidden md:inline">Bacakan</span>
+      </button>
+
+      <!-- Music Box Melody -->
+      <button id="btnMusicToggle" type="button"
+        class="px-2.5 py-1.5 rounded-full text-xs font-medium bg-[#1a3454]/90 hover:bg-[#25466e] text-[#e1effe] border border-[#4c78a8]/50 flex items-center gap-1.5 transition shadow-sm"
+        title="Putar atau hentikan alunan kotak musik Peanuts">
+        <span id="musicIcon">🎵</span>
+        <span id="musicStatusText" class="hidden sm:inline">Kotak Musik</span>
+      </button>
+
+      <!-- Ambient Rain Toggle -->
+      <button id="btnAmbientToggle" type="button"
+        class="px-2.5 py-1.5 rounded-full text-xs font-medium bg-[#1a3454]/90 hover:bg-[#25466e] text-[#e1effe] border border-[#4c78a8]/50 flex items-center gap-1.5 transition shadow-sm"
+        title="Suasana hujan lembut di jendela">
+        <span id="ambientIcon">🌧️</span>
+        <span id="ambientStatusText" class="hidden md:inline">Suara Hujan</span>
+      </button>
+
+      <!-- Petal Shower -->
+      <button id="btnPetalShower" type="button"
+        class="px-2.5 py-1.5 rounded-full text-xs font-medium bg-[#24476f] hover:bg-[#2f5a8a] text-[#f0f7ff] border border-[#6898cc]/50 flex items-center gap-1.5 transition shadow-sm"
+        title="Taburkan kelopak bunga biru & bintang">
+        <span>💐</span>
+        <span class="hidden lg:inline">Bunga Biru</span>
+      </button>
+
+      <!-- Customize Button -->
+      <button id="btnOpenCustomize" type="button"
+        class="px-2.5 py-1.5 rounded-full text-xs font-medium bg-[#dbeafe] hover:bg-white text-[#1b324f] border border-[#93c5fd] flex items-center gap-1 transition shadow-sm font-semibold"
+        title="Ubah nama penerima, pengirim, dan pesan di buku ini">
+        <span>✎</span>
+        <span class="hidden sm:inline">Sesuaikan</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN 3D REALISTIC BOOK VIEWPORT
+       ========================================================================= -->
+  <main class="relative z-20 flex-1 w-full max-w-5xl mx-auto px-2 sm:px-4 py-1 flex items-center justify-center min-h-0 book-scene">
+
+    <!-- Ambient Shadow Under the Open Book on the Desk -->
+    <div class="book-ambient-shadow"></div>
+
+    <!-- Hardcover Outer Shell -->
+    <div class="book-hardcover w-full h-full max-h-[585px] sm:max-h-[610px] flex flex-col justify-between" id="bookContainer">
+
+      <!-- Antique Brass Filigree Metal Corner Ornaments -->
+      <div class="book-metal-corner corner-tl"></div>
+      <div class="book-metal-corner corner-tr"></div>
+      <div class="book-metal-corner corner-bl"></div>
+      <div class="book-metal-corner corner-br"></div>
+
+      <!-- Real Stacked Paper Thickness Edges -->
+      <div class="paper-block-edge-right"></div>
+      <div class="paper-block-edge-bottom"></div>
+
+      <!-- Spine Headband (Woven Fabric Trim) -->
+      <div class="book-headband headband-top"></div>
+      <div class="book-headband headband-bottom"></div>
+
+      <!-- Silk Ribbon Bookmark (Clickable: Opens Quick Index) -->
+      <div class="silk-ribbon" id="silkRibbon" title="Klik pita untuk buka Pembatas Buku & Daftar Isi"></div>
+
+      <!-- Inner Pages Open Shell -->
+      <div class="book-pages-shell w-full h-full relative" id="bookPagesShell">
+        <!-- Deep Center Binding Gutter Valley Shadow -->
+        <div class="book-gutter-valley"></div>
+
+        <!-- Dog-Ear Page Turn Curls -->
+        <div class="page-corner-curl curl-right" id="curlRight" title="Balik ke halaman berikutnya">
+          <span>➔</span>
+        </div>
+        <div class="page-corner-curl curl-left hidden" id="curlLeft" title="Balik ke halaman sebelumnya">
+          <span>⬅</span>
+        </div>
+
+        <div id="flipBookContainer" class="w-full h-full">
+          <!-- =========================================================================
+               PAGE 0: FRONT HARDCOVER (VINTAGE BAROQUE VECTOR FRAME)
+               ========================================================================= -->
+          <div
+            class="book-page-leaf h-full flex flex-col justify-between items-center text-center relative overflow-hidden select-none cursor-pointer group"
+            data-density="hard"
+            id="pageHardcoverFront"
+            style="
+              background-color: #3b1223;
+              background-image: url('assets/baroque_cover_frame.svg');
+              background-size: 100% 100%;
+              background-position: center;
+              box-shadow: inset 0 0 40px rgba(0,0,0,0.9);
+            "
+          >
+            <!-- Embossed Left Spine Hinge Crease -->
+            <div class="absolute top-0 bottom-0 left-0 w-6 bg-gradient-to-r from-black/70 via-white/5 to-transparent pointer-events-none z-20"></div>
+
+            <!-- Cover Typography & Vignette Layer -->
+            <div class="relative z-10 w-full h-full flex flex-col justify-between items-center px-6 sm:px-8 py-7 sm:py-9">
+              <!-- Top Badge -->
+              <div class="pt-2 sm:pt-3">
+                <span class="font-cinzel text-[9.5px] sm:text-[10px] tracking-[0.35em] text-[#edd382] uppercase font-bold drop-shadow">
+                  PEANUTS ARCHIVAL · EDISI PINK
+                </span>
+              </div>
+
+              <!-- Center Title & Snoopy Cameo -->
+              <div class="my-auto flex flex-col items-center w-full">
+                <!-- Book Title -->
+                <h1 class="font-cinzel text-xl sm:text-2xl md:text-3xl font-bold tracking-[0.16em] uppercase gold-foil-text leading-tight book-title-inline">
+                  Tentang Kamu & Nuansa Pink
+                </h1>
+
+                <!-- Subtitle with Diamond Glyphs -->
+                <p class="font-cinzel text-[10px] sm:text-[11px] tracking-[0.22em] text-[#d4af37] font-semibold mt-1">
+                  ✦ SEBUAH BUKU KECIL UNTUKMU ✦
+                </p>
+
+                <!-- Ornate Calligraphic Baroque Flourish Divider -->
+                <div class="my-2.5 flex items-center justify-center w-48 sm:w-56 text-[#d4af37] drop-shadow">
+                  <svg viewBox="0 0 200 24" class="w-full h-5 sm:h-6" fill="currentColor">
+                    <path d="M100 2 C115 2 125 12 140 12 C150 12 155 8 165 8 C175 8 180 12 195 12 L200 12 L195 13 C180 13 175 16 165 16 C155 16 150 12 140 12 C125 12 115 22 100 22 C85 22 75 12 60 12 C50 12 45 16 35 16 C25 16 20 13 5 13 L0 12 L5 12 C20 12 25 8 35 8 C45 8 50 12 60 12 C75 12 85 2 100 2 Z" />
+                    <circle cx="100" cy="12" r="3.5" fill="#fff9db" />
+                  </svg>
+                </div>
+
+                <!-- Snoopy Archival Plaque in Baroque Gold Border -->
+                <div class="relative p-1.5 sm:p-2 rounded-xl bg-gradient-to-b from-[#182d49] to-[#0c1626] border-2 border-[#d4af37] shadow-[0_12px_28px_rgba(0,0,0,0.85)] group">
+                  <div class="relative w-40 sm:w-48 h-28 sm:h-34 rounded-lg overflow-hidden border border-[#d4af37]/60">
+                    <img
+                      src="assets/snoopy_starry_night.jpg"
+                      alt="Snoopy di atas rumah anjing menatap bintang malam"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-[#d4af37] text-[#0c1626] font-cinzel text-[8.5px] sm:text-[9px] font-bold tracking-wider uppercase shadow">
+                    SNOOPY & WOODSTOCK
+                  </div>
+                </div>
+
+                <!-- Brass Dedication Plate -->
+                <div class="mt-4 px-3 sm:px-4 py-1 rounded bg-[#102035]/90 border border-[#d4af37]/70 shadow-md">
+                  <p class="font-cinzel text-[9.5px] sm:text-[10px] text-[#edd382] tracking-wider font-semibold">
+                    UNTUK: <span class="text-white font-bold recipient-inline">Seseorang Spesial</span> · DARI: <span class="text-white font-bold sender-inline">Aku</span>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Bottom Interactive Open Hint -->
+              <div class="pb-1 sm:pb-2">
+                <div class="px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#173258] via-[#244f85] to-[#173258] border border-[#d4af37]/80 text-[#edd382] text-[10.5px] sm:text-[11.5px] font-cinzel tracking-widest font-bold shadow-lg flex items-center gap-2 group-hover:scale-105 transition-transform">
+                  <span>❖ BUKA SAMPUL BUKU ❖</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="book-page-leaf paper-sheet page-arch-left p-4 sm:p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#d5cbb8] page-scroll overflow-y-auto min-h-0" data-density="soft">
+            <div>
+              <div class="flex items-center justify-between border-b border-[#c5d4e3] pb-2 mb-3">
+                <span class="font-typewriter text-[11px] uppercase tracking-widest text-[#3b6ea5]">KARTU ARSIP PERPUSTAKAAN HATI</span>
+                <span class="font-typewriter text-[11px] text-[#5e7c9e]" id="coverDateBadge">11.11.2026</span>
+              </div>
+
+              <!-- Library Stamp Card -->
+              <div class="bg-[#f4efe2] border border-[#c8bfae] rounded-lg p-3.5 shadow-sm relative">
+                <div class="washi-tape w-24 h-5 -top-2.5 left-8 absolute rotate-[-2deg]"></div>
+                <p class="font-typewriter text-[11px] text-[#4a6382] mb-2 font-semibold">DATA PENGIRIMAN BUKU:</p>
+                <div class="grid grid-cols-2 gap-2 text-xs font-typewriter border-t border-dashed border-[#b8c4d0] pt-2">
+                  <div>
+                    <span class="text-[10px] text-[#6a829c] block font-bold">UNTUK:</span>
+                    <strong id="cardRecipient" class="text-[#1b324f] text-sm">Seseorang Spesial</strong>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-[#6a829c] block font-bold">DARI:</span>
+                    <strong id="cardSender" class="text-[#1b324f] text-sm">Aku yang Mengagumimu</strong>
+                  </div>
+                </div>
+                <div class="mt-2.5 pt-2 border-t border-dashed border-[#b8c4d0] flex items-center justify-between text-[11px] font-typewriter text-[#355c87]">
+                  <span>STATUS: SIAP DIBUKA</span>
+                  <span>TEMA: SNOOPY & BIRU TEDUH</span>
+                </div>
+              </div>
+
+              <!-- Poetic Intro Note -->
+              <div class="mt-4 space-y-2">
+                <p class="font-handwriting text-2xl text-[#255489] leading-tight">
+                  "Ada beberapa hal yang terlalu berisik kalau diucapkan lewat chat biasa..."
+                </p>
+                <p class="text-xs sm:text-[13px] text-[#3a526e] leading-relaxed">
+                  Jadi kubuatkan buku kecil berwarna biru ini—ditemani Snoopy, langit berbintang, dan beberapa lembar jujur yang selama ini cuma tersimpan di kepala.
+                </p>
+              </div>
+            </div>
+
+            <!-- Bottom Tip Box -->
+            <div class="mt-3 pt-3 border-t border-[#d8d0c0] flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2 text-[11px] text-[#4a6382]">
+                <span class="inline-block w-2 h-2 rounded-full bg-[#3b6ea5] animate-pulse"></span>
+                <span>Tips: Nyalakan <strong>Kotak Musik</strong> atau klik <strong>Bacakan</strong> di atas.</span>
+              </div>
+              <span class="font-typewriter text-[10px] text-[#6c85a3]">HAL. 00</span>
+            </div>
+          </div>
+
+          <!-- Right Cover Face: Snoopy Doghouse Starry Night Illustration -->
+<div class="book-page-leaf paper-sheet page-arch-right p-4 sm:p-6 flex flex-col justify-between items-center text-center relative page-scroll overflow-y-auto min-h-0" data-density="soft">
+            <div class="w-full flex flex-col items-center">
+              <div class="w-full flex items-center justify-between border-b border-[#fbcfe8] pb-2 mb-3">
+                <span class="font-typewriter text-[10.5px] uppercase tracking-widest text-[#be123c] font-bold">PEANUTS ARCHIVAL · VINYL EDITION</span>
+                <span class="font-typewriter text-[11px] text-[#9d174d]">ADU RAYU 🎵</span>
+              </div>
+
+              <!-- Retro Turntable Box -->
+              <div class="relative w-full max-w-[280px] sm:max-w-[310px] bg-gradient-to-b from-[#2a0c18] to-[#19050d] rounded-2xl p-4 border-2 border-[#f472b6] shadow-xl flex flex-col items-center">
+                <div class="absolute top-2 left-3 flex items-center gap-1.5 text-[9px] font-typewriter text-[#fbcfe8]">
+                  <span id="turntableStatusDot" class="w-2 h-2 rounded-full bg-rose-400"></span>
+                  <span id="turntableStatusText">TURNTABLE STANDBY</span>
+                </div>
+
+                <!-- Turntable Platter & Vinyl Record -->
+                <div class="relative w-40 h-40 sm:w-44 sm:h-44 mt-2 rounded-full flex items-center justify-center shadow-2xl">
+                  <div class="absolute inset-0 rounded-full bg-[#120409] border-4 border-[#4a1428] shadow-inner"></div>
+
+                  <!-- Spinning Vinyl Record Disc -->
+                  <div id="vinylDisc" class="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full bg-[#0d0306] flex items-center justify-center shadow-lg cursor-pointer transition-transform"
+                    style="background-image: radial-gradient(circle, #2a0816 18%, #14030a 28%, #2e0918 42%, #14030a 56%, #2a0816 70%, #14030a 85%, #050103 100%); box-shadow: 0 0 15px rgba(0,0,0,0.8), inset 0 0 8px rgba(255,255,255,0.08);"
+                    title="Klik untuk memutar / menjeda lagu">
+                    <div class="absolute inset-2 rounded-full border border-white/5 pointer-events-none"></div>
+                    <div class="absolute inset-5 rounded-full border border-white/5 pointer-events-none"></div>
+                    <div class="absolute inset-8 rounded-full border border-white/5 pointer-events-none"></div>
+                    
+                    <!-- Center Pink Label -->
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#f43f5e] via-[#be123c] to-[#881337] border-2 border-[#fbcfe8] flex flex-col items-center justify-center shadow-inner text-center p-1 z-10">
+                      <span class="text-white text-xs">💖</span>
+                      <span class="text-[7px] font-bold text-white tracking-wider leading-none mt-0.5">ADU RAYU</span>
+                      <span class="text-[6px] text-[#fce7f3] leading-none">PEANUTS</span>
+                    </div>
+                    <div class="absolute w-2 h-2 rounded-full bg-neutral-900 border border-neutral-600 z-20"></div>
+                  </div>
+
+                  <!-- Tonearm -->
+                  <div id="vinylTonearm" class="absolute -top-1 -right-1 w-14 h-24 pointer-events-none z-30 transition-transform duration-700 origin-top-right" style="transform: rotate(-8deg);">
+                    <div class="absolute top-0 right-1 w-5 h-5 rounded-full bg-[#3d1222] border-2 border-[#f472b6] shadow"></div>
+                    <div class="absolute top-3 right-3 w-1 h-18 bg-gradient-to-b from-[#e5e7eb] via-[#9ca3af] to-[#d1d5db] shadow rounded"></div>
+                    <div class="absolute bottom-1 right-1.5 w-3 h-5 bg-[#be123c] border border-white/40 rounded-sm shadow"></div>
+                  </div>
+                </div>
+
+                <!-- Song Title -->
+                <div class="mt-2.5 text-center">
+                  <h4 class="font-serif text-sm font-bold text-white tracking-wide">Adu Rayu</h4>
+                  <p class="text-[10.5px] text-[#fbcfe8] font-typewriter">Yovie Widianto, Tulus, Glenn Fredly</p>
+                </div>
+
+                <!-- Scrubber Bar & Live Duration -->
+                <div class="w-full mt-2 px-1">
+                  <input id="vinylScrubber" type="range" min="0" max="208" step="0.5" value="0"
+                    class="w-full h-1.5 bg-[#4c162b] rounded-lg appearance-none cursor-pointer accent-[#f43f5e]">
+                  <div class="flex justify-between text-[10px] font-typewriter text-[#fbcfe8] mt-1">
+                    <span id="vinylCurrentTime">00:00</span>
+                    <span id="vinylDuration">03:28</span>
+                  </div>
+                </div>
+
+                <!-- Play / Pause Button -->
+                <button id="btnToggleVinyl" type="button"
+                  class="mt-2 px-4 py-1.5 rounded-full bg-[#be123c] hover:bg-[#e11d48] text-white text-xs font-semibold shadow-md border border-[#fbcfe8]/60 flex items-center gap-1.5 transition cursor-pointer">
+                  <span id="vinylBtnIcon">▶</span>
+                  <span id="vinylBtnText">Putar Lagu</span>
+                </button>
+              </div>
+
+              <!-- Quote -->
+              <p class="mt-2.5 font-handwriting text-base sm:text-lg text-[#be123c] italic leading-snug">
+                &quot;Setiap liriknya mendadak terasa seperti tentangmu.&quot;
+              </p>
+            </div>
+
+            <div class="w-full pt-2 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
+              <span>LAGU KENANGAN</span>
+              <span>HAL. 01</span>
+            </div>
+          </div>
+
+          <div class="book-page-leaf paper-sheet page-arch-left p-4 sm:p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#d5cbb8] page-scroll overflow-y-auto min-h-0" data-density="soft">
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-typewriter text-[#547599] mb-2">
+                <span>BAB I · TEDUH SEPERTI BIRU</span>
+                <span>HAL. 01</span>
+              </div>
+
+              <!-- Scrapbook Photo Frame -->
+              <div class="relative bg-white p-2.5 rounded shadow-sm border border-[#d6e2ef] max-w-[285px] mx-auto">
+                <div class="washi-tape w-16 h-4 -top-2 left-6 absolute -rotate-3"></div>
+                <div class="washi-tape w-16 h-4 -top-2 right-6 absolute rotate-3"></div>
+                <img
+                  src="assets/snoopy_blue_umbrella.jpg"
+                  alt="Snoopy dan burung kuning berjalan di bawah payung biru"
+                  class="w-full h-36 sm:h-40 object-cover rounded-sm"
+                />
+                <p class="font-handwriting text-center text-sm sm:text-base text-[#385e87] mt-1.5">
+                  "Payung biru ini cukup buat kita berdua berteduh..."
+                </p>
+              </div>
+
+              <!-- Interactive Stamp Carousel -->
+              <div class="mt-3.5">
+                <span class="font-typewriter text-[10px] uppercase tracking-wider text-[#4a6382] block mb-1.5">
+                  KETUK PERANGKO KENANGAN KECIL INI:
+                </span>
+                <div class="grid grid-cols-3 gap-2">
+                  <button type="button" data-stamp="0" class="stamp-btn postage-stamp active-stamp p-2 text-left">
+                    <span class="text-[10px] font-typewriter text-[#3b6ea5] block font-bold">POS 01</span>
+                    <strong class="text-[11px] block text-[#1b324f] leading-tight mt-0.5">Mata Berbinar</strong>
+                  </button>
+                  <button type="button" data-stamp="1" class="stamp-btn postage-stamp p-2 text-left">
+                    <span class="text-[10px] font-typewriter text-[#3b6ea5] block font-bold">POS 02</span>
+                    <strong class="text-[11px] block text-[#1b324f] leading-tight mt-0.5">Tawa Menular</strong>
+                  </button>
+                  <button type="button" data-stamp="2" class="stamp-btn postage-stamp p-2 text-left">
+                    <span class="text-[10px] font-typewriter text-[#3b6ea5] block font-bold">POS 03</span>
+                    <strong class="text-[11px] block text-[#1b324f] leading-tight mt-0.5">Hening Tenang</strong>
+                  </button>
+                </div>
+
+                <!-- Stamp Narrative Detail Box -->
+                <div id="stampDetailBox" class="mt-2.5 p-2.5 rounded bg-[#edf5fc] border border-[#bcd6ee] text-xs text-[#2c4d72] leading-relaxed italic font-serif-editorial">
+                  Aku selalu suka gimana mata kamu langsung berbinar tiap nyeritain hal-hal kecil yang kamu suka. Rasanya aku bisa dengerin kamu seharian tanpa bosan.
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-[#d8d0c0] flex items-center justify-between text-[10px] font-typewriter text-[#6c85a3]">
+              <span>KERTAS ARSIP NO. 14</span>
+              <span>CATATAN BIRU</span>
+            </div>
+          </div>
+
+          <!-- Page 2 (Right): Heartfelt Letter Part 1 -->
+<div class="book-page-leaf paper-sheet paper-ruled page-arch-right p-4 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto min-h-0" data-density="soft">
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-typewriter text-[#547599] mb-3">
+                <span>SURAT BAGIAN PERTAMA</span>
+                <span>HAL. 02</span>
+              </div>
+
+              <h3 class="font-serif-editorial text-lg sm:text-xl font-bold text-[#172d47] mb-2">
+                Awalnya Cuma Kagum Biasa, Tapi Kok Makin Dalam?
+              </h3>
+
+              <div id="page1Prose" class="space-y-3 text-xs sm:text-[13.5px] text-[#243b56] leading-relaxed">
+                <p>
+                  Hai <strong class="recipient-inline text-[#1e40af]">Seseorang Spesial</strong>, kalau dipikir-pikir lucu juga ya. Awalnya aku kira perasaanku ke kamu cuma sekadar senang ngobrol atau kagum sama pembawaanmu yang hangat.
+                </p>
+                <p>
+                  Tapi lama-lama, setiap kali ada hal menarik di tengah hari, orang pertama yang ingin kuberi tahu selalu kamu. Setiap kali hari terasa panjang dan melelahkan, satu pesan singkat darimu rasanya seperti payung biru di tengah hujan—bikin semuanya terasa teduh lagi.
+                </p>
+                <p class="font-handwriting text-xl text-[#204975] pt-1">
+                  Kamu punya cara tersendiri buat bikin dunia yang berisik ini jadi jauh lebih tenang.
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-[#d8d0c0] flex items-center justify-between text-xs">
+              <span class="font-typewriter text-[10px] text-[#547599]">KETUK HALAMAN BERIKUTNYA ➔</span>
+              <span class="font-handwriting text-base text-[#3b6ea5]">— Dengan tulus, <span class="sender-inline">Aku</span></span>
+            </div>
+          </div>
+<div class="book-page-leaf paper-sheet page-arch-left p-4 sm:p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#d5cbb8] page-scroll overflow-y-auto min-h-0" data-density="soft">
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-typewriter text-[#547599] mb-2">
+                <span>BAB II · DRAF KE-108</span>
+                <span>HAL. 03</span>
+              </div>
+
+              <div class="relative bg-white p-2.5 rounded shadow-sm border border-[#d6e2ef] max-w-[285px] mx-auto">
+                <div class="washi-tape w-20 h-4 -top-2 left-1/2 -translate-x-1/2 absolute"></div>
+                <img
+                  src="assets/snoopy_typewriter.jpg"
+                  alt="Snoopy mengetik surat cinta di mesin ketik biru"
+                  class="w-full h-36 sm:h-40 object-cover rounded-sm"
+                />
+                <p class="font-handwriting text-center text-sm sm:text-base text-[#385e87] mt-1.5">
+                  "Mengetik ribuan kalimat, menghapus ratusan keraguan..."
+                </p>
+              </div>
+
+              <!-- Interactive Typewriter Paper Output -->
+              <div class="mt-3 bg-[#f5f1e8] border border-[#c7bfae] rounded p-3 relative shadow-inner">
+                <div class="flex items-center justify-between pb-1 mb-1.5 border-b border-dashed border-[#b8af9c] text-[10px] font-typewriter text-[#5e7794]">
+                  <span>PITA MESIN KETIK BIRU</span>
+                  <span>DRAF #108</span>
+                </div>
+                <p id="typewriterOutput" class="font-typewriter text-xs sm:text-[12.5px] text-[#1b324f] leading-relaxed min-h-[44px]">
+                  "Sebenarnya setiap kali kita berpapasan, jantungku masih suka salah tingkah sendiri..."
+                </p>
+                <div class="mt-2 pt-2 border-t border-dashed border-[#b8af9c] flex items-center justify-between">
+                  <button id="btnTypeNextLine" type="button"
+                    class="px-2.5 py-1 rounded bg-[#2b5585] hover:bg-[#386a9f] text-white text-[11px] font-typewriter transition flex items-center gap-1 shadow-sm">
+                    <span>⌨️ Ketik Draf Berikutnya</span>
+                  </button>
+                  <span class="text-[10px] font-typewriter text-[#6984a3]">Tekan untuk baris baru</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-[#d8d0c0] flex items-center justify-between text-[10px] font-typewriter text-[#6c85a3]">
+              <span>ROYAL BLUE TYPEWRITER</span>
+              <span>108 DRAF SURAT</span>
+            </div>
+          </div>
+
+          <!-- Page 4 (Right): Heartfelt Letter Part 2 + Interactive Wishlist -->
+<div class="book-page-leaf paper-sheet paper-ruled page-arch-right p-4 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto min-h-0" data-density="soft">
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-typewriter text-[#547599] mb-3">
+                <span>SURAT BAGIAN KEDUA</span>
+                <span>HAL. 04</span>
+              </div>
+
+              <h3 class="font-serif-editorial text-lg sm:text-xl font-bold text-[#172d47] mb-2">
+                Kenapa Akhirnya Aku Berani Bilang Sekarang?
+              </h3>
+
+              <!-- Sastra Centerpiece Box Requested by User -->
+              <div class="bg-[#fff1f2] border-2 border-[#fbcfe8] rounded-xl p-3.5 shadow-sm relative my-2">
+                <div class="washi-tape w-20 h-4 -top-2 left-6 absolute"></div>
+                <div class="flex items-center gap-1.5 text-xs text-[#be123c] font-serif italic mb-1.5 font-bold">
+                  <span>🍲</span>
+                  <span>Warung, Kuah, & Sambal</span>
+                </div>
+                <div class="font-serif italic text-xs sm:text-[12.5px] text-[#3b1223] leading-relaxed border-l-2 border-[#be123c] pl-3 py-1 space-y-1.5">
+                  <p>
+                    &quot;kau terlalu hangat untuk dilewatkan<br>
+                    sekali melihatmu, laparku berganti rupa<br>
+                    ia tak lagi mencari kenyang<br>
+                    ia belajar mengeja namamu
+                  </p>
+                  <p>
+                    makan ajaklah aku ke warung langganan ku<br>
+                    duduk berhadapan diantara kuah dan sambal<br>
+                    biar uap yang mengepul menjadi saksi<br>
+                    bahwa hati tak butuh dijelaskan.&quot;
+                  </p>
+                </div>
+              </div>
+
+              <div id="page2Prose" class="text-xs text-[#5c1d38] italic font-serif leading-relaxed mt-2">
+                <p>&quot;Karena bersama kamu, hal sesederhana makan kuah hangat di warung pun terasa seperti tempat ternyaman di dunia.&quot;</p>
+              </div>
+
+              <!-- Interactive Small Checklist -->
+              <div class="mt-3 p-3 bg-[#f3ecdc] rounded-lg border border-[#c4baa7] shadow-sm">
+                <span class="font-typewriter text-[10px] uppercase tracking-wider text-[#3c5d82] block mb-1.5 font-bold">
+                  WISHLIST KECIL BARENG KAMU:
+                </span>
+                <div class="space-y-1.5 text-xs">
+                  <label class="flex items-center gap-2 cursor-pointer text-[#1e3a5f]">
+                    <input type="checkbox" checked class="wishlist-check accent-[#255489] rounded" />
+                    <span>Makan berdua di warung kuah & sambal langganan 🍲</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer text-[#1e3a5f]">
+                    <input type="checkbox" checked class="wishlist-check accent-[#255489] rounded" />
+                    <span>Jalan sore santai sambil cerita hal random 👫🌸</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer text-[#1e3a5f]">
+                    <input type="checkbox" checked class="wishlist-check accent-[#255489] rounded" />
+                    <span>Dengerin lagu Adu Rayu berdua pakai satu earphone 🎧</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-[#d8d0c0] flex items-center justify-between text-xs">
+              <span id="wishlistCounter" class="font-typewriter text-[10px] text-[#255489] font-bold">3 / 3 harapan dipilih 💙</span>
+              <span class="font-handwriting text-base text-[#3b6ea5]">Satu halaman lagi... ➔</span>
+            </div>
+          </div>
+<div class="book-page-leaf paper-sheet page-arch-left p-4 sm:p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#d5cbb8] page-scroll overflow-y-auto min-h-0" data-density="soft">
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-typewriter text-[#547599] mb-2">
+                <span>BAB III · SATU PERTANYAAN JUJUR</span>
+                <span>HAL. 05</span>
+              </div>
+
+              <div class="relative bg-white p-2.5 rounded shadow-sm border border-[#d6e2ef] max-w-[275px] mx-auto">
+                <div class="washi-tape w-20 h-4 -top-2 left-1/2 -translate-x-1/2 absolute"></div>
+                <img
+                  src="assets/snoopy_flower_bouquet.jpg"
+                  alt="Snoopy memegang buket bunga biru forget-me-not dan amplop surat cinta"
+                  class="w-full h-36 sm:h-40 object-cover rounded-sm"
+                />
+                <p class="font-handwriting text-center text-sm sm:text-base text-[#385e87] mt-1.5">
+                  "Bunga biru forget-me-not ini buat kamu..."
+                </p>
+              </div>
+
+              <!-- The Main Question Box -->
+              <div class="mt-3.5 space-y-2">
+                <h4 class="font-serif-editorial text-lg sm:text-xl font-bold text-[#142840] leading-snug">
+                  Jadi, <span class="recipient-inline text-[#1d4ed8]">Kamu</span>...
+                </h4>
+                <p id="page3Prose" class="font-handwriting text-xl sm:text-2xl text-[#1e40af] leading-tight">
+                  Aku sayang sama kamu, lebih dari sekadar teman ngobrol biasa. Kalau kamu juga merasakan hangat yang sama, maukah kamu membuka lembaran baru bareng aku mulai hari ini?
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-[#d8d0c0] flex items-center justify-between text-[10px] font-typewriter text-[#6c85a3]">
+              <span>FORGET-ME-NOT BLUE</span>
+              <span>JAWAB DI HALAMAN SEBELAH ➔</span>
+            </div>
+          </div>
+
+          <!-- Page 6 (Right): Official Reply Card & Boarding Pass -->
+<div class="book-page-leaf paper-sheet page-arch-right p-4 sm:p-6 flex flex-col justify-between relative page-scroll overflow-y-auto min-h-0" data-density="soft">
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-typewriter text-[#547599] mb-2">
+                <span>KARTU BALASAN RESMI</span>
+                <span>HAL. 06</span>
+              </div>
+
+              <!-- Official Stamp Seal (Hidden until Accepted) -->
+              <div id="acceptedStampBadge" class="hidden mb-2 p-2 rounded-lg border-2 border-[#1d4ed8] bg-[#dbeafe]/95 text-center transform -rotate-1 shadow-md">
+                <div class="flex items-center justify-center gap-2">
+                  <div class="wax-seal">
+                    <span class="text-white text-xl">💙</span>
+                  </div>
+                  <div>
+                    <p class="font-typewriter text-xs font-bold text-[#1e3a8a] tracking-widest uppercase">
+                      RESMI DITERIMA · BAB BARU DIMULAI
+                    </p>
+                    <p class="text-[11px] font-handwriting text-[#255489]">
+                      "Langit biru kita baru saja dimulai!"
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 1: Select Reaction Mood -->
+              <div class="mb-2.5">
+                <label class="font-typewriter text-[10px] uppercase tracking-wider text-[#4a6382] block mb-1 font-bold">
+                  1. PERASAANMU WAKTU BACA BUKU INI:
+                </label>
+                <div class="flex flex-wrap gap-1.5" id="moodPills">
+                  <button type="button" data-mood="Senyum-senyum sendiri 😊" class="mood-btn px-2.5 py-1 rounded-full text-xs border border-[#3b6ea5] bg-[#dbeafe] text-[#1b324f] font-medium transition">
+                    Senyum-senyum sendiri 😊
+                  </button>
+                  <button type="button" data-mood="Ikut deg-degan 💙" class="mood-btn px-2.5 py-1 rounded-full text-xs border border-[#b6cce2] bg-white text-[#3a526e] hover:bg-[#edf5fc] transition">
+                    Ikut deg-degan 💙
+                  </button>
+                  <button type="button" data-mood="Terharu banget ✨" class="mood-btn px-2.5 py-1 rounded-full text-xs border border-[#b6cce2] bg-white text-[#3a526e] hover:bg-[#edf5fc] transition">
+                    Terharu banget ✨
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 2: Choose First Date Activity -->
+              <div class="mb-2.5">
+                <label for="dateActivitySelect" class="font-typewriter text-[10px] uppercase tracking-wider text-[#4a6382] block mb-1 font-bold">
+                  2. PILIH RENCANA JALAN BARENG PERTAMA KITA:
+                </label>
+                <select id="dateActivitySelect" class="w-full px-2.5 py-1.5 rounded border border-[#b6cce2] bg-white text-xs text-[#1b324f] focus:outline-none focus:border-[#255489]">
+                  <option value="Ngopi santai & keliling toko buku 📚☕">Ngopi santai & keliling toko buku 📚☕</option>
+                  <option value="Jalan sore beli es krim & ngobrol panjang 🍦🌇">Jalan sore beli es krim & ngobrol panjang 🍦🌇</option>
+                  <option value="Nonton film & makan malam favoritmu 🎟️🍜">Nonton film & makan malam favoritmu 🎟️🍜</option>
+                  <option value="Piknik santai di bawah langit biru 🧺🌤️">Piknik santai di bawah langit biru 🧺🌤️</option>
+                </select>
+              </div>
+
+              <!-- Step 3: Optional Short Reply Note -->
+              <div class="mb-3">
+                <label for="replyMessageInput" class="font-typewriter text-[10px] uppercase tracking-wider text-[#4a6382] block mb-1 font-bold">
+                  3. PESAN BALASAN SINGKAT UNTUKKU:
+                </label>
+                <input id="replyMessageInput" type="text"
+                  placeholder="Tulis balasan manismu di sini..."
+                  value="Aku juga nyaman banget sama kamu, ayo jalan bareng! 💙"
+                  class="w-full px-2.5 py-1.5 rounded border border-[#b6cce2] bg-white text-xs text-[#1b324f] focus:outline-none focus:border-[#255489]"
+                />
+              </div>
+
+              <!-- Decision Buttons -->
+              <div class="flex flex-wrap items-center gap-2 pt-1">
+                <button id="btnSayYes" type="button"
+                  class="flex-1 py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#e11d48] via-[#be123c] to-[#e11d48] hover:opacity-95 text-white text-white font-medium text-xs sm:text-sm shadow-md hover:shadow-lg transition flex items-center justify-center gap-1.5">
+                  <span class="font-bold">Iya, Aku Mau! 💖</span>
+                </button>
+                <button id="btnShyReaction" type="button"
+                  class="py-2 px-3 rounded-xl border border-[#b6cce2] bg-[#f5f8fc] hover:bg-[#e6f0fa] text-[#4a6382] text-xs transition">
+                  Masih malu-malu 🐾
+                </button>
+              
+                <button id="btnRejectTikTok" type="button" class="py-2 px-3 rounded-lg bg-[#180610] hover:bg-[#2b0c1e] text-[#fbcfe8] border border-[#f472b6]/50 text-xs font-semibold shadow-sm flex items-center justify-center gap-1 transition cursor-pointer" title="Ngobrol santai lewat pesan TikTok"><span>PM TikTok 💬</span></button></div>
+
+              <!-- Boarding Pass / Date Ticket Box (Revealed when YES is clicked) -->
+              <div id="celebrationTicketBox" class="hidden mt-3 p-3 boarding-pass-card space-y-2">
+                <div class="boarding-pass-notch notch-left"></div>
+                <div class="boarding-pass-notch notch-right"></div>
+                
+                <div class="flex items-center justify-between border-b border-dashed border-[#7eb3e8] pb-1.5">
+                  <div>
+                    <span class="font-typewriter text-[9px] uppercase tracking-widest text-[#3b6ea5] block">PEANUTS AIRWAYS · TIKET PERJALANAN</span>
+                    <strong class="font-serif-editorial text-xs text-[#142840]">TIKET KENCAN BIRU RESMI</strong>
+                  </div>
+                  <button id="btnCopyReply" type="button"
+                    class="px-2.5 py-1 rounded-full bg-[#1e40af] hover:bg-[#1d4ed8] text-white text-[11px] font-medium transition shadow-sm flex items-center gap-1">
+                    <span>📋 Salin Tiket</span>
+                  </button>
+                </div>
+
+                <p id="ticketSummaryText" class="text-xs text-[#1b324f] font-typewriter leading-snug whitespace-pre-line"></p>
+
+                <div class="pt-2">
+                  <button id="btnOpenWADirect" type="button" class="w-full py-2 px-3 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold shadow flex items-center justify-center gap-1.5 transition cursor-pointer">
+                    <span>Kirim Jawaban ke WhatsApp 💬</span>
+                  </button>
+                </div>
+                <div class="pt-1.5 border-t border-dashed border-[#b8cfe8] flex items-center justify-between text-[10px] font-typewriter text-[#547599]">
+                  <span>SEAT: 01A (DI SAMPINGMU)</span>
+                  <span>GATE: TERBUKA UNTUK KITA 💙</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-[#e2dacb] flex items-center justify-between text-[10px] font-typewriter text-[#547599]">
+              <span id="shyPromptText">Snoopy menatap penuh harap... 🐶💙</span>
+              <span>AKHIR BUKU · 06</span>
+            </div>
+          </div>
+                  <!-- =========================================================================
+               PAGE 9: BACK HARDCOVER (VINTAGE BAROQUE VECTOR FRAME)
+               ========================================================================= -->
+          <div
+            class="book-page-leaf h-full flex flex-col justify-between items-center text-center relative overflow-hidden select-none cursor-pointer"
+            data-density="hard"
+            id="pageHardcoverBack"
+            style="
+              background-color: #3b1223;
+              background-image: url('assets/baroque_cover_frame.svg');
+              background-size: 100% 100%;
+              background-position: center;
+              transform: scaleX(-1);
+              box-shadow: inset 0 0 40px rgba(0,0,0,0.9);
+            "
+          >
+            <!-- Embossed Right Spine Hinge Crease -->
+            <div class="absolute top-0 bottom-0 right-0 w-6 bg-gradient-to-l from-black/70 via-white/5 to-transparent pointer-events-none z-20"></div>
+
+            <!-- Cover Typography & Vignette Layer (Un-flip text horizontally) -->
+            <div class="relative z-10 w-full h-full flex flex-col justify-between items-center px-6 sm:px-8 py-7 sm:py-9" style="transform: scaleX(-1);">
+              <!-- Top Badge -->
+              <div class="pt-2 sm:pt-3">
+                <span class="font-cinzel text-[9.5px] sm:text-[10px] tracking-[0.35em] text-[#edd382] uppercase font-bold drop-shadow">
+                  ★ AKHIR CATATAN BIRU ★
+                </span>
+              </div>
+
+              <!-- Center Content -->
+              <div class="my-auto max-w-xs flex flex-col items-center">
+                <div class="w-11 sm:w-12 h-11 sm:h-12 rounded-full bg-[#183457] border-2 border-[#d4af37] flex items-center justify-center text-xl sm:text-2xl shadow-inner mb-2.5">
+                  🐾
+                </div>
+                <p class="font-handwriting text-lg sm:text-xl text-[#f3e5b8] leading-relaxed">
+                  &ldquo;Kadang kebahagiaan itu sesederhana tahu ada seseorang yang selalu siap mendengarkan ceritamu pulang.&rdquo;
+                </p>
+                <p class="font-cinzel text-[10px] sm:text-[11px] text-[#8cb0d8] tracking-wider mt-2">
+                  Terima kasih sudah membaca sampai lembar terakhir 💙
+                </p>
+
+                <!-- Archival Barcode & Seal -->
+                <div class="mt-4 p-2 sm:p-2.5 bg-[#0f2038]/85 rounded-lg border border-[#d4af37]/50 backdrop-blur-sm w-full">
+                  <div class="flex justify-between items-center text-[9px] font-cinzel text-[#d4af37] pb-1 border-b border-dashed border-[#d4af37]/40">
+                    <span>PEANUTS ARCHIVE</span>
+                    <span>NO. 11.11.2026</span>
+                  </div>
+                  <div class="py-1.5 text-center tracking-[0.35em] font-mono text-xs sm:text-sm text-[#cfe2f7] select-none">
+                    ||| | |||| | ||||| ||| || |
+                  </div>
+                  <span class="font-cinzel text-[8.5px] text-[#7fa3cb] block">
+                    ISBN: 108-PEANUTS-BLUE-LOVE
+                  </span>
+                </div>
+              </div>
+
+              <!-- Bottom Return Action -->
+              <div class="pb-1 sm:pb-2">
+                <button
+                  type="button"
+                  id="btnBackCoverReturn"
+                  class="px-4 py-1.5 rounded-full bg-[#1e3a5f] hover:bg-[#254b7c] border border-[#5284bc]/60 text-white text-[11px] font-cinzel tracking-wider transition shadow flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span>⬅ Buka Kembali Halaman Terakhir</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Index Drawer<!-- Quick Index Drawer (Triggered by Silk Ribbon) -->
+    <div id="bookmarkDrawer" class="hidden absolute top-3 right-6 z-50 bg-[#fbf7ee] border-2 border-[#3b6ea5] rounded-xl shadow-2xl p-4 w-72 text-xs bookmark-drawer">
+      <div class="flex items-center justify-between border-b border-[#d8d0c0] pb-2 mb-2.5">
+        <div class="flex items-center gap-1.5">
+          <span class="text-base">🔖</span>
+          <strong class="font-serif-editorial text-[#172d47]">Daftar Bab & Halaman</strong>
+        </div>
+        <button id="btnCloseDrawer" type="button" class="text-[#6c85a3] hover:text-black font-bold">✕</button>
+      </div>
+      <div class="space-y-1.5 font-typewriter text-[11px]">
+        <button type="button" data-jump="0" class="w-full text-left p-1.5 rounded hover:bg-[#eaf1fb] text-[#1b324f] flex justify-between">
+          <span>0. Sampul Depan (Hardcover)</span>
+          <span class="text-[#5b80a7]">COVER</span>
+        </button>
+        <button type="button" data-jump="1" class="w-full text-left p-1.5 rounded hover:bg-[#eaf1fb] text-[#1b324f] flex justify-between">
+          <span>1. Kartu Arsip & Pembuka</span>
+          <span class="text-[#5b80a7]">HAL. 01–02</span>
+        </button>
+        <button type="button" data-jump="2" class="w-full text-left p-1.5 rounded hover:bg-[#eaf1fb] text-[#1b324f] flex justify-between">
+          <span>2. Bab I: Teduh Seperti Biru</span>
+          <span class="text-[#5b80a7]">HAL. 03–04</span>
+        </button>
+        <button type="button" data-jump="3" class="w-full text-left p-1.5 rounded hover:bg-[#eaf1fb] text-[#1b324f] flex justify-between">
+          <span>3. Bab II: Draf ke-108 & Wishlist</span>
+          <span class="text-[#5b80a7]">HAL. 05–06</span>
+        </button>
+        <button type="button" data-jump="4" class="w-full text-left p-1.5 rounded hover:bg-[#eaf1fb] text-[#1b324f] flex justify-between">
+          <span>4. Bab III: Pertanyaan & Tiket 💙</span>
+          <span class="text-[#5b80a7]">HAL. 07–08</span>
+        </button>
+        <button type="button" data-jump="5" class="w-full text-left p-1.5 rounded hover:bg-[#eaf1fb] text-[#1b324f] flex justify-between">
+          <span>5. Sampul Belakang</span>
+          <span class="text-[#5b80a7]">PENUTUP</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Elegant Page Flip Navigator -->
+  <footer class="relative z-30 w-full max-w-5xl mx-auto px-3 sm:px-6 py-2 flex items-center justify-between gap-2 shrink-0">
+    <button id="btnPrevSpread" type="button"
+      class="px-3.5 py-1.5 rounded-full bg-[#1b3554]/90 hover:bg-[#274b75] disabled:opacity-30 disabled:pointer-events-none text-[#cfe2f7] hover:text-white text-xs font-medium border border-[#3f6794]/50 flex items-center gap-1.5 transition shadow">
+      <span>⬅</span>
+      <span>Halaman Sebelumnya</span>
+    </button>
+
+    <!-- Page Indicator Pills -->
+    <div class="flex items-center gap-1 bg-[#12243b]/90 px-3 py-1 rounded-full border border-[#315682]/60 shadow-inner">
+      <button type="button" data-goto="0" class="page-dot px-2.5 py-0.5 rounded-full text-[11px] font-typewriter bg-[#3b6ea5] text-white transition shadow-sm font-semibold">
+        Sampul
+      </button>
+      <button type="button" data-goto="1" class="page-dot px-2 py-0.5 rounded-full text-[11px] font-typewriter text-[#a8c7e8] hover:text-white transition">
+        Bab I
+      </button>
+      <button type="button" data-goto="2" class="page-dot px-2 py-0.5 rounded-full text-[11px] font-typewriter text-[#a8c7e8] hover:text-white transition">
+        Bab II
+      </button>
+      <button type="button" data-goto="3" class="page-dot px-2 py-0.5 rounded-full text-[11px] font-typewriter text-[#a8c7e8] hover:text-white transition">
+        Bab III 💙
+      </button>
+    </div>
+
+    <button id="btnNextSpread" type="button"
+      class="px-3.5 py-1.5 rounded-full bg-[#244f80] hover:bg-[#2f639e] disabled:opacity-30 disabled:pointer-events-none text-white text-xs font-medium border border-[#5284bc]/50 flex items-center gap-1.5 transition shadow">
+      <span>Halaman Berikutnya</span>
+      <span>➔</span>
+    </button>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toastBanner" class="fixed bottom-14 left-1/2 -translate-x-1/2 z-50 hidden px-4 py-2 rounded-full bg-[#12243b] text-white text-xs border border-[#5082ba] shadow-xl backdrop-blur-sm">
+    Tersimpan!
+  </div>
+
+  <!-- Customize Modal (Edit Names & Custom Confession Messages) -->
+  <div id="customizeModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-3">
+    <div class="bg-[#fbf7ee] border-2 border-[#3b6ea5] rounded-2xl max-w-lg w-full p-5 shadow-2xl text-[#1b324f] max-h-[92vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-[#d5cbb8] pb-3 mb-4">
+        <div>
+          <span class="font-typewriter text-[10px] uppercase tracking-widest text-[#3b6ea5]">PERSONALISASI BUKU CONFESSION</span>
+          <h3 class="font-serif-editorial text-lg font-bold">Sesuaikan Nama & Isi Surat</h3>
+        </div>
+        <button id="btnCloseCustomize" type="button" class="w-8 h-8 rounded-full bg-[#e6eef7] hover:bg-[#d0e1f4] text-[#1b324f] font-bold flex items-center justify-center transition">
+          ✕
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="inputRecipient" class="font-typewriter text-[10px] uppercase text-[#4a6382] block mb-1 font-bold">Nama Dia (Penerima):</label>
+            <input id="inputRecipient" type="text" class="w-full px-3 py-1.5 rounded border border-[#b6cce2] bg-white focus:outline-none focus:border-[#255489]" value="Seseorang Spesial" />
+          </div>
+          <div>
+            <label for="inputSender" class="font-typewriter text-[10px] uppercase text-[#4a6382] block mb-1 font-bold">Nama Kamu (Pengirim):</label>
+            <input id="inputSender" type="text" class="w-full px-3 py-1.5 rounded border border-[#b6cce2] bg-white focus:outline-none focus:border-[#255489]" value="Aku yang Mengagumimu" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="inputBookTitle" class="font-typewriter text-[10px] uppercase text-[#4a6382] block mb-1 font-bold">Judul Sampul Buku:</label>
+            <input id="inputBookTitle" type="text" class="w-full px-3 py-1.5 rounded border border-[#b6cce2] bg-white focus:outline-none focus:border-[#255489]" value="Tentang Kamu & Langit Biru" />
+          </div>
+          <div>
+            <label for="inputDateBadge" class="font-typewriter text-[10px] uppercase text-[#4a6382] block mb-1 font-bold">Tanggal Arsip:</label>
+            <input id="inputDateBadge" type="text" class="w-full px-3 py-1.5 rounded border border-[#b6cce2] bg-white focus:outline-none focus:border-[#255489]" value="11.11.2026" />
+          </div>
+        </div>
+
+        <div>
+          <label for="inputFinalQuestion" class="font-typewriter text-[10px] uppercase text-[#4a6382] block mb-1 font-bold">Pesan Pengakuan di Halaman 5:</label>
+          <textarea id="inputFinalQuestion" rows="3" class="w-full px-3 py-1.5 rounded border border-[#b6cce2] bg-white focus:outline-none focus:border-[#255489]">Aku sayang sama kamu, lebih dari sekadar teman ngobrol biasa. Kalau kamu juga merasakan hangat yang sama, maukah kamu membuka lembaran baru bareng aku mulai hari ini?</textarea>
+        </div>
+      </div>
+
+      <div class="mt-5 pt-3 border-t border-[#d5cbb8] flex items-center justify-end gap-2">
+        <button id="btnResetDefault" type="button" class="px-3 py-1.5 rounded-lg border border-[#b6cce2] text-xs text-[#4a6382] hover:bg-[#eee8da]">
+          Reset Awal
+        </button>
+        <button id="btnSaveCustomize" type="button" class="px-4 py-1.5 rounded-lg bg-[#1e40af] hover:bg-[#1d4ed8] text-white text-xs font-medium shadow">
+          Simpan Perubahan 💙
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // Application State
+    // =========================================================================
+    const defaultBookState = {
+      recipient: 'Seseorang Spesial',
+      sender: 'Aku yang Mengagumimu',
+      bookTitle: 'Tentang Kamu & Nuansa Pink',
+      dateBadge: '11.11.2026',
+      finalQuestion: 'Will you be mine? 💖 Dari sekian banyak orang di dunia, hatiku cuma memilih kamu. Maukah kamu jadi pacarku dan berjalan berdua mulai hari ini?',
+      whatsappNumber: '6281221995470',
+      tiktokUsername: '',
+      currentSpread: 0,
+      selectedMood: 'Senyum-senyum sendiri 😊',
+      accepted: false
+    };
+
+    let state = Object.assign({}, defaultBookState);
+
+    try {
+      const saved = localStorage.getItem('snoopy_blue_confession_v1');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        state = Object.assign({}, defaultBookState, parsed, { currentSpread: 0 });
+      }
+    } catch (err) {}
+
+    function persistState() {
+      try {
+        localStorage.setItem('snoopy_blue_confession_v1', JSON.stringify({
+          recipient: state.recipient,
+          sender: state.sender,
+          bookTitle: state.bookTitle,
+          dateBadge: state.dateBadge,
+          finalQuestion: state.finalQuestion,
+          selectedMood: state.selectedMood,
+          accepted: state.accepted
+        }));
+      } catch (err) {}
+    }
+
+    const stampMemories = [
+      'Aku selalu suka gimana mata kamu langsung berbinar tiap nyeritain hal-hal kecil yang kamu suka. Rasanya aku bisa dengerin kamu seharian tanpa bosan.',
+      'Tawa kecilmu itu menular banget. Sekalipun hariku lagi berantakan, dengar kamu ketawa sebentar aja langsung bikin semuanya terasa ringan.',
+      'Bersama kamu, hening pun gak pernah terasa canggung. Rasanya tenang, aman, dan gak perlu pura-pura jadi orang lain.'
+    ];
+
+    const typewriterLines = [
+      '"Sebenarnya setiap kali kita berpapasan, jantungku masih suka salah tingkah sendiri..."',
+      '"Kadang aku sengaja balas chat agak cepat, karena emang sesenang itu ngobrol sama kamu."',
+      '"Waktu lihat Snoopy natap langit berbintang, yang kepikiran di kepalaku justru senyummu."',
+      '"Kalau ada seribu draf surat di meja ini, semuanya tetap bermuara ke satu nama: kamu."'
+    ];
+    let typewriterIndex = 0;
+    let isTypewriting = false;
+
+    const shyButtonResponses = [
+      'Eh, yakin gak mau klik tombol biru di sebelah? 🐾',
+      'Snoopy udah rapi bawa buket bunga biru nih... 💙',
+      'Jangan malu-malu, aku tunggu jawabanmu di tombol biru ya ✨',
+      'Woodstock aja ikut dukung kita jalan bareng! 🐤💙'
+    ];
+    let shyClickCount = 0;
+
+    // =========================================================================
+    // Rich Web Audio Synthesizer (Music Box, Paper Flip, Typewriter, Rain)
+    // =========================================================================
+    let audioCtx = null;
+    let musicInterval = null;
+    let isMusicPlaying = false;
+    let isRainPlaying = false;
+    let rainNoiseNode = null;
+    let noteCursor = 0;
+
+    const melodyNotes = [
+      { freq: 523.25, dur: 0.45 }, // C5
+      { freq: 659.25, dur: 0.45 }, // E5
+      { freq: 587.33, dur: 0.45 }, // D5
+      { freq: 523.25, dur: 0.65 }, // C5
+      { freq: 440.00, dur: 0.45 }, // A4
+      { freq: 523.25, dur: 0.45 }, // C5
+      { freq: 659.25, dur: 0.65 }, // E5
+      { freq: 587.33, dur: 0.80 }, // D5
+      { freq: 493.88, dur: 0.45 }, // B4
+      { freq: 523.25, dur: 0.45 }, // C5
+      { freq: 698.46, dur: 0.55 }, // F5
+      { freq: 659.25, dur: 0.55 }, // E5
+      { freq: 587.33, dur: 0.45 }, // D5
+      { freq: 523.25, dur: 0.85 }  // C5
+    ];
+
+    function ensureAudioContext() {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) audioCtx = new AudioContextClass();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    // Music Box Note with Authentic Celesta / Kalimba Chime Harmonics
+    function playMusicBoxNote(freq, duration = 0.5, volume = 0.05) {
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
+
+      // Fundamental tone
+      const osc1 = audioCtx.createOscillator();
+      const gain1 = audioCtx.createGain();
+      osc1.type = 'sine';
+      osc1.frequency.setValueAtTime(freq, now);
+
+      gain1.gain.setValueAtTime(0.0001, now);
+      gain1.gain.exponentialRampToValueAtTime(volume, now + 0.015);
+      gain1.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+      osc1.connect(gain1);
+      gain1.connect(audioCtx.destination);
+      osc1.start(now);
+      osc1.stop(now + duration + 0.05);
+
+      // Sweet bell overtone (2.76x) for Swiss music box timbre
+      const osc2 = audioCtx.createOscillator();
+      const gain2 = audioCtx.createGain();
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(freq * 2.756, now);
+
+      gain2.gain.setValueAtTime(0.0001, now);
+      gain2.gain.exponentialRampToValueAtTime(volume * 0.28, now + 0.01);
+      gain2.gain.exponentialRampToValueAtTime(0.0001, now + duration * 0.45);
+
+      osc2.connect(gain2);
+      gain2.connect(audioCtx.destination);
+      osc2.start(now);
+      osc2.stop(now + duration * 0.5);
+    }
+
+    // Realistic Paper Turning Flutter Sound
+    function playPaperTurnSound() {
+      ensureAudioContext();
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
+      const bufferSize = audioCtx.sampleRate * 0.22;
+      const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.4));
+      }
+
+      const noise = audioCtx.createBufferSource();
+      noise.buffer = buffer;
+
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(1400, now);
+      filter.frequency.exponentialRampToValueAtTime(500, now + 0.2);
+      filter.Q.setValueAtTime(1.2, now);
+
+      const gain = audioCtx.createGain();
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.linearRampToValueAtTime(0.065, now + 0.025);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.22);
+
+      noise.connect(filter);
+      filter.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      noise.start(now);
+      noise.stop(now + 0.23);
+    }
+
+    // Mechanical Typewriter Key Clack
+    function playTypewriterKeySound() {
+      ensureAudioContext();
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(120 + Math.random() * 60, now);
+
+      gain.gain.setValueAtTime(0.045, now);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.035);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 0.04);
+    }
+
+    // Carriage Return Bell (Ding!)
+    function playTypewriterBellSound() {
+      ensureAudioContext();
+      if (!audioCtx) return;
+      playMusicBoxNote(2093.00, 0.75, 0.08); // High C7 bell
+    }
+
+    // Wax Seal Stamp Impact Sound
+    function playWaxSealStampSound() {
+      ensureAudioContext();
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(80, now);
+      osc.frequency.exponentialRampToValueAtTime(35, now + 0.12);
+
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 0.16);
+    }
+
+    function playCelebrationChord() {
+      ensureAudioContext();
+      if (!audioCtx) return;
+      const chord = [523.25, 659.25, 783.99, 1046.50, 1318.51];
+      chord.forEach((f, idx) => {
+        setTimeout(() => playMusicBoxNote(f, 0.85, 0.06), idx * 80);
+      });
+    }
+
+    function startMusicBox() {
+      ensureAudioContext();
+      if (isMusicPlaying) return;
+      isMusicPlaying = true;
+      updateMusicUI();
+
+      if (musicInterval) clearInterval(musicInterval);
+      musicInterval = setInterval(() => {
+        if (!isMusicPlaying) return;
+        const note = melodyNotes[noteCursor % melodyNotes.length];
+        playMusicBoxNote(note.freq, note.dur, 0.045);
+        noteCursor++;
+      }, 540);
+    }
+
+    function stopMusicBox() {
+      isMusicPlaying = false;
+      if (musicInterval) {
+        clearInterval(musicInterval);
+        musicInterval = null;
+      }
+      updateMusicUI();
+    }
+
+    function toggleMusicBox() {
+      if (isMusicPlaying) stopMusicBox();
+      else startMusicBox();
+    }
+
+    function updateMusicUI() {
+      const statusEl = document.getElementById('musicStatusText');
+      const iconEl = document.getElementById('musicIcon');
+      if (isMusicPlaying) {
+        statusEl.textContent = 'Musik: Nyala 🎶';
+        iconEl.textContent = '🎶';
+      } else {
+        statusEl.textContent = 'Kotak Musik';
+        iconEl.textContent = '🎵';
+      }
+    }
+
+    // Ambient Rain Sound Generator
+    function toggleAmbientRain() {
+      ensureAudioContext();
+      if (!audioCtx) return;
+
+      if (isRainPlaying) {
+        if (rainNoiseNode) {
+          rainNoiseNode.stop();
+          rainNoiseNode.disconnect();
+          rainNoiseNode = null;
+        }
+        isRainPlaying = false;
+        document.getElementById('ambientStatusText').textContent = 'Suara Hujan';
+        document.getElementById('ambientIcon').textContent = '🌧️';
+      } else {
+        const bufferSize = audioCtx.sampleRate * 2;
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const data = buffer.getChannelData(0);
+        let lastOut = 0.0;
+        for (let i = 0; i < bufferSize; i++) {
+          const white = Math.random() * 2 - 1;
+          data[i] = (lastOut + 0.02 * white) / 1.02;
+          lastOut = data[i];
+          data[i] *= 3.5;
+        }
+
+        rainNoiseNode = audioCtx.createBufferSource();
+        rainNoiseNode.buffer = buffer;
+        rainNoiseNode.loop = true;
+
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(800, audioCtx.currentTime);
+
+        const gain = audioCtx.createGain();
+        gain.gain.setValueAtTime(0.028, audioCtx.currentTime);
+
+        rainNoiseNode.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioCtx.destination);
+        rainNoiseNode.start();
+
+        isRainPlaying = true;
+        document.getElementById('ambientStatusText').textContent = 'Hujan: Nyala 🌧️';
+        document.getElementById('ambientIcon').textContent = '💧';
+      }
+    }
+
+    // =========================================================================
+    // Speech Synthesis Narrator (Read Aloud)
+    // =========================================================================
+    let isSpeaking = false;
+
+    function getSpreadNarrationText(spreadIdx) {
+      if (spreadIdx === 0) {
+        return `${state.bookTitle}. Buku kecil untuk ${state.recipient}, dari ${state.sender}. Ada beberapa hal yang terlalu berisik kalau diucapkan lewat chat biasa. Di bawah langit biru yang sama, pikiranku selalu pulang ke kamu.`;
+      }
+      if (spreadIdx === 1) {
+        return `Bab Satu: Teduh Seperti Biru. Hai ${state.recipient}, awalnya aku kira perasaanku ke kamu cuma sekadar senang ngobrol. Tapi setiap kali hari terasa panjang, satu pesan singkat darimu rasanya seperti payung biru di tengah hujan. Kamu punya cara tersendiri buat bikin dunia yang berisik ini jadi jauh lebih tenang.`;
+      }
+      if (spreadIdx === 2) {
+        return `Bab Dua: Draf ke seratus delapan. Jujur, aku sempat ragu waktu mau bikin halaman ini. Aku cuma ingin jadi orang yang selalu siap dengerin ceritamu, nemenin kamu cari makanan enak, dan jadi tempat paling aman buat kamu pulang.`;
+      }
+      return `Bab Tiga: Satu Pertanyaan Jujur. ${state.recipient}, ${state.finalQuestion}`;
+    }
+
+    function stopReadAloud() {
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      isSpeaking = false;
+      document.getElementById('readAloudIcon').textContent = '🔊';
+      document.getElementById('readAloudLabel').textContent = 'Bacakan';
+    }
+
+    function toggleReadAloud() {
+      if (!('speechSynthesis' in window)) {
+        showToast('Browser ini belum mendukung pembaca suara.');
+        return;
+      }
+      if (isSpeaking) {
+        stopReadAloud();
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(getSpreadNarrationText(state.currentSpread));
+      utterance.lang = 'id-ID';
+      utterance.rate = 0.95;
+      utterance.pitch = 1.05;
+      utterance.onend = stopReadAloud;
+      utterance.onerror = stopReadAloud;
+      isSpeaking = true;
+      document.getElementById('readAloudIcon').textContent = '⏹️';
+      document.getElementById('readAloudLabel').textContent = 'Berhenti';
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // =========================================================================
+    // Authentic Physical PageFlip (Soft Curving Physics & Sound Sync)
+    // =========================================================================
+    let pageFlipInstance = null;
+
+    function pageToSpread(pageIndex) {
+      if (pageIndex <= 0) return 0;
+      if (pageIndex >= 9) return 5;
+      return Math.floor((pageIndex - 1) / 2) + 1;
+    }
+
+    function spreadToPage(spreadIndex) {
+      if (spreadIndex <= 0) return 0;
+      if (spreadIndex >= 5) return 9;
+      return (spreadIndex - 1) * 2 + 1;
+    }
+
+
+    function initPageFlip() {
+      const container = document.getElementById('flipBookContainer');
+      if (!container || !window.St || !window.St.PageFlip) return;
+
+      try {
+        pageFlipInstance = new St.PageFlip(container, {
+          width: 480,
+          height: 600,
+          size: 'stretch',
+          minWidth: 320,
+          maxWidth: 620,
+          minHeight: 420,
+          maxHeight: 750,
+          maxShadowOpacity: 0.35,
+          showCover: true,
+          mobileScrollSupport: false,
+          flippingTime: 850,
+          useMouseEvents: true,
+          clickEventForward: true,
+          usePortrait: false,
+          startPage: spreadToPage(state.currentSpread),
+        });
+
+        const pages = container.querySelectorAll('.book-page-leaf');
+        pageFlipInstance.loadFromHTML(pages);
+
+        pageFlipInstance.on('flip', (e) => {
+          state.currentSpread = pageToSpread(e.data);
+          
+      // Initialize Authentic Soft Paper Flip Engine
+      initPageFlip();
+      updateNavControls();
+
+        });
+
+        pageFlipInstance.on('changeState', (e) => {
+          if (e.data === 'flipping') {
+            playPaperTurnSound();
+          }
+        });
+      } catch (err) {
+        console.error('Error initializing St.PageFlip:', err);
+      }
+    }
+
+    function flipToSpread(targetIndex) {
+      const target = Math.max(0, Math.min(5, targetIndex));
+      if (isSpeaking) stopReadAloud();
+      if (pageFlipInstance) {
+        pageFlipInstance.flip(spreadToPage(target));
+      } else {
+        state.currentSpread = target;
+        updateNavControls();
+      }
+    }
+
+    function updateNavControls() {
+      const target = state.currentSpread;
+      document.getElementById('btnPrevSpread').disabled = (target === 0);
+      document.getElementById('btnNextSpread').disabled = (target === 3);
+
+      const curlLeft = document.getElementById('curlLeft');
+      const curlRight = document.getElementById('curlRight');
+      if (target === 0) curlLeft.classList.add('hidden');
+      else curlLeft.classList.remove('hidden');
+
+      if (target === 3) curlRight.classList.add('hidden');
+      else curlRight.classList.remove('hidden');
+
+      document.querySelectorAll('.page-dot').forEach(btn => {
+        const idx = parseInt(btn.getAttribute('data-goto'), 10);
+        if (idx === target) {
+          btn.className = 'page-dot px-2.5 py-0.5 rounded-full text-[11px] font-typewriter bg-[#3b6ea5] text-white transition shadow-sm font-semibold';
+        } else {
+          btn.className = 'page-dot px-2 py-0.5 rounded-full text-[11px] font-typewriter text-[#a8c7e8] hover:text-white transition';
+        }
+      });
+    }
+
+    // =========================================================================
+    // Animated Mechanical Typewriter Engine
+    // =========================================================================
+    function typeNextDraft() {
+      if (isTypewriting) return;
+      isTypewriting = true;
+
+      typewriterIndex = (typewriterIndex + 1) % typewriterLines.length;
+      const fullText = typewriterLines[typewriterIndex];
+      const targetEl = document.getElementById('typewriterOutput');
+      targetEl.textContent = '';
+
+      const cursor = document.createElement('span');
+      cursor.className = 'typewriter-cursor';
+      targetEl.appendChild(cursor);
+
+      let charIdx = 0;
+      const typeInterval = setInterval(() => {
+        if (charIdx < fullText.length) {
+          cursor.before(document.createTextNode(fullText[charIdx]));
+          playTypewriterKeySound();
+          charIdx++;
+        } else {
+          clearInterval(typeInterval);
+          playTypewriterBellSound();
+          isTypewriting = false;
+        }
+      }, 38);
+    }
+
+    // =========================================================================
+    // Floating Blue Petals Generator
+    // =========================================================================
+    function spawnBluePetals(count = 18) {
+      const container = document.getElementById('particleContainer');
+      const symbols = ['💙', '✿', '✦', '❀', '🫧', '✨'];
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('div');
+        el.className = 'floating-particle';
+        el.textContent = symbols[i % symbols.length];
+        el.style.left = `${Math.random() * 95}%`;
+        el.style.fontSize = `${12 + Math.random() * 14}px`;
+        el.style.color = i % 2 === 0 ? '#7cc0ff' : '#dbeafe';
+        el.style.animationDuration = `${3.5 + Math.random() * 3}s`;
+        el.style.animationDelay = `${Math.random() * 0.6}s`;
+        container.appendChild(el);
+        setTimeout(() => {
+          if (el.parentNode) el.parentNode.removeChild(el);
+        }, 7000);
+      }
+    }
+
+    // =========================================================================
+    // Data Binding & UI Updates
+    // =========================================================================
+    function renderTextBindings() {
+      document.getElementById('headerRecipientName').textContent = state.recipient;
+      document.getElementById('cardRecipient').textContent = state.recipient;
+      document.getElementById('cardSender').textContent = state.sender;
+      document.getElementById('coverMainTitle').textContent = state.bookTitle;
+      document.getElementById('coverDateBadge').textContent = state.dateBadge;
+      document.getElementById('page3Prose').textContent = state.finalQuestion;
+
+      document.querySelectorAll('.recipient-inline').forEach(el => {
+        el.textContent = state.recipient;
+      });
+      document.querySelectorAll('.sender-inline').forEach(el => {
+        el.textContent = state.sender;
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastBanner');
+      toast.textContent = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2800);
+    }
+
+    function updateTicketSummary() {
+      const activity = document.getElementById('dateActivitySelect').value;
+      const replyNote = document.getElementById('replyMessageInput').value.trim() || 'Ayo jalan bareng! 💙';
+      const summary = `PENUMPANG : ${state.recipient} & ${state.sender}\nSTATUS    : DISETUJUI & TERCATAT RESMI 💙 (${state.selectedMood})\nTUJUAN    : ${activity}\nCATATAN   : "${replyNote}"`;
+      document.getElementById('ticketSummaryText').textContent = summary;
+      return summary;
+    }
+
+    // =========================================================================
+    // Touch Gestures for Mobile (Swipe Left / Right to Turn Page)
+    // =========================================================================
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    function setupTouchSwipe() {
+      const book = document.getElementById('bookContainer');
+      book.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      book.addEventListener('touchend', (e) => {
+        if (e.changedTouches.length === 1) {
+          const deltaX = e.changedTouches[0].clientX - touchStartX;
+          const deltaY = e.changedTouches[0].clientY - touchStartY;
+          if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
+            if (deltaX < 0) flipToSpread(state.currentSpread + 1); // swipe left: forward
+            else flipToSpread(state.currentSpread - 1);           // swipe right: backward
+          }
+        }
+      }, { passive: true });
+    }
+
+    // =========================================================================
+    // Initialization & Event Listeners
+    // =========================================================================
+    
+    // Vinyl Audio Player Engine
+    const bgmAudio = document.getElementById('bgmAudio') || new Audio('assets/adu_rayu.mp3');
+    let isVinylPlaying = false;
+
+    function formatTime(secs) {
+      if (!Number.isFinite(secs) || secs < 0) return '00:00';
+      const m = Math.floor(secs / 60);
+      const s = Math.floor(secs % 60);
+      return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function toggleVinyl() {
+      if (!bgmAudio) return;
+      if (isVinylPlaying) {
+        bgmAudio.pause();
+        isVinylPlaying = false;
+        updateVinylUI(false);
+        showToast('Musik dijeda ⏸️');
+      } else {
+        bgmAudio.play().then(() => {
+          isVinylPlaying = true;
+          updateVinylUI(true);
+          showToast('Memutar: Adu Rayu — Yovie, Tulus, Glenn 🎵');
+        }).catch(() => {
+          showToast('Klik halaman terlebih dahulu untuk izin audio 🎵');
+        });
+      }
+    }
+
+    function updateVinylUI(playing) {
+      const disc = document.getElementById('vinylDisc');
+      const tonearm = document.getElementById('vinylTonearm');
+      const dot = document.getElementById('turntableStatusDot');
+      const txt = document.getElementById('turntableStatusText');
+      const icon = document.getElementById('vinylBtnIcon');
+      const btnTxt = document.getElementById('vinylBtnText');
+
+      if (disc) {
+        if (playing) disc.classList.add('animate-spin');
+        else disc.classList.remove('animate-spin');
+      }
+      if (tonearm) {
+        tonearm.style.transform = playing ? 'rotate(18deg)' : 'rotate(-8deg)';
+      }
+      if (dot) {
+        dot.className = playing ? 'w-2 h-2 rounded-full bg-emerald-400 animate-ping' : 'w-2 h-2 rounded-full bg-rose-400';
+      }
+      if (txt) {
+        txt.textContent = playing ? 'PLAYING VINYL' : 'TURNTABLE STANDBY';
+      }
+      if (icon) icon.textContent = playing ? '⏸' : '▶';
+      if (btnTxt) btnTxt.textContent = playing ? 'Jeda Lagu' : 'Putar Lagu';
+    }
+
+    bgmAudio.addEventListener('timeupdate', () => {
+      const cur = bgmAudio.currentTime || 0;
+      const dur = (Number.isFinite(bgmAudio.duration) && bgmAudio.duration > 0) ? bgmAudio.duration : 208;
+      const scrubber = document.getElementById('vinylScrubber');
+      const curTxt = document.getElementById('vinylCurrentTime');
+      const durTxt = document.getElementById('vinylDuration');
+      if (scrubber) {
+        scrubber.max = dur;
+        scrubber.value = cur;
+      }
+      if (curTxt) curTxt.textContent = formatTime(cur);
+      if (durTxt) durTxt.textContent = formatTime(dur);
+    });
+
+    const btnVinyl = document.getElementById('btnToggleVinyl');
+    if (btnVinyl) btnVinyl.addEventListener('click', toggleVinyl);
+    const discEl = document.getElementById('vinylDisc');
+    if (discEl) discEl.addEventListener('click', toggleVinyl);
+    const scrubberEl = document.getElementById('vinylScrubber');
+    if (scrubberEl) {
+      scrubberEl.addEventListener('input', (e) => {
+        bgmAudio.currentTime = parseFloat(e.target.value);
+      });
+    }
+
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderTextBindings();
+      updateNavControls();
+      setupTouchSwipe();
+
+      // Start Book button on Cover
+      document.getElementById('btnStartBook').addEventListener('click', () => {
+        startMusicBox();
+        spawnBluePetals(14);
+        flipToSpread(1);
+      });
+
+      // Bottom Nav buttons
+      document.getElementById('btnPrevSpread').addEventListener('click', () => {
+        if (pageFlipInstance) pageFlipInstance.flipPrev('bottom');
+        else flipToSpread(state.currentSpread - 1);
+      });
+      document.getElementById('btnNextSpread').addEventListener('click', () => {
+        if (pageFlipInstance) pageFlipInstance.flipNext('bottom');
+        else flipToSpread(state.currentSpread + 1);
+      });
+
+      // Corner curls
+      document.getElementById('curlRight').addEventListener('click', () => {
+        if (pageFlipInstance) pageFlipInstance.flipNext('bottom');
+        else flipToSpread(state.currentSpread + 1);
+      });
+      document.getElementById('curlLeft').addEventListener('click', () => {
+        if (pageFlipInstance) pageFlipInstance.flipPrev('bottom');
+        else flipToSpread(state.currentSpread - 1);
+      });
+
+      // Page dots
+      document.querySelectorAll('.page-dot').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = parseInt(btn.getAttribute('data-goto'), 10);
+          flipToSpread(target);
+        });
+      });
+
+      // Silk Ribbon Bookmark & Drawer
+      const ribbon = document.getElementById('silkRibbon');
+      const drawer = document.getElementById('bookmarkDrawer');
+      ribbon.addEventListener('click', () => {
+        playPaperTurnSound();
+        drawer.classList.toggle('hidden');
+      });
+      document.getElementById('btnCloseDrawer').addEventListener('click', () => {
+        drawer.classList.add('hidden');
+      });
+      document.querySelectorAll('[data-jump]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = parseInt(btn.getAttribute('data-jump'), 10);
+          drawer.classList.add('hidden');
+          flipToSpread(target);
+        });
+      });
+
+      // Keyboard navigation
+      window.addEventListener('keydown', (e) => {
+        const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+        if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+        if (e.key === 'ArrowRight' || e.key === 'PageDown') flipToSpread(state.currentSpread + 1);
+        if (e.key === 'ArrowLeft' || e.key === 'PageUp') flipToSpread(state.currentSpread - 1);
+      });
+
+      // Header Controls
+      document.getElementById('btnReadAloud').addEventListener('click', toggleReadAloud);
+      document.getElementById('btnMusicToggle').addEventListener('click', toggleMusicBox);
+      document.getElementById('btnAmbientToggle').addEventListener('click', toggleAmbientRain);
+      document.getElementById('btnPetalShower').addEventListener('click', () => {
+        playPaperTurnSound();
+        spawnBluePetals(20);
+      });
+
+      // Postage Stamps on Page 1
+      document.querySelectorAll('.stamp-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          playPaperTurnSound();
+          const idx = parseInt(btn.getAttribute('data-stamp'), 10);
+          document.querySelectorAll('.stamp-btn').forEach(b => b.classList.remove('active-stamp'));
+          btn.classList.add('active-stamp');
+          document.getElementById('stampDetailBox').textContent = stampMemories[idx] || stampMemories[0];
+        });
+      });
+
+      // Animated Typewriter button
+      document.getElementById('btnTypeNextLine').addEventListener('click', typeNextDraft);
+
+      // Wishlist checkboxes
+      document.querySelectorAll('.wishlist-check').forEach(chk => {
+        chk.addEventListener('change', () => {
+          playTypewriterKeySound();
+          const checkedCount = document.querySelectorAll('.wishlist-check:checked').length;
+          document.getElementById('wishlistCounter').textContent = `${checkedCount} / 3 harapan dipilih 💙`;
+        });
+      });
+
+      // Mood Buttons on Page 6
+      document.querySelectorAll('.mood-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          playPaperTurnSound();
+          state.selectedMood = btn.getAttribute('data-mood');
+          document.querySelectorAll('.mood-btn').forEach(b => {
+            b.className = 'mood-btn px-2.5 py-1 rounded-full text-xs border border-[#b6cce2] bg-white text-[#3a526e] hover:bg-[#edf5fc] transition';
+          });
+          btn.className = 'mood-btn px-2.5 py-1 rounded-full text-xs border border-[#3b6ea5] bg-[#dbeafe] text-[#1b324f] font-medium transition';
+          if (state.accepted) updateTicketSummary();
+        });
+      });
+
+      document.getElementById('dateActivitySelect').addEventListener('change', () => {
+        if (state.accepted) updateTicketSummary();
+      });
+      document.getElementById('replyMessageInput').addEventListener('input', () => {
+        if (state.accepted) updateTicketSummary();
+      });
+
+      // Confession YES Button
+      const btnReject = document.getElementById('btnRejectTikTok');
+      if (btnReject) {
+        btnReject.addEventListener('click', (e) => {
+          e.stopPropagation();
+          playPaperTurnSound();
+          const username = (state.tiktokUsername || '').trim().replace(/^@/, '');
+          const tiktokUrl = username ? ('https://www.tiktok.com/@' + username) : 'https://www.tiktok.com/messages';
+          const rejectMsg = 'Hai ' + state.sender + ', makasih banyak yaa udah bikin buku seindah ini buat aku... Aku terharu banget bacanya. Tapi maaf ya untuk sekarang kita ngobrol santai di TikTok dulu yaa 🙏✨';
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(rejectMsg).catch(() => {});
+          }
+          if (document.getElementById('shyPromptText')) {
+            document.getElementById('shyPromptText').textContent = 'Snoopy tersenyum memelukmu... Gapapa, kita ngobrol santai di TikTok ya 🐶💬';
+          }
+          showToast('Makasih udah jujur... Mengalihkan ke TikTok PM 🥺💬');
+          setTimeout(() => {
+            window.open(tiktokUrl, '_blank');
+          }, 500);
+        });
+      }
+
+      function openWhatsApp() {
+      let cleanPhone = (state.whatsappNumber || '081221995470').replace(/[^0-9]/g, '');
+      if (cleanPhone.startsWith('0')) {
+        cleanPhone = '62' + cleanPhone.slice(1);
+      }
+      const replyNote = (document.getElementById('replyMessageInput') ? document.getElementById('replyMessageInput').value.trim() : '') || 'Iya, aku mau jadi pacarmu! 💖';
+      const goal = document.getElementById('dateActivitySelect') ? document.getElementById('dateActivitySelect').value : 'Makan di warung langganan hangat kuah & sambal 🍜💖';
+      const waMsg = `Halo ${state.sender}! 💖✨\n\nIya, aku mau jadi pacarmu! 👫💖\nAku udah baca seluruh lembaran buku "${state.bookTitle || 'Tentang Kamu & Nuansa Pink'}" yang kamu bikin buat aku... Sumpah aku terharu banget baca setiap kata dan draf suratnya 🥺🌸\n\nPerasaanku pas baca: "${state.selectedMood}"\nHal pertama yang paling aku tunggu bareng kamu:\n"${goal}"\n\nPesan manis dariku:\n"${replyNote}"\n\nMulai hari ini kita resmi berpacaran yaa! Semoga hari-hari kita selalu hangat, penuh tawa, dan bahagia berdua bareng Snoopy 💖✨`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(waMsg).catch(() => {});
+      }
+
+      const url = 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(waMsg);
+      window.open(url, '_blank');
+      showToast('Membuka WhatsApp! Pesan manis juga tersalin ke clipboard 💖');
+    }
+
+    document.getElementById('btnSayYes').addEventListener('click', () => {
+        state.accepted = true;
+        persistState();
+        playWaxSealStampSound();
+        playCelebrationChord();
+        spawnBluePetals(45);
+        const stamp = document.getElementById('acceptedStampBadge');
+        if (stamp) stamp.classList.remove('hidden');
+        const tkt = document.getElementById('celebrationTicketBox');
+        if (tkt) tkt.classList.remove('hidden');
+        const shy = document.getElementById('shyPromptText');
+        if (shy) shy.textContent = 'Snoopy menari gembira! Kita resmi pacaran! 🐶💖✨';
+        updateTicketSummary();
+        showToast('Yeay! Jawabanmu diterima! Mengalihkan ke WhatsApp... 💖');
+        setTimeout(() => {
+          openWhatsApp();
+        }, 700);
+      });
+
+      const btnWADirect = document.getElementById('btnOpenWADirect');
+      if (btnWADirect) {
+        btnWADirect.addEventListener('click', () => {
+          openWhatsApp();
+        });
+      };
+
+      // Shy Button
+      document.getElementById('btnShyReaction').addEventListener('click', () => {
+        playPaperTurnSound();
+        const msg = shyButtonResponses[shyClickCount % shyButtonResponses.length];
+        shyClickCount++;
+        document.getElementById('shyPromptText').textContent = msg;
+        showToast(msg);
+      });
+
+      // Copy Boarding Pass Ticket
+      document.getElementById('btnCopyReply').addEventListener('click', () => {
+        const text = updateTicketSummary();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => {
+            showToast('Tiket kencan berhasil disalin! Siap dikirimkan ke dia 💙');
+          }).catch(() => fallbackCopy(text));
+        } else {
+          fallbackCopy(text);
+        }
+      });
+
+      function fallbackCopy(text) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          showToast('Tiket kencan berhasil disalin! Siap dikirimkan ke dia 💙');
+        } catch (err) {
+          showToast('Silakan salin teks tiket secara manual.');
+        }
+        document.body.removeChild(ta);
+      }
+
+      // Customize Modal
+      const modal = document.getElementById('customizeModal');
+      document.getElementById('btnOpenCustomize').addEventListener('click', () => {
+        document.getElementById('inputRecipient').value = state.recipient;
+        document.getElementById('inputSender').value = state.sender;
+        document.getElementById('inputBookTitle').value = state.bookTitle;
+        document.getElementById('inputDateBadge').value = state.dateBadge;
+        document.getElementById('inputFinalQuestion').value = state.finalQuestion;
+        modal.classList.remove('hidden');
+      });
+
+      document.getElementById('btnCloseCustomize').addEventListener('click', () => {
+        modal.classList.add('hidden');
+      });
+
+      document.getElementById('btnSaveCustomize').addEventListener('click', () => {
+        state.recipient = document.getElementById('inputRecipient').value.trim() || 'Seseorang Spesial';
+        state.sender = document.getElementById('inputSender').value.trim() || 'Aku';
+        state.bookTitle = document.getElementById('inputBookTitle').value.trim() || 'Tentang Kamu & Langit Biru';
+        state.dateBadge = document.getElementById('inputDateBadge').value.trim() || '11.11.2026';
+        state.finalQuestion = document.getElementById('inputFinalQuestion').value.trim() || defaultBookState.finalQuestion;
+        persistState();
+        renderTextBindings();
+        if (state.accepted) updateTicketSummary();
+        modal.classList.add('hidden');
+        showToast('Buku berhasil diperbarui dengan nama & pesanmu 💙');
+      });
+
+      document.getElementById('btnResetDefault').addEventListener('click', () => {
+        state = Object.assign({}, defaultBookState, { currentSpread: state.currentSpread });
+        persistState();
+        renderTextBindings();
+        modal.classList.add('hidden');
+        showToast('Teks dikembalikan ke awal.');
+      });
+    });
+  </script>
+</body>
+</html>
