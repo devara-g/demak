@@ -428,7 +428,7 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
   const shouldCenterCover = isCover && isWideScreen;
 
   return (
-    <main className="relative z-20 flex-1 w-full max-w-5xl mx-auto px-1.5 sm:px-6 py-1 sm:py-2 flex items-center justify-center min-h-0 [perspective:2600px]">
+    <main className="relative z-20 flex-1 w-full max-w-5xl mx-auto px-1.5 sm:px-6 pt-0 pb-3 sm:py-2 flex items-center justify-center min-h-0 [perspective:2600px] -translate-y-2.5 sm:translate-y-0">
       {/* Soft Ambient Desk Shadow */}
       <div className="absolute -bottom-5 left-8 right-8 h-14 bg-black/75 blur-2xl rounded-full pointer-events-none" />
 
@@ -436,7 +436,7 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
           AUTHENTIC HARDCOVER BOOK CASING (VELVET BURGUNDY + ROSE GOLD ACCENTS)
           ========================================================================= */}
       <div
-        className="relative w-full max-w-[390px] sm:max-w-none h-full max-h-[580px] sm:max-h-[615px] bg-[#3b1223] rounded-2xl shadow-2xl border border-[#f472b6]/40 flex flex-col justify-between overflow-visible mx-auto"
+        className="relative w-full max-w-[390px] sm:max-w-none h-full max-h-[550px] sm:max-h-[615px] bg-[#3b1223] rounded-2xl shadow-2xl border border-[#f472b6]/40 flex flex-col justify-between overflow-visible mx-auto"
         style={{
           padding: '8px',
           boxShadow: '0 25px 60px -10px rgba(0,0,0,0.85), inset 0 0 35px rgba(0,0,0,0.8)',
@@ -693,7 +693,6 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
                   <span>Tarik ujung kertas untuk membalik!</span>
                 </div>
                 <span className="font-typewriter text-[9px] sm:text-[10px] text-[#9d174d]">HAL. 00</span>
-              </div>
               </div>
             </div>
 
@@ -994,7 +993,7 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
                             origin: { y: 0.6 },
                             colors: ['#f472b6', '#fb7185', '#fda4af', '#fef08a', '#be123c', '#ffffff'],
                           });
-                        } catch (e) {}
+                        } catch (e) { }
                         setReplyText('Iya, aku mau! Mulai hari ini kita jalanin bareng yaa. Makasih udah se-sincere dan se-gentleman ini ngungkapin perasaanmu.');
                         showToast('Pesan balasan: "Iya, aku mau!" 💖');
                       }}
