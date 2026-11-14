@@ -29,6 +29,9 @@ export default function Home() {
         if (!parsed.whatsappNumber || parsed.whatsappNumber === '6281234567890') {
           parsed.whatsappNumber = '6281221995470';
         }
+        if (!parsed.recipient || parsed.recipient === 'Seseorang Spesial') {
+          parsed.recipient = 'Jasmine ramadhania syarif';
+        }
         setState((prev) => ({
           ...prev,
           ...parsed,
@@ -117,7 +120,7 @@ export default function Home() {
       if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
 
       if (e.key === 'ArrowRight' || e.key === 'PageDown') {
-        if (state.currentSpread < 4) {
+        if (state.currentSpread < 3) {
           handleNext();
         }
       } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {

@@ -1,6 +1,14 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Fraunces, Caveat, Courier_Prime, Cinzel } from 'next/font/google';
 import './globals.css';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover',
+};
 
 const inter = Inter({
   subsets: ['latin'],
@@ -34,8 +42,8 @@ const courierPrime = Courier_Prime({
 });
 
 export const metadata: Metadata = {
-  title: 'Catatan Biru & Snoopy — Sebuah Buku Kecil Untukmu',
-  description: 'Buku kenangan dan pengakuan kecil interaktif bernuansa biru teduh bersama Snoopy.',
+  title: 'Tentang Kamu & Nuansa Pink — Sebuah Buku Kecil Untukmu',
+  description: 'Buku kenangan dan pengakuan kecil interaktif bernuansa merah jambu bersama Snoopy.',
 };
 
 export default function RootLayout({
@@ -46,7 +54,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body
-        className={`${inter.variable} ${fraunces.variable} ${cinzel.variable} ${caveat.variable} ${courierPrime.variable} h-screen w-screen overflow-hidden flex flex-col justify-between`}
+        className={`${inter.variable} ${fraunces.variable} ${cinzel.variable} ${caveat.variable} ${courierPrime.variable} h-[100dvh] w-screen overflow-hidden flex flex-col justify-between`}
       >
         {children}
       </body>

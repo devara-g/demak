@@ -11,7 +11,7 @@ interface Chapter2SpreadProps {
 }
 
 const typewriterLines = [
-  '"Sebenarnya setiap kali kita berpapasan, jantungku masih suka salah tingkah sendiri..."',
+  '"Sebenarnya tiap kali notifikasi chat darimu masuk, jantungku selalu salah tingkah sendiri..."',
   '"Kadang aku sengaja balas chat agak cepat, karena emang sesenang itu ngobrol sama kamu."',
   '"Waktu lihat Snoopy natap langit berbintang, yang kepikiran di kepalaku justru senyummu."',
   '"Kalau ada seribu draf surat di meja ini, semuanya tetap bermuara ke satu nama: kamu."',

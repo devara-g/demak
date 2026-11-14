@@ -151,10 +151,22 @@ body {
 }
 
 .book-page-leaf {
-  background-color: var(--paper-cream) !important;
   height: 100% !important;
-  overflow-y: auto !important;
   box-sizing: border-box;
+  position: relative;
+}
+
+.book-page-leaf:not([data-density="hard"]) {
+  background-color: var(--paper-cream) !important;
+}
+
+#pageHardcoverFront,
+#pageHardcoverBack {
+  background-color: #3b1223 !important;
+  background-image: url('/assets/baroque_cover_frame.svg') !important;
+  background-size: 100% 100% !important;
+  background-position: center !important;
+  box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.9) !important;
 }
 
 /* StPageFlip Engine Styles */
