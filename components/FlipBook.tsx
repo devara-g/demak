@@ -480,10 +480,10 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
             sound.playPaperTurnSound();
             setIsDrawerOpen(!isDrawerOpen);
           }}
-          className="absolute -top-2 left-1/2 -translate-x-1/2 w-5 h-10 bg-gradient-to-r from-[#be123c] via-[#e11d48] to-[#9d174d] shadow-md z-30 rounded-t-sm hover:translate-y-1 transition-transform group cursor-pointer"
+          className="absolute -top-1 sm:-top-2 left-1/2 -translate-x-1/2 w-4 sm:w-5 h-7 sm:h-10 bg-gradient-to-r from-[#be123c] via-[#e11d48] to-[#9d174d] shadow-md z-30 rounded-t-sm hover:translate-y-1 transition-transform group cursor-pointer"
           title="Klik untuk membuka Pembatas Buku & Daftar Isi"
         >
-          <div className="absolute -bottom-2 left-0 w-0 h-0 border-l-[10px] border-l-[#9d174d] border-r-[10px] border-r-[#9d174d] border-b-[8px] border-b-transparent" />
+          <div className="absolute -bottom-1.5 sm:-bottom-2 left-0 w-0 h-0 border-l-[8px] sm:border-l-[10px] border-l-[#9d174d] border-r-[8px] sm:border-r-[10px] border-r-[#9d174d] border-b-[6px] sm:border-b-[8px] border-b-transparent" />
         </button>
 
         {/* Inner Pages Open Shell */}
@@ -636,63 +636,64 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
             {/* =========================================================================
                  PAGE 1: SPREAD 1 LEFT (DEDIKASI - HAL. 00)
                  ========================================================================= */}
-            <div className="book-page-leaf paper-sheet page-arch-left h-full p-3.5 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto" data-density="soft">
+            <div className="book-page-leaf paper-sheet page-arch-left h-full p-2.5 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto" data-density="soft">
               <div>
-                <div className="flex items-center justify-between border-b border-[#fbcfe8] pb-1.5 sm:pb-2 mb-2 sm:mb-3">
-                  <span className="font-typewriter text-[10px] sm:text-[11px] uppercase tracking-widest text-[#be123c] font-bold">
+                <div className="flex items-center justify-between border-b border-[#fbcfe8] pb-1 sm:pb-2 mb-1.5 sm:mb-3">
+                  <span className="font-typewriter text-[9px] sm:text-[11px] uppercase tracking-widest text-[#be123c] font-bold">
                     SEBUAH CATATAN HANGAT · UNTUKMU
                   </span>
-                  <span className="font-typewriter text-[10px] sm:text-[11px] text-[#9d174d]">
+                  <span className="font-typewriter text-[9px] sm:text-[11px] text-[#9d174d]">
                     {state.dateBadge}
                   </span>
                 </div>
 
-                <div className="bg-[#fff1f2] border border-[#fbcfe8] rounded-xl p-3 sm:p-3.5 shadow-sm relative">
-                  <div className="washi-tape w-20 sm:w-24 h-4 sm:h-5 -top-2 sm:-top-2.5 left-6 sm:left-8 absolute rotate-[-2deg]" />
-                  <div className="flex items-center justify-between mb-1.5 sm:mb-2">
-                    <span className="font-serif italic text-xs text-[#be123c] font-bold">Lembar Persembahan</span>
-                    <span className="text-[9.5px] sm:text-[10px] px-2 py-0.5 rounded-full bg-[#fce7f3] text-[#be123c] font-medium">Khusus Untukmu 💖</span>
+                <div className="bg-[#fff1f2] border border-[#fbcfe8] rounded-xl p-2 sm:p-3.5 shadow-sm relative">
+                  <div className="washi-tape w-16 sm:w-24 h-3.5 sm:h-5 -top-2 left-6 absolute rotate-[-2deg]" />
+                  <div className="flex items-center justify-between mb-1 sm:mb-2">
+                    <span className="font-serif italic text-[11px] sm:text-xs text-[#be123c] font-bold">Lembar Persembahan</span>
+                    <span className="text-[8.5px] sm:text-[10px] px-1.5 py-0.5 rounded-full bg-[#fce7f3] text-[#be123c] font-medium">Khusus Untukmu 💖</span>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 text-xs font-serif border-t border-dashed border-[#fbcfe8] pt-1.5 sm:pt-2">
+                  <div className="grid grid-cols-2 gap-1.5 text-xs font-serif border-t border-dashed border-[#fbcfe8] pt-1 sm:pt-2">
                     <div>
-                      <span className="text-[9.5px] sm:text-[10px] font-typewriter text-[#9d174d] block font-bold">UNTUK:</span>
-                      <strong className="text-[#3b1223] text-xs sm:text-sm">{state.recipient || 'Jasmine ramadhania syarif'}</strong>
+                      <span className="text-[8.5px] sm:text-[10px] font-typewriter text-[#9d174d] block font-bold">UNTUK:</span>
+                      <strong className="text-[#3b1223] text-[11px] sm:text-sm leading-tight block">{state.recipient || 'Jasmine ramadhania syarif'}</strong>
                     </div>
                     <div>
-                      <span className="text-[9.5px] sm:text-[10px] font-typewriter text-[#9d174d] block font-bold">DARI:</span>
-                      <strong className="text-[#3b1223] text-xs sm:text-sm">{state.sender}</strong>
+                      <span className="text-[8.5px] sm:text-[10px] font-typewriter text-[#9d174d] block font-bold">DARI:</span>
+                      <strong className="text-[#3b1223] text-[11px] sm:text-sm leading-tight block">{state.sender}</strong>
                     </div>
                   </div>
 
-                  <div className="mt-2 pt-1.5 sm:pt-2 border-t border-dashed border-[#fbcfe8] text-[11px] sm:text-xs text-[#4c0519] leading-relaxed font-serif italic">
+                  <div className="mt-1.5 pt-1 sm:pt-2 border-t border-dashed border-[#fbcfe8] text-[10px] sm:text-xs text-[#4c0519] leading-relaxed font-serif italic">
                     &quot;Buku kecil ini kubuat pelan-pelan khusus untukmu. Di dalamnya ada beberapa lembar cerita jujur, alunan lagu kesukaan, dan perasaan yang akhirnya berani kutitipkan lewat kata-kata.&quot;
                   </div>
                 </div>
 
-                <div className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2">
-                  <p className="font-handwriting text-xl sm:text-2xl text-[#be123c] leading-tight">
+                <div className="mt-2 sm:mt-4 space-y-1 sm:space-y-2">
+                  <p className="font-handwriting text-base sm:text-2xl text-[#be123c] leading-tight">
                     &quot;Ada beberapa hal yang terlalu berharga kalau cuma diucapkan lewat chat singkat...&quot;
                   </p>
-                  <p className="text-[11px] sm:text-[13px] text-[#4c0519] leading-relaxed">
+                  <p className="text-[10px] sm:text-[13px] text-[#4c0519] leading-relaxed">
                     Jadi kubuatkan buku kecil bernuansa merah jambu ini—ditemani Snoopy yang setia, secangkir kehangatan, dan lembaran sederhana tentang kita.
                   </p>
                 </div>
 
-                <div className="mt-2.5 sm:mt-3 p-2 sm:p-2.5 bg-[#fef9c3]/70 border border-[#fde047] rounded-lg shadow-2xs relative">
+                <div className="mt-1.5 sm:mt-3 p-1.5 sm:p-2.5 bg-[#fef9c3]/70 border border-[#fde047] rounded-lg shadow-2xs relative">
                   <div className="washi-tape w-10 sm:w-12 h-3 sm:h-3.5 -top-1.5 left-4 absolute" />
-                  <p className="font-handwriting text-[11px] sm:text-sm text-[#854d0e] leading-snug">
+                  <p className="font-handwriting text-[10px] sm:text-sm text-[#854d0e] leading-snug">
                     &quot;Buka setiap lembarnya dengan santai ya... semoga senyummu selalu merekah di setiap halamannya.&quot;
                   </p>
                 </div>
               </div>
 
-              <div className="mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-[#fbcfe8] flex items-center justify-between gap-2">
-                <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] text-[#9d174d]">
-                  <span className="inline-block w-2 h-2 rounded-full bg-[#be123c] animate-pulse" />
-                  <span>Tarik ujung sudut kertas untuk membalik halaman!</span>
+              <div className="mt-1 sm:mt-3 pt-1 sm:pt-3 border-t border-[#fbcfe8] flex items-center justify-between gap-2">
+                <div className="flex items-center gap-1 sm:gap-2 text-[9px] sm:text-[11px] text-[#9d174d]">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#be123c] animate-pulse" />
+                  <span>Tarik ujung kertas untuk membalik!</span>
                 </div>
-                <span className="font-typewriter text-[9.5px] sm:text-[10px] text-[#9d174d]">HAL. 00</span>
+                <span className="font-typewriter text-[9px] sm:text-[10px] text-[#9d174d]">HAL. 00</span>
+              </div>
               </div>
             </div>
 
