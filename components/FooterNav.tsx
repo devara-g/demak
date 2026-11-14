@@ -41,7 +41,7 @@ export const FooterNav: React.FC<FooterNavProps> = ({
   };
 
   return (
-    <footer className="relative z-30 w-full max-w-5xl mx-auto px-2 sm:px-6 py-2 flex items-center justify-between gap-1.5 sm:gap-2 shrink-0">
+    <footer className="relative z-30 w-full max-w-[365px] sm:max-w-5xl mx-auto px-2 sm:px-6 py-2 flex items-center justify-between gap-1.5 sm:gap-2 shrink-0">
       <button
         onClick={onPrev}
         disabled={currentSpread === 0}
@@ -59,11 +59,10 @@ export const FooterNav: React.FC<FooterNavProps> = ({
             key={tab.idx}
             type="button"
             onClick={() => onSelect(tab.idx)}
-            className={`px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-typewriter transition cursor-pointer whitespace-nowrap ${
-              currentSpread === tab.idx
-                ? 'bg-[#be123c] text-white font-semibold shadow-sm'
-                : 'text-[#fbcfe8] hover:text-white'
-            }`}
+            className={`px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-typewriter transition cursor-pointer whitespace-nowrap ${currentSpread === tab.idx
+              ? 'bg-[#be123c] text-white font-semibold shadow-sm'
+              : 'text-[#fbcfe8] hover:text-white'
+              }`}
           >
             <span className="hidden sm:inline">{tab.label}</span>
             <span className="inline sm:hidden">{tab.short}</span>

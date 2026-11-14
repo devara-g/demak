@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Tentang Kamu, Jasmine — Sebuah Buku Kecil Untukmu</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
   <script src="assets/page-flip.browser.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Caveat:wght@500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --paper-cream: #fffaf5;
@@ -45,14 +49,34 @@
       min-height: 100vh;
     }
 
-    .font-serif-editorial { font-family: 'Fraunces', Georgia, serif; }
-    .font-handwriting { font-family: 'Caveat', cursive; }
-    .font-typewriter { font-family: 'Courier Prime', monospace; }
-    .font-cinzel { font-family: 'Cinzel', serif; }
+    .font-serif-editorial {
+      font-family: 'Fraunces', Georgia, serif;
+    }
 
-    .page-scroll::-webkit-scrollbar { width: 4px; }
-    .page-scroll::-webkit-scrollbar-track { background: rgba(244, 114, 182, 0.08); }
-    .page-scroll::-webkit-scrollbar-thumb { background: rgba(190, 18, 60, 0.35); border-radius: 4px; }
+    .font-handwriting {
+      font-family: 'Caveat', cursive;
+    }
+
+    .font-typewriter {
+      font-family: 'Courier Prime', monospace;
+    }
+
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+
+    .page-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .page-scroll::-webkit-scrollbar-track {
+      background: rgba(244, 114, 182, 0.08);
+    }
+
+    .page-scroll::-webkit-scrollbar-thumb {
+      background: rgba(190, 18, 60, 0.35);
+      border-radius: 4px;
+    }
 
     /* Soft ambient desk shadow */
     .book-ambient-shadow {
@@ -102,10 +126,38 @@
       z-index: 30;
       border-color: #f472b6;
     }
-    .corner-tl { top: -2px; left: -2px; border-top: 2.5px solid #f472b6; border-left: 2.5px solid #f472b6; border-top-left-radius: 8px; }
-    .corner-tr { top: -2px; right: -2px; border-top: 2.5px solid #f472b6; border-right: 2.5px solid #f472b6; border-top-right-radius: 8px; }
-    .corner-bl { bottom: -2px; left: -2px; border-bottom: 2.5px solid #f472b6; border-left: 2.5px solid #f472b6; border-bottom-left-radius: 8px; }
-    .corner-br { bottom: -2px; right: -2px; border-bottom: 2.5px solid #f472b6; border-right: 2.5px solid #f472b6; border-bottom-right-radius: 8px; }
+
+    .corner-tl {
+      top: -2px;
+      left: -2px;
+      border-top: 2.5px solid #f472b6;
+      border-left: 2.5px solid #f472b6;
+      border-top-left-radius: 8px;
+    }
+
+    .corner-tr {
+      top: -2px;
+      right: -2px;
+      border-top: 2.5px solid #f472b6;
+      border-right: 2.5px solid #f472b6;
+      border-top-right-radius: 8px;
+    }
+
+    .corner-bl {
+      bottom: -2px;
+      left: -2px;
+      border-bottom: 2.5px solid #f472b6;
+      border-left: 2.5px solid #f472b6;
+      border-bottom-left-radius: 8px;
+    }
+
+    .corner-br {
+      bottom: -2px;
+      right: -2px;
+      border-bottom: 2.5px solid #f472b6;
+      border-right: 2.5px solid #f472b6;
+      border-bottom-right-radius: 8px;
+    }
 
     /* Real Stacked Paper Thickness Edges */
     .paper-block-edge-right {
@@ -148,8 +200,14 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
       pointer-events: none;
     }
-    .headband-top { top: 3px; }
-    .headband-bottom { bottom: 3px; }
+
+    .headband-top {
+      top: 3px;
+    }
+
+    .headband-bottom {
+      bottom: 3px;
+    }
 
     /* Silk Ribbon Bookmark */
     .silk-ribbon {
@@ -165,7 +223,11 @@
       transform-origin: top center;
       transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .silk-ribbon:hover { transform: rotate(2.5deg) scaleY(1.02); }
+
+    .silk-ribbon:hover {
+      transform: rotate(2.5deg) scaleY(1.02);
+    }
+
     .silk-ribbon::after {
       content: '';
       position: absolute;
@@ -188,6 +250,7 @@
       width: 100%;
       height: 100%;
     }
+
     .stf__parent canvas {
       position: absolute;
       width: 100%;
@@ -195,6 +258,7 @@
       left: 0;
       top: 0;
     }
+
     .stf__block {
       position: absolute;
       width: 100%;
@@ -202,11 +266,13 @@
       box-sizing: border-box;
       perspective: 2000px;
     }
+
     .stf__item {
       display: none;
       position: absolute;
       transform-style: preserve-3d;
     }
+
     .stf__outerShadow,
     .stf__innerShadow,
     .stf__hardShadow,
@@ -232,12 +298,10 @@
     }
 
     .paper-ruled {
-      background-image: repeating-linear-gradient(
-        to bottom,
-        transparent 0px,
-        transparent 25px,
-        rgba(244, 114, 182, 0.15) 26px
-      );
+      background-image: repeating-linear-gradient(to bottom,
+          transparent 0px,
+          transparent 25px,
+          rgba(244, 114, 182, 0.15) 26px);
     }
 
     .page-arch-left {
@@ -246,6 +310,7 @@
       border-bottom-left-radius: 8px;
       box-shadow: inset -6px 0 12px -4px rgba(0, 0, 0, 0.08);
     }
+
     .page-arch-right {
       background-color: var(--paper-cream) !important;
       border-top-right-radius: 8px;
@@ -261,14 +326,13 @@
       transform: translateX(-50%);
       width: 28px;
       background: linear-gradient(90deg,
-        rgba(30, 5, 15, 0) 0%,
-        rgba(30, 5, 15, 0.08) 25%,
-        rgba(20, 3, 10, 0.28) 48%,
-        rgba(15, 2, 8, 0.45) 50%,
-        rgba(20, 3, 10, 0.28) 52%,
-        rgba(30, 5, 15, 0.08) 75%,
-        rgba(30, 5, 15, 0) 100%
-      );
+          rgba(30, 5, 15, 0) 0%,
+          rgba(30, 5, 15, 0.08) 25%,
+          rgba(20, 3, 10, 0.28) 48%,
+          rgba(15, 2, 8, 0.45) 50%,
+          rgba(20, 3, 10, 0.28) 52%,
+          rgba(30, 5, 15, 0.08) 75%,
+          rgba(30, 5, 15, 0) 100%);
       pointer-events: none;
       z-index: 22;
     }
@@ -298,30 +362,34 @@
       color: #be123c;
       font-family: 'Courier Prime', monospace;
     }
+
     .curl-right {
       right: 0;
       justify-content: flex-end;
       background: linear-gradient(135deg, transparent 50%, rgba(251, 207, 232, 0.5) 50%, rgba(255, 255, 255, 0.95) 100%);
       border-top-left-radius: 8px;
-      box-shadow: -2px -2px 6px rgba(0,0,0,0.12);
+      box-shadow: -2px -2px 6px rgba(0, 0, 0, 0.12);
     }
+
     .curl-right:hover {
       width: 52px;
       height: 52px;
-      box-shadow: -4px -4px 12px rgba(0,0,0,0.22);
+      box-shadow: -4px -4px 12px rgba(0, 0, 0, 0.22);
       color: #9d174d;
     }
+
     .curl-left {
       left: 0;
       justify-content: flex-start;
       background: linear-gradient(225deg, transparent 50%, rgba(251, 207, 232, 0.5) 50%, rgba(255, 255, 255, 0.95) 100%);
       border-top-right-radius: 8px;
-      box-shadow: 2px -2px 6px rgba(0,0,0,0.12);
+      box-shadow: 2px -2px 6px rgba(0, 0, 0, 0.12);
     }
+
     .curl-left:hover {
       width: 52px;
       height: 52px;
-      box-shadow: 4px -4px 12px rgba(0,0,0,0.22);
+      box-shadow: 4px -4px 12px rgba(0, 0, 0, 0.22);
       color: #9d174d;
     }
 
@@ -341,38 +409,63 @@
       opacity: 0.65;
       animation: petalFall linear infinite;
     }
+
     @keyframes petalFall {
-      0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
-      15% { opacity: 0.7; }
-      85% { opacity: 0.7; }
-      100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+      0% {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 0.7;
+      }
+
+      85% {
+        opacity: 0.7;
+      }
+
+      100% {
+        transform: translateY(105vh) rotate(360deg);
+        opacity: 0;
+      }
     }
 
     @keyframes spinSlow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
+
     .animate-spin-slow {
       animation: spinSlow 8s linear infinite;
     }
   </style>
 </head>
+
 <body class="h-[100dvh] min-h-[100dvh] w-screen overflow-hidden flex flex-col justify-between relative">
 
   <!-- Ambient Floating Petals Background -->
   <div id="petalContainer" class="fixed inset-0 pointer-events-none z-10 overflow-hidden"></div>
 
   <!-- Top Elegant Controls Header -->
-  <header class="relative z-30 w-full max-w-5xl mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2 shrink-0">
+  <header
+    class="relative z-30 w-full max-w-5xl mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2 shrink-0">
     <div class="flex items-center gap-2">
-      <div class="w-7 h-7 rounded-full bg-[#be123c] border border-[#f472b6] flex items-center justify-center text-white text-xs shadow-md">
+      <div
+        class="w-7 h-7 rounded-full bg-[#be123c] border border-[#f472b6] flex items-center justify-center text-white text-xs shadow-md">
         🐶
       </div>
       <div>
-        <span class="text-[9.5px] font-typewriter text-[#edd382] uppercase tracking-wider block leading-none font-semibold">
+        <span
+          class="text-[9.5px] font-typewriter text-[#edd382] uppercase tracking-wider block leading-none font-semibold">
           EDISI ARSIP · KHUSUS JASMINE ❀
         </span>
-        <h1 class="font-serif-editorial text-sm sm:text-base font-bold text-white tracking-wide leading-tight drop-shadow">
+        <h1
+          class="font-serif-editorial text-sm sm:text-base font-bold text-white tracking-wide leading-tight drop-shadow">
           <span id="headerRecipientName">Buku Kecil Untuk Jasmine ramadhania syarif</span>
         </h1>
       </div>
@@ -425,13 +518,14 @@
   <!-- =========================================================================
        MAIN 3D REALISTIC BOOK VIEWPORT
        ========================================================================= -->
-  <main class="relative z-20 flex-1 w-full max-w-5xl mx-auto px-2 sm:px-6 py-1 flex items-center justify-center min-h-0 [perspective:2600px]">
+  <main
+    class="relative z-20 flex-1 w-full max-w-5xl mx-auto px-2 sm:px-6 py-1 flex items-center justify-center min-h-0 [perspective:2600px]">
 
     <!-- Ambient Shadow Under the Open Book on the Desk -->
     <div class="book-ambient-shadow"></div>
 
     <!-- Hardcover Outer Shell -->
-    <div class="book-hardcover w-full h-full max-h-[580px] sm:max-h-[615px] flex flex-col justify-between" id="bookContainer">
+    <div class="book-hardcover w-full max-w-[365px] sm:max-w-none mx-auto h-full max-h-[580px] sm:max-h-[615px] flex flex-col justify-between" id="bookContainer">
 
       <!-- Antique Rose Gold Filigree Metal Corner Ornaments -->
       <div class="book-metal-corner corner-tl"></div>
@@ -471,24 +565,25 @@
                ========================================================================= -->
           <div
             class="book-page-leaf h-full flex flex-col justify-between items-center text-center relative overflow-hidden select-none cursor-pointer group"
-            data-density="hard"
-            id="pageHardcoverFront"
-            style="
+            data-density="hard" id="pageHardcoverFront" style="
               background-color: #3b1223;
               background-image: url('assets/baroque_cover_frame.svg');
               background-size: 100% 100%;
               background-position: center;
               box-shadow: inset 0 0 45px rgba(0,0,0,0.9);
-            "
-          >
+            ">
             <!-- Left Spine Crease -->
-            <div class="absolute top-0 bottom-0 left-0 w-6 bg-gradient-to-r from-black/70 via-white/5 to-transparent pointer-events-none z-20"></div>
+            <div
+              class="absolute top-0 bottom-0 left-0 w-6 bg-gradient-to-r from-black/70 via-white/5 to-transparent pointer-events-none z-20">
+            </div>
 
-            <div class="relative z-10 w-full h-full flex flex-col justify-between items-center px-5 sm:px-8 py-6 sm:py-8">
+            <div
+              class="relative z-10 w-full h-full flex flex-col justify-between items-center px-5 sm:px-8 py-6 sm:py-8">
               <!-- Top Archival Badge -->
               <div class="pt-1 sm:pt-2 flex items-center justify-center gap-2">
                 <span class="text-[#ffd700] text-xs">❀</span>
-                <span class="font-cinzel text-[9px] sm:text-[10px] tracking-[0.32em] text-[#edd382] uppercase font-bold drop-shadow">
+                <span
+                  class="font-cinzel text-[9px] sm:text-[10px] tracking-[0.32em] text-[#edd382] uppercase font-bold drop-shadow">
                   ARCHIVAL EDITION · EDISI KHUSUS
                 </span>
                 <span class="text-[#ffd700] text-xs">❀</span>
@@ -498,13 +593,15 @@
               <div class="my-auto flex flex-col items-center w-full">
                 <div class="flex items-center justify-center gap-2 mb-1">
                   <div class="h-[1px] w-6 sm:w-10 bg-gradient-to-r from-transparent via-[#ffd700] to-transparent"></div>
-                  <span class="font-cinzel text-[9.5px] sm:text-[10.5px] tracking-[0.28em] text-[#ffd700] uppercase font-semibold">
+                  <span
+                    class="font-cinzel text-[9.5px] sm:text-[10.5px] tracking-[0.28em] text-[#ffd700] uppercase font-semibold">
                     SEBUAH BUKU KECIL UNTUK
                   </span>
                   <div class="h-[1px] w-6 sm:w-10 bg-gradient-to-r from-transparent via-[#ffd700] to-transparent"></div>
                 </div>
 
-                <h1 id="coverTitleEl" class="font-cinzel text-2xl sm:text-3xl md:text-[34px] font-extrabold tracking-[0.14em] uppercase text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] via-[#fff3cd] to-[#edd382] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] leading-tight">
+                <h1 id="coverTitleEl"
+                  class="font-cinzel text-2xl sm:text-3xl md:text-[34px] font-extrabold tracking-[0.14em] uppercase text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] via-[#fff3cd] to-[#edd382] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] leading-tight">
                   TENTANG KAMU, JASMINE
                 </h1>
 
@@ -517,12 +614,16 @@
                 </div>
 
                 <!-- Snoopy Cameo Plaque Adorned with Jasmine Blossoms -->
-                <div class="relative mt-3.5 p-1.5 sm:p-2 rounded-xl bg-gradient-to-b from-[#5c1d38] to-[#1e0712] border-2 border-[#edd382] shadow-[0_12px_28px_rgba(0,0,0,0.85)] group-hover:scale-105 transition-transform duration-500">
+                <div
+                  class="relative mt-3.5 p-1.5 sm:p-2 rounded-xl bg-gradient-to-b from-[#5c1d38] to-[#1e0712] border-2 border-[#edd382] shadow-[0_12px_28px_rgba(0,0,0,0.85)] group-hover:scale-105 transition-transform duration-500">
                   <!-- Top-Left Jasmine Blossom -->
-                  <div class="absolute -top-3.5 -left-3.5 z-20 pointer-events-none drop-shadow-[0_3px_6px_rgba(0,0,0,0.7)]">
+                  <div
+                    class="absolute -top-3.5 -left-3.5 z-20 pointer-events-none drop-shadow-[0_3px_6px_rgba(0,0,0,0.7)]">
                     <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none">
-                      <path d="M 25 75 C 10 65 5 45 18 35 C 30 25 45 40 38 60 Z" fill="#2d5a3f" stroke="#4ade80" stroke-width="1.5" />
-                      <path d="M 75 25 C 65 10 45 5 35 18 C 25 30 40 45 60 38 Z" fill="#204631" stroke="#4ade80" stroke-width="1.5" />
+                      <path d="M 25 75 C 10 65 5 45 18 35 C 30 25 45 40 38 60 Z" fill="#2d5a3f" stroke="#4ade80"
+                        stroke-width="1.5" />
+                      <path d="M 75 25 C 65 10 45 5 35 18 C 25 30 40 45 60 38 Z" fill="#204631" stroke="#4ade80"
+                        stroke-width="1.5" />
                       <circle cx="50" cy="28" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
                       <circle cx="70" cy="44" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
                       <circle cx="62" cy="70" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
@@ -535,9 +636,11 @@
                   </div>
 
                   <!-- Bottom-Right Jasmine Blossom -->
-                  <div class="absolute -bottom-3 -right-3 z-20 pointer-events-none drop-shadow-[0_3px_6px_rgba(0,0,0,0.7)]">
+                  <div
+                    class="absolute -bottom-3 -right-3 z-20 pointer-events-none drop-shadow-[0_3px_6px_rgba(0,0,0,0.7)]">
                     <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none">
-                      <path d="M 75 75 C 85 60 85 40 70 30 C 55 20 40 35 48 55 Z" fill="#2d5a3f" stroke="#4ade80" stroke-width="1.5" />
+                      <path d="M 75 75 C 85 60 85 40 70 30 C 55 20 40 35 48 55 Z" fill="#2d5a3f" stroke="#4ade80"
+                        stroke-width="1.5" />
                       <circle cx="50" cy="28" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
                       <circle cx="70" cy="44" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
                       <circle cx="62" cy="70" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
@@ -548,26 +651,29 @@
                     </svg>
                   </div>
 
-                  <div class="relative w-40 sm:w-48 h-28 sm:h-32 rounded-lg overflow-hidden border border-[#edd382]/70 shadow-inner">
-                    <img
-                      src="assets/snoopy_starry_night.jpg"
+                  <div
+                    class="relative w-40 sm:w-48 h-28 sm:h-32 rounded-lg overflow-hidden border border-[#edd382]/70 shadow-inner">
+                    <img src="assets/snoopy_starry_night.jpg"
                       alt="Snoopy di bawah langit malam bertabur bintang untuk Jasmine"
-                      class="w-full h-full object-cover"
-                    />
+                      class="w-full h-full object-cover" />
                   </div>
-                  <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-gradient-to-r from-[#d4af37] via-[#f7e7a1] to-[#aa8022] text-[#240a17] font-cinzel text-[8.5px] sm:text-[9px] font-extrabold tracking-wider uppercase shadow-md border border-[#fff8d6] whitespace-nowrap">
+                  <div
+                    class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-gradient-to-r from-[#d4af37] via-[#f7e7a1] to-[#aa8022] text-[#240a17] font-cinzel text-[8.5px] sm:text-[9px] font-extrabold tracking-wider uppercase shadow-md border border-[#fff8d6] whitespace-nowrap">
                     ❀ SNOOPY &amp; BUNGA MELATI ❀
                   </div>
                 </div>
 
                 <!-- Dedication Plate for Jasmine -->
-                <div class="mt-3.5 px-4 py-1.5 rounded-xl bg-gradient-to-r from-[#180812]/95 via-[#2b0c1e]/95 to-[#180812]/95 border border-[#edd382]/70 shadow-[0_4px_16px_rgba(0,0,0,0.8)] backdrop-blur-xs flex flex-col items-center">
-                  <div class="flex items-center gap-1.5 text-[8px] sm:text-[8.5px] font-cinzel tracking-[0.25em] text-[#edd382] uppercase font-bold">
+                <div
+                  class="mt-3.5 px-4 py-1.5 rounded-xl bg-gradient-to-r from-[#180812]/95 via-[#2b0c1e]/95 to-[#180812]/95 border border-[#edd382]/70 shadow-[0_4px_16px_rgba(0,0,0,0.8)] backdrop-blur-xs flex flex-col items-center">
+                  <div
+                    class="flex items-center gap-1.5 text-[8px] sm:text-[8.5px] font-cinzel tracking-[0.25em] text-[#edd382] uppercase font-bold">
                     <span>✦</span>
                     <span>DIPERSEMBAHKAN KHUSUS UNTUK</span>
                     <span>✦</span>
                   </div>
-                  <span class="font-serif text-xs sm:text-sm text-white font-bold tracking-wider mt-0.5 drop-shadow recipient-name-text">
+                  <span
+                    class="font-serif text-xs sm:text-sm text-white font-bold tracking-wider mt-0.5 drop-shadow recipient-name-text">
                     Jasmine ramadhania syarif
                   </span>
                   <span class="text-[8.5px] font-typewriter text-[#fce7f3] mt-0.5">
@@ -578,7 +684,8 @@
 
               <!-- Bottom Interactive Open Hint -->
               <div class="pb-1">
-                <div class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#d4af37] via-[#f7e7a1] to-[#aa8022] hover:from-[#f7e7a1] hover:to-[#d4af37] text-[#240a17] text-xs sm:text-[13px] font-cinzel tracking-[0.16em] font-extrabold shadow-[0_8px_24px_rgba(212,175,55,0.45)] flex items-center gap-2 group-hover:scale-105 transition-all duration-300 border border-[#fff8d6] cursor-pointer">
+                <div
+                  class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#d4af37] via-[#f7e7a1] to-[#aa8022] hover:from-[#f7e7a1] hover:to-[#d4af37] text-[#240a17] text-xs sm:text-[13px] font-cinzel tracking-[0.16em] font-extrabold shadow-[0_8px_24px_rgba(212,175,55,0.45)] flex items-center gap-2 group-hover:scale-105 transition-all duration-300 border border-[#fff8d6] cursor-pointer">
                   <span>❀ BUKA BUKU KECIL JASMINE ➔ ❀</span>
                 </div>
               </div>
@@ -588,7 +695,9 @@
           <!-- =========================================================================
                PAGE 1: SPREAD 1 LEFT (LEMBAR PERSEMBAHAN & SURAT PEMBUKA - HAL. 00)
                ========================================================================= -->
-          <div class="book-page-leaf paper-sheet page-arch-left h-full p-4 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto" data-density="soft">
+          <div
+            class="book-page-leaf paper-sheet page-arch-left h-full p-4 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto"
+            data-density="soft">
             <div>
               <div class="flex items-center justify-between border-b border-[#fbcfe8] pb-2 mb-3">
                 <span class="font-typewriter text-[11px] uppercase tracking-widest text-[#be123c] font-bold">
@@ -601,10 +710,12 @@
                 <div class="washi-tape w-24 h-5 -top-2.5 left-8 absolute -rotate-2"></div>
                 <div class="flex items-center justify-between mb-2">
                   <span class="font-serif-editorial italic text-xs text-[#be123c] font-bold">Lembar Persembahan</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#fce7f3] text-[#be123c] font-medium">Khusus Untukmu 💖</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#fce7f3] text-[#be123c] font-medium">Khusus
+                    Untukmu 💖</span>
                 </div>
 
-                <div class="grid grid-cols-2 gap-2 text-xs font-serif-editorial border-t border-dashed border-[#fbcfe8] pt-2">
+                <div
+                  class="grid grid-cols-2 gap-2 text-xs font-serif-editorial border-t border-dashed border-[#fbcfe8] pt-2">
                   <div>
                     <span class="text-[10px] font-typewriter text-[#9d174d] block font-bold">UNTUK:</span>
                     <strong class="text-[#3b1223] text-sm recipient-name-text">Jasmine ramadhania syarif</strong>
@@ -615,8 +726,10 @@
                   </div>
                 </div>
 
-                <div class="mt-2.5 pt-2 border-t border-dashed border-[#fbcfe8] text-xs text-[#4c0519] leading-relaxed font-serif-editorial italic">
-                  &quot;Buku kecil ini kubuat pelan-pelan khusus untukmu. Di dalamnya ada beberapa lembar cerita jujur, alunan lagu kesukaan, dan perasaan yang akhirnya berani kutitipkan lewat kata-kata.&quot;
+                <div
+                  class="mt-2.5 pt-2 border-t border-dashed border-[#fbcfe8] text-xs text-[#4c0519] leading-relaxed font-serif-editorial italic">
+                  &quot;Buku kecil ini kubuat pelan-pelan khusus untukmu. Di dalamnya ada beberapa lembar cerita jujur,
+                  alunan lagu kesukaan, dan perasaan yang akhirnya berani kutitipkan lewat kata-kata.&quot;
                 </div>
               </div>
 
@@ -625,14 +738,16 @@
                   &quot;Ada beberapa hal yang terlalu berharga kalau cuma diucapkan lewat chat singkat...&quot;
                 </p>
                 <p class="text-xs sm:text-[13px] text-[#4c0519] leading-relaxed">
-                  Jadi kubuatkan buku kecil bernuansa merah jambu ini—ditemani Snoopy yang setia, secangkir kehangatan, dan lembaran sederhana tentang kita.
+                  Jadi kubuatkan buku kecil bernuansa merah jambu ini—ditemani Snoopy yang setia, secangkir kehangatan,
+                  dan lembaran sederhana tentang kita.
                 </p>
               </div>
 
               <div class="mt-3 p-2.5 bg-[#fef9c3]/70 border border-[#fde047] rounded-lg shadow-2xs relative">
                 <div class="washi-tape w-12 h-3.5 -top-1.5 left-4 absolute"></div>
                 <p class="font-handwriting text-xs sm:text-sm text-[#854d0e] leading-snug">
-                  &quot;Buka setiap lembarnya dengan santai ya... semoga senyummu selalu merekah di setiap halamannya.&quot;
+                  &quot;Buka setiap lembarnya dengan santai ya... semoga senyummu selalu merekah di setiap
+                  halamannya.&quot;
                 </p>
               </div>
             </div>
@@ -649,7 +764,9 @@
           <!-- =========================================================================
                PAGE 2: SPREAD 1 RIGHT (TURNTABLE VINYL ADU RAYU - HAL. 01)
                ========================================================================= -->
-          <div class="book-page-leaf paper-sheet page-arch-right h-full p-4 sm:p-6 flex flex-col justify-between items-center text-center relative page-scroll overflow-y-auto" data-density="soft">
+          <div
+            class="book-page-leaf paper-sheet page-arch-right h-full p-4 sm:p-6 flex flex-col justify-between items-center text-center relative page-scroll overflow-y-auto"
+            data-density="soft">
             <div class="w-full flex flex-col items-center">
               <div class="w-full flex items-center justify-between border-b border-[#fbcfe8] pb-2 mb-3">
                 <span class="font-typewriter text-[10.5px] uppercase tracking-widest text-[#be123c] font-bold">
@@ -659,21 +776,25 @@
               </div>
 
               <!-- Retro Turntable Box -->
-              <div class="relative w-full max-w-[285px] sm:max-w-[310px] bg-gradient-to-b from-[#2a0c18] to-[#19050d] rounded-2xl p-4 sm:p-5 border-2 border-[#f472b6] shadow-xl flex flex-col items-center">
+              <div
+                class="relative w-full max-w-[285px] sm:max-w-[310px] bg-gradient-to-b from-[#2a0c18] to-[#19050d] rounded-2xl p-4 sm:p-5 border-2 border-[#f472b6] shadow-xl flex flex-col items-center">
                 <div class="absolute top-2 left-3 flex items-center gap-1.5 text-[9px] font-typewriter text-[#fbcfe8]">
                   <span id="vinylStatusDot" class="w-2 h-2 rounded-full bg-rose-400"></span>
                   <span id="vinylStatusText">TURNTABLE STANDBY</span>
                 </div>
 
                 <!-- Platter & Record -->
-                <div class="relative w-36 h-36 sm:w-40 sm:h-40 mt-2 rounded-full flex items-center justify-center shadow-2xl">
+                <div
+                  class="relative w-36 h-36 sm:w-40 sm:h-40 mt-2 rounded-full flex items-center justify-center shadow-2xl">
                   <div class="absolute inset-0 rounded-full bg-[#120409] border-4 border-[#4a1428] shadow-inner"></div>
 
                   <div id="vinylDisc"
                     class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full flex items-center justify-center border border-[#33111f]"
                     style="background: repeating-radial-gradient(circle, #1a060f 0px, #1a060f 2px, #2d0d1b 3px, #14040b 4px); box-shadow: 0 0 20px rgba(0,0,0,0.85);">
-                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[#be123c] to-[#881337] border-2 border-[#ffd700] flex flex-col items-center justify-center p-1 text-center shadow">
-                      <span class="text-[7px] font-cinzel text-[#ffd700] font-bold tracking-wider leading-none">PEANUTS</span>
+                    <div
+                      class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[#be123c] to-[#881337] border-2 border-[#ffd700] flex flex-col items-center justify-center p-1 text-center shadow">
+                      <span
+                        class="text-[7px] font-cinzel text-[#ffd700] font-bold tracking-wider leading-none">PEANUTS</span>
                       <span class="text-[8px] my-0.5">🐶🐾</span>
                       <span class="text-[6px] font-typewriter text-white/90 leading-tight">ADU RAYU</span>
                       <div class="w-2 h-2 rounded-full bg-[#14040b] border border-[#ffd700] mt-0.5"></div>
@@ -697,7 +818,8 @@
               </p>
             </div>
 
-            <div class="w-full pt-2 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
+            <div
+              class="w-full pt-2 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
               <span class="text-[#be123c] font-semibold">TARIK HALAMAN KE KIRI ➔</span>
               <span>HAL. 01</span>
             </div>
@@ -706,7 +828,8 @@
           <!-- =========================================================================
                PAGE 3: SPREAD 2 LEFT (BAB I: FOTO SPESIAL CRUSH - HAL. 02)
                ========================================================================= -->
-          <div class="book-page-leaf paper-sheet page-arch-left h-full p-4 sm:p-5 flex flex-col justify-between" data-density="soft">
+          <div class="book-page-leaf paper-sheet page-arch-left h-full p-4 sm:p-5 flex flex-col justify-between"
+            data-density="soft">
             <div>
               <div class="flex items-center justify-between border-b border-[#fbcfe8] pb-1.5 mb-2">
                 <span class="font-typewriter text-[11px] uppercase tracking-widest text-[#be123c] font-bold">
@@ -720,18 +843,18 @@
               </p>
 
               <!-- Polaroid Frame of Crush's Photo -->
-              <div id="polaroidCrush" class="relative bg-white p-2.5 rounded-lg shadow-md border border-[#fbcfe8] max-w-[240px] sm:max-w-[260px] mx-auto cursor-pointer group hover:rotate-1 hover:scale-[1.02] transition-all duration-300">
+              <div id="polaroidCrush"
+                class="relative bg-white p-2.5 rounded-lg shadow-md border border-[#fbcfe8] max-w-[240px] sm:max-w-[260px] mx-auto cursor-pointer group hover:rotate-1 hover:scale-[1.02] transition-all duration-300">
                 <div class="washi-tape w-16 h-3.5 -top-1.5 left-5 absolute -rotate-3"></div>
                 <div class="washi-tape w-16 h-3.5 -top-1.5 right-5 absolute rotate-3"></div>
 
-                <div class="relative w-full h-44 sm:h-48 rounded-lg overflow-hidden bg-[#fff0f3] border border-[#fce7f3] flex items-center justify-center p-1">
-                  <img
-                    src="assets/special_memory.jpg"
-                    alt="Foto Spesial Jasmine ramadhania syarif"
+                <div
+                  class="relative w-full h-44 sm:h-48 rounded-lg overflow-hidden bg-[#fff0f3] border border-[#fce7f3] flex items-center justify-center p-1">
+                  <img src="assets/special_memory.jpg" alt="Foto Spesial Jasmine ramadhania syarif"
                     class="max-h-full max-w-full object-contain mx-auto rounded shadow-2xs group-hover:scale-105 transition-transform duration-500"
-                    loading="eager"
-                  />
-                  <div class="absolute bottom-1.5 right-1.5 px-2 py-0.5 rounded-full bg-black/60 text-[8.5px] font-typewriter text-white flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    loading="eager" />
+                  <div
+                    class="absolute bottom-1.5 right-1.5 px-2 py-0.5 rounded-full bg-black/60 text-[8.5px] font-typewriter text-white flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                     <span>✨ Perbesar</span>
                   </div>
                 </div>
@@ -741,14 +864,17 @@
                 </p>
               </div>
 
-              <div class="mt-2 p-2 sm:p-2.5 bg-[#fff1f2] border border-[#fbcfe8] rounded-lg text-[11px] sm:text-xs font-serif-editorial leading-relaxed text-[#4c0519]">
+              <div
+                class="mt-2 p-2 sm:p-2.5 bg-[#fff1f2] border border-[#fbcfe8] rounded-lg text-[11px] sm:text-xs font-serif-editorial leading-relaxed text-[#4c0519]">
                 <p class="italic">
-                  &quot;Di antara jutaan hal yang ada di dunia maya, foto dan senyum manismu ini yang selalu paling aku tunggu, Jasmine. Sederhana, tapi magisnya nyata banget bikin hati adem.&quot;
+                  &quot;Di antara jutaan hal yang ada di dunia maya, foto dan senyum manismu ini yang selalu paling aku
+                  tunggu, Jasmine. Sederhana, tapi magisnya nyata banget bikin hati adem.&quot;
                 </p>
               </div>
             </div>
 
-            <div class="pt-1.5 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
+            <div
+              class="pt-1.5 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
               <span class="text-[#be123c] font-semibold">KLIK FOTO UNTUK MEMPERBESAR</span>
               <span>HAL. 02</span>
             </div>
@@ -757,7 +883,9 @@
           <!-- =========================================================================
                PAGE 4: SPREAD 2 RIGHT (BAB I: PUISI SASTRA & MESIN TIK - HAL. 03)
                ========================================================================= -->
-          <div class="book-page-leaf paper-sheet page-arch-right h-full p-4 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto" data-density="soft">
+          <div
+            class="book-page-leaf paper-sheet page-arch-right h-full p-4 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto"
+            data-density="soft">
             <div>
               <div class="flex items-center justify-between border-b border-[#fbcfe8] pb-2 mb-3">
                 <span class="font-typewriter text-[11px] uppercase tracking-widest text-[#be123c] font-bold">
@@ -769,15 +897,17 @@
               <!-- Sastra Puisi Card from User -->
               <div class="bg-[#fff1f2] border border-[#fbcfe8] rounded-xl p-3.5 shadow-sm relative">
                 <div class="washi-tape w-24 h-4 -top-2 left-6 absolute"></div>
-                <p class="font-serif-editorial italic text-xs sm:text-[12.5px] text-[#4c0519] leading-relaxed whitespace-pre-line">
-&quot;kalau pada akhir aku hanya bisa mengagumimu dari jauh setidaknya terimakasih kepada semesta karena pernah mengizinkanku mengenal seseorang sejosjis kamu.
+                <p
+                  class="font-serif-editorial italic text-xs sm:text-[12.5px] text-[#4c0519] leading-relaxed whitespace-pre-line">
+                  &quot;kalau pada akhir aku hanya bisa mengagumimu dari jauh setidaknya terimakasih kepada semesta
+                  karena pernah mengizinkanku mengenal seseorang sejosjis kamu.
 
-jangan jadi orang bingung, ya?
-aku tidak tahu harus membaca sikapmu sebagai apa
-kadang kamu terasa begitu dekat
-lalu esoknya seperti tidak pernah mengenalku
-sedangkan aku,
-sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
+                  jangan jadi orang bingung, ya?
+                  aku tidak tahu harus membaca sikapmu sebagai apa
+                  kadang kamu terasa begitu dekat
+                  lalu esoknya seperti tidak pernah mengenalku
+                  sedangkan aku,
+                  sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
                 </p>
               </div>
 
@@ -790,9 +920,11 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
                   <span class="text-[10px] font-typewriter text-[#be123c]">CATATAN PINK</span>
                 </div>
 
-                <div class="bg-white border border-[#fbcfe8] rounded-lg p-3 min-h-[90px] flex items-center shadow-inner">
+                <div
+                  class="bg-white border border-[#fbcfe8] rounded-lg p-3 min-h-[90px] flex items-center shadow-inner">
                   <p id="typewriterTextEl" class="font-typewriter text-xs text-[#3b1223] leading-relaxed">
-                    &quot;Sebenarnya tiap kali notifikasi chat darimu masuk, jantungku selalu salah tingkah sendiri...&quot;
+                    &quot;Sebenarnya tiap kali notifikasi chat darimu masuk, jantungku selalu salah tingkah
+                    sendiri...&quot;
                     <span class="inline-block w-1.5 h-3.5 bg-[#be123c] ml-1 animate-pulse"></span>
                   </p>
                 </div>
@@ -804,7 +936,8 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
               </div>
             </div>
 
-            <div class="pt-2 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
+            <div
+              class="pt-2 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
               <span>KETUK UNTUK DRAF BERIKUTNYA</span>
               <span>HAL. 03</span>
             </div>
@@ -813,7 +946,9 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
           <!-- =========================================================================
                PAGE 5: SPREAD 3 LEFT (BAB II: WISHLIST KETEMU - HAL. 04)
                ========================================================================= -->
-          <div class="book-page-leaf paper-sheet page-arch-left h-full p-4 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto" data-density="soft">
+          <div
+            class="book-page-leaf paper-sheet page-arch-left h-full p-4 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto"
+            data-density="soft">
             <div>
               <div class="flex items-center justify-between border-b border-[#fbcfe8] pb-2 mb-3">
                 <span class="font-typewriter text-[11px] uppercase tracking-widest text-[#be123c] font-bold">
@@ -828,16 +963,23 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
 
               <!-- Wishlist Items -->
               <div class="space-y-2 bg-[#fff1f2] border border-[#fbcfe8] rounded-xl p-3 shadow-sm">
-                <label class="flex items-start gap-2.5 text-xs text-[#3b1223] font-serif-editorial cursor-pointer hover:bg-white/60 p-1.5 rounded transition">
-                  <input type="checkbox" checked class="wishlist-check mt-0.5 rounded border-[#f472b6] text-[#be123c]" />
-                  <span>🍜 Ajak kamu ke warung makan langganan hangat kuah & sambal, duduk berhadapan cerita tanpa canggung</span>
+                <label
+                  class="flex items-start gap-2.5 text-xs text-[#3b1223] font-serif-editorial cursor-pointer hover:bg-white/60 p-1.5 rounded transition">
+                  <input type="checkbox" checked
+                    class="wishlist-check mt-0.5 rounded border-[#f472b6] text-[#be123c]" />
+                  <span>🍜 Ajak kamu ke warung makan langganan hangat kuah & sambal, duduk berhadapan cerita tanpa
+                    canggung</span>
                 </label>
-                <label class="flex items-start gap-2.5 text-xs text-[#3b1223] font-serif-editorial cursor-pointer hover:bg-white/60 p-1.5 rounded transition">
-                  <input type="checkbox" checked class="wishlist-check mt-0.5 rounded border-[#f472b6] text-[#be123c]" />
+                <label
+                  class="flex items-start gap-2.5 text-xs text-[#3b1223] font-serif-editorial cursor-pointer hover:bg-white/60 p-1.5 rounded transition">
+                  <input type="checkbox" checked
+                    class="wishlist-check mt-0.5 rounded border-[#f472b6] text-[#be123c]" />
                   <span>🍦 Jalan santai sore sambil makan es krim dan ngobrolin hal-hal random sampai lupa waktu</span>
                 </label>
-                <label class="flex items-start gap-2.5 text-xs text-[#3b1223] font-serif-editorial cursor-pointer hover:bg-white/60 p-1.5 rounded transition">
-                  <input type="checkbox" checked class="wishlist-check mt-0.5 rounded border-[#f472b6] text-[#be123c]" />
+                <label
+                  class="flex items-start gap-2.5 text-xs text-[#3b1223] font-serif-editorial cursor-pointer hover:bg-white/60 p-1.5 rounded transition">
+                  <input type="checkbox" checked
+                    class="wishlist-check mt-0.5 rounded border-[#f472b6] text-[#be123c]" />
                   <span>☕ Ngopi santai berdua di sudut kafe hangat sambil dengerin alunan playlist kesukaan</span>
                 </label>
               </div>
@@ -847,8 +989,7 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
                 <span class="font-typewriter text-[10px] text-[#9d174d] font-bold block mb-1">
                   TAMBAH IMPIAN KITA BERDUA:
                 </span>
-                <input id="inputCoupleGoal" type="text"
-                  value="Makan di warung langganan hangat kuah dan sambal"
+                <input id="inputCoupleGoal" type="text" value="Makan di warung langganan hangat kuah dan sambal"
                   class="w-full text-xs font-serif-editorial bg-white border border-[#fbcfe8] rounded-lg p-2 text-[#3b1223] focus:outline-none focus:border-[#be123c]"
                   placeholder="Tulis impian kencan yang kamu mau..." />
               </div>
@@ -859,15 +1000,24 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
                   GIMANA PERASAANMU BACA BUKU INI?
                 </span>
                 <div class="grid grid-cols-2 gap-1.5">
-                  <button type="button" class="btn-mood text-[10px] font-typewriter py-1 px-2 rounded-lg border bg-[#be123c] text-white border-[#be123c] font-bold cursor-pointer" data-mood="Senyum-senyum sendiri">Senyum-senyum sendiri</button>
-                  <button type="button" class="btn-mood text-[10px] font-typewriter py-1 px-2 rounded-lg border bg-white text-[#4c0519] border-[#fbcfe8] hover:bg-[#fce7f3] cursor-pointer" data-mood="Deg-degan manis">Deg-degan manis</button>
-                  <button type="button" class="btn-mood text-[10px] font-typewriter py-1 px-2 rounded-lg border bg-white text-[#4c0519] border-[#fbcfe8] hover:bg-[#fce7f3] cursor-pointer" data-mood="Terharu banget">Terharu banget</button>
-                  <button type="button" class="btn-mood text-[10px] font-typewriter py-1 px-2 rounded-lg border bg-white text-[#4c0519] border-[#fbcfe8] hover:bg-[#fce7f3] cursor-pointer" data-mood="Bunga-bunga di hati">Bunga-bunga di hati</button>
+                  <button type="button"
+                    class="btn-mood text-[10px] font-typewriter py-1 px-2 rounded-lg border bg-[#be123c] text-white border-[#be123c] font-bold cursor-pointer"
+                    data-mood="Senyum-senyum sendiri">Senyum-senyum sendiri</button>
+                  <button type="button"
+                    class="btn-mood text-[10px] font-typewriter py-1 px-2 rounded-lg border bg-white text-[#4c0519] border-[#fbcfe8] hover:bg-[#fce7f3] cursor-pointer"
+                    data-mood="Deg-degan manis">Deg-degan manis</button>
+                  <button type="button"
+                    class="btn-mood text-[10px] font-typewriter py-1 px-2 rounded-lg border bg-white text-[#4c0519] border-[#fbcfe8] hover:bg-[#fce7f3] cursor-pointer"
+                    data-mood="Terharu banget">Terharu banget</button>
+                  <button type="button"
+                    class="btn-mood text-[10px] font-typewriter py-1 px-2 rounded-lg border bg-white text-[#4c0519] border-[#fbcfe8] hover:bg-[#fce7f3] cursor-pointer"
+                    data-mood="Bunga-bunga di hati">Bunga-bunga di hati</button>
                 </div>
               </div>
             </div>
 
-            <div class="pt-2 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
+            <div
+              class="pt-2 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
               <span>KERTAS HARAPAN NO. 07</span>
               <span>HAL. 04</span>
             </div>
@@ -876,7 +1026,9 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
           <!-- =========================================================================
                PAGE 6: SPREAD 3 RIGHT (BAB II: DRAF SEBELUM CONFESS - HAL. 05)
                ========================================================================= -->
-          <div class="book-page-leaf paper-sheet paper-ruled page-arch-right h-full p-4 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto" data-density="soft">
+          <div
+            class="book-page-leaf paper-sheet paper-ruled page-arch-right h-full p-4 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto"
+            data-density="soft">
             <div>
               <div class="flex items-center justify-between border-b border-[#fbcfe8] pb-2 mb-3">
                 <span class="font-typewriter text-[11px] uppercase tracking-widest text-[#be123c] font-bold">
@@ -890,18 +1042,25 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
               </h3>
 
               <!-- Exact Monologue from User -->
-              <div class="bg-[#fff1f2]/80 border border-[#fbcfe8] rounded-xl p-3.5 shadow-sm text-xs sm:text-[13px] text-[#3b1223] font-serif-editorial leading-relaxed space-y-2.5">
+              <div
+                class="bg-[#fff1f2]/80 border border-[#fbcfe8] rounded-xl p-3.5 shadow-sm text-xs sm:text-[13px] text-[#3b1223] font-serif-editorial leading-relaxed space-y-2.5">
                 <p>
-                  hai, maaf kalo ini kedengeran random dan konyol, tapi to be honest aku suka banget sama kamu. sebenernya aku udah merhatiin kamu dari lama, jauh sebelum kita kenal, cuma waktu itu belum berani make a move atau sekadar follow duluan hehe.
+                  hai, maaf kalo ini kedengeran random dan konyol, tapi to be honest aku suka banget sama kamu.
+                  sebenernya aku udah merhatiin kamu dari lama, jauh sebelum kita kenal, cuma waktu itu belum berani
+                  make a move atau sekadar follow duluan hehe.
                 </p>
                 <p>
-                  I genuinely admire kepinteran dan vibe kamu, you're literally my dream girl. aku deketin kamu bukan buat main-main atau sekadar penasaran, I'm being completely sincere here.
+                  I genuinely admire kepinteran dan vibe kamu, you're literally my dream girl. aku deketin kamu bukan
+                  buat main-main atau sekadar penasaran, I'm being completely sincere here.
                 </p>
                 <p>
-                  Aku sadar chances-nya kecil karena kita baru banget deket, jadi aku ngga naruh ekspektasi apa-apa. aku cuma pengen ngungkapin aja biar perasaan aku lebih lega aja. my bad kalau selama ini aku kesannya ngechatin kamu terus atau mungkin bikin kamu uncomfortable.
+                  Aku sadar chances-nya kecil karena kita baru banget deket, jadi aku ngga naruh ekspektasi apa-apa. aku
+                  cuma pengen ngungkapin aja biar perasaan aku lebih lega aja. my bad kalau selama ini aku kesannya
+                  ngechatin kamu terus atau mungkin bikin kamu uncomfortable.
                 </p>
                 <p>
-                  kalau setelah chat ini kamu milih buat keep distance atau bersikap asing, its okay kok... yang penting aku udah gentleman buat jujur soal perasaan aku ke kamu.
+                  kalau setelah chat ini kamu milih buat keep distance atau bersikap asing, its okay kok... yang penting
+                  aku udah gentleman buat jujur soal perasaan aku ke kamu.
                 </p>
               </div>
 
@@ -913,7 +1072,8 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
               </div>
             </div>
 
-            <div class="pt-2 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
+            <div
+              class="pt-2 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
               <span class="text-[#be123c] font-semibold">DRAF TERAKHIR SEBELUM CONFESS</span>
               <span>HAL. 05</span>
             </div>
@@ -922,7 +1082,9 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
           <!-- =========================================================================
                PAGE 7: SPREAD 4 LEFT (BAB III: WILL YOU BE MINE? - HAL. 06)
                ========================================================================= -->
-          <div class="book-page-leaf paper-sheet page-arch-left h-full p-4 sm:p-6 flex flex-col justify-between items-center text-center relative page-scroll overflow-y-auto" data-density="soft">
+          <div
+            class="book-page-leaf paper-sheet page-arch-left h-full p-4 sm:p-6 flex flex-col justify-between items-center text-center relative page-scroll overflow-y-auto"
+            data-density="soft">
             <div class="w-full flex flex-col items-center">
               <div class="w-full flex items-center justify-between border-b border-[#fbcfe8] pb-2 mb-3">
                 <span class="font-typewriter text-[11px] uppercase tracking-widest text-[#be123c] font-bold">
@@ -932,12 +1094,10 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
               </div>
 
               <!-- Snoopy Flower Illustration -->
-              <div class="relative my-2 w-32 h-32 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-2 border-[#f472b6] shadow-md bg-white">
-                <img
-                  src="assets/snoopy_flower_bouquet.jpg"
-                  alt="Snoopy membawa bunga mawar pink"
-                  class="w-full h-full object-cover"
-                />
+              <div
+                class="relative my-2 w-32 h-32 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border-2 border-[#f472b6] shadow-md bg-white">
+                <img src="assets/snoopy_flower_bouquet.jpg" alt="Snoopy membawa bunga mawar pink"
+                  class="w-full h-full object-cover" />
               </div>
 
               <!-- Question Box -->
@@ -945,8 +1105,10 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
                 <h2 class="font-serif-editorial text-lg sm:text-xl md:text-2xl font-bold text-[#be123c] leading-tight">
                   Will you be mine? 💖
                 </h2>
-                <p id="confessionPromptText" class="text-xs sm:text-[13px] text-[#4c0519] font-serif-editorial leading-relaxed">
-                  Dari sekian banyak orang di dunia, hatiku cuma memilih kamu. Maukah kamu jadi pacarku dan mulai melangkah bareng aku?
+                <p id="confessionPromptText"
+                  class="text-xs sm:text-[13px] text-[#4c0519] font-serif-editorial leading-relaxed">
+                  Dari sekian banyak orang di dunia, hatiku cuma memilih kamu. Maukah kamu jadi pacarku dan mulai
+                  melangkah bareng aku?
                 </p>
               </div>
 
@@ -967,7 +1129,8 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
                 </p>
               </div>
 
-              <div id="acceptedBox" class="hidden mt-2 p-3 bg-gradient-to-r from-[#fce7f3] to-[#ffe4e6] border border-[#f472b6] rounded-xl text-center shadow-md">
+              <div id="acceptedBox"
+                class="hidden mt-2 p-3 bg-gradient-to-r from-[#fce7f3] to-[#ffe4e6] border border-[#f472b6] rounded-xl text-center shadow-md">
                 <span class="text-xl block">🎉👩‍❤️‍👨💖</span>
                 <strong class="text-xs sm:text-sm text-[#be123c] block font-serif-editorial">
                   YAYYY! Mulai hari ini kita resmi berpacaran! 💖
@@ -978,7 +1141,8 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
               </div>
             </div>
 
-            <div class="w-full pt-2 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
+            <div
+              class="w-full pt-2 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
               <span>LEMBAR KEPUTUSAN HATI</span>
               <span>HAL. 06</span>
             </div>
@@ -987,7 +1151,9 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
           <!-- =========================================================================
                PAGE 8: SPREAD 4 RIGHT (BAB III: KARTU BALASAN RESMI & WHATSAPP - HAL. 07)
                ========================================================================= -->
-          <div class="book-page-leaf paper-sheet page-arch-right h-full p-4 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto" data-density="soft">
+          <div
+            class="book-page-leaf paper-sheet page-arch-right h-full p-4 sm:p-6 flex flex-col justify-between page-scroll overflow-y-auto"
+            data-density="soft">
             <div>
               <div class="flex items-center justify-between border-b border-[#fbcfe8] pb-2 mb-3">
                 <span class="font-typewriter text-[11px] uppercase tracking-widest text-[#be123c] font-bold">
@@ -1008,12 +1174,14 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
                       TUJUAN: HARI-HARI BAHAGIA BERDUA
                     </strong>
                   </div>
-                  <span id="ticketStatusBadge" class="text-xs px-2 py-0.5 rounded-full bg-[#fce7f3] text-[#be123c] font-bold">
+                  <span id="ticketStatusBadge"
+                    class="text-xs px-2 py-0.5 rounded-full bg-[#fce7f3] text-[#be123c] font-bold">
                     READY TO BOARD
                   </span>
                 </div>
 
-                <div class="grid grid-cols-2 gap-2 text-[11px] font-typewriter border-b border-dashed border-[#fbcfe8] pb-2 mb-2">
+                <div
+                  class="grid grid-cols-2 gap-2 text-[11px] font-typewriter border-b border-dashed border-[#fbcfe8] pb-2 mb-2">
                   <div>
                     <span class="text-[#9d174d] text-[9px] block">PENUMPANG:</span>
                     <span class="text-[#3b1223] font-bold recipient-name-text">Jasmine ramadhania syarif</span>
@@ -1047,7 +1215,8 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
               </div>
             </div>
 
-            <div class="pt-2 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
+            <div
+              class="pt-2 border-t border-[#fbcfe8] flex items-center justify-between text-[10px] font-typewriter text-[#9d174d]">
               <span class="text-[#be123c] font-semibold">AKHIR BUKU KECIL · AWAL KITA BERDUA 🌸</span>
               <span>HAL. 07</span>
             </div>
@@ -1058,28 +1227,30 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
                ========================================================================= -->
           <div
             class="book-page-leaf h-full flex flex-col justify-between items-center text-center relative overflow-hidden select-none cursor-pointer"
-            data-density="hard"
-            id="pageHardcoverBack"
-            style="
+            data-density="hard" id="pageHardcoverBack" style="
               background-color: #3b1223;
               background-image: url('assets/baroque_cover_frame.svg');
               background-size: 100% 100%;
               background-position: center;
               box-shadow: inset 0 0 45px rgba(0,0,0,0.9);
-            "
-          >
+            ">
             <!-- Right Spine Crease -->
-            <div class="absolute top-0 bottom-0 right-0 w-6 bg-gradient-to-l from-black/70 via-white/5 to-transparent pointer-events-none z-20"></div>
+            <div
+              class="absolute top-0 bottom-0 right-0 w-6 bg-gradient-to-l from-black/70 via-white/5 to-transparent pointer-events-none z-20">
+            </div>
 
-            <div class="relative z-10 w-full h-full flex flex-col justify-between items-center px-6 sm:px-8 py-7 sm:py-9">
+            <div
+              class="relative z-10 w-full h-full flex flex-col justify-between items-center px-6 sm:px-8 py-7 sm:py-9">
               <div class="pt-2 sm:pt-3">
-                <span class="font-cinzel text-[9.5px] sm:text-[10px] tracking-[0.35em] text-[#fbcfe8] uppercase font-bold drop-shadow">
+                <span
+                  class="font-cinzel text-[9.5px] sm:text-[10px] tracking-[0.35em] text-[#fbcfe8] uppercase font-bold drop-shadow">
                   ★ AKHIR CATATAN PINK ★
                 </span>
               </div>
 
               <div class="my-auto flex flex-col items-center w-full max-w-xs">
-                <div class="w-14 h-14 rounded-full bg-[#5c1d38] border-2 border-[#f472b6] flex items-center justify-center text-2xl my-2 shadow-inner">
+                <div
+                  class="w-14 h-14 rounded-full bg-[#5c1d38] border-2 border-[#f472b6] flex items-center justify-center text-2xl my-2 shadow-inner">
                   🌸
                 </div>
                 <h3 class="font-cinzel text-lg font-bold text-[#ffd700] tracking-widest uppercase mt-2">
@@ -1087,15 +1258,18 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
                 </h3>
                 <div class="w-36 h-0.5 bg-gradient-to-r from-transparent via-[#f472b6] to-transparent my-2"></div>
                 <p class="font-handwriting text-lg text-[#fce7f3] leading-snug">
-                  &quot;Terima kasih sudah membaca sampai lembar terakhir. Semoga kita bisa segera ketemu dan bikin cerita indah bareng. 🌸&quot;
+                  &quot;Terima kasih sudah membaca sampai lembar terakhir. Semoga kita bisa segera ketemu dan bikin
+                  cerita indah bareng. 🌸&quot;
                 </p>
-                <div class="mt-4 pt-2 border-t border-dashed border-[#f472b6]/40 w-full text-[10px] font-typewriter text-[#fbcfe8]">
+                <div
+                  class="mt-4 pt-2 border-t border-dashed border-[#f472b6]/40 w-full text-[10px] font-typewriter text-[#fbcfe8]">
                   TANDA TANGAN: <span class="text-white font-bold sender-name-text">Aku yang Mengagumimu</span>
                 </div>
               </div>
 
               <div class="pb-1 sm:pb-2">
-                <div class="px-4 py-1.5 rounded-full bg-[#240a17]/90 border border-[#f472b6]/60 text-[#fbcfe8] text-[10px] font-cinzel tracking-wider">
+                <div
+                  class="px-4 py-1.5 rounded-full bg-[#240a17]/90 border border-[#f472b6]/60 text-[#fbcfe8] text-[10px] font-cinzel tracking-wider">
                   ✦ TERIMA KASIH TELAH MEMBACA ✦
                 </div>
               </div>
@@ -1107,29 +1281,41 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
     </div>
 
     <!-- Bookmark Drawer Popover -->
-    <div id="bookmarkDrawer" class="absolute top-12 left-1/2 -translate-x-1/2 z-50 hidden bg-[#fff1f2] border-2 border-[#f472b6] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] p-4 w-76 text-xs font-typewriter">
+    <div id="bookmarkDrawer"
+      class="absolute top-12 left-1/2 -translate-x-1/2 z-50 hidden bg-[#fff1f2] border-2 border-[#f472b6] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] p-4 w-76 text-xs font-typewriter">
       <div class="flex items-center justify-between border-b border-[#fbcfe8] pb-2 mb-2.5">
         <strong class="font-serif-editorial text-[#831843] text-xs font-bold">DAFTAR ISI & PENANDA</strong>
-        <button id="btnCloseDrawer" type="button" class="text-[#9d174d] hover:text-[#be123c] font-bold cursor-pointer">✕</button>
+        <button id="btnCloseDrawer" type="button"
+          class="text-[#9d174d] hover:text-[#be123c] font-bold cursor-pointer">✕</button>
       </div>
       <div class="space-y-1 font-typewriter text-[11px]">
-        <button type="button" class="btn-jump-page w-full text-left p-2 rounded hover:bg-[#fce7f3] text-[#4c0519] flex justify-between cursor-pointer" data-target="0">
+        <button type="button"
+          class="btn-jump-page w-full text-left p-2 rounded hover:bg-[#fce7f3] text-[#4c0519] flex justify-between cursor-pointer"
+          data-target="0">
           <span>0. Sampul Depan (Hardcover)</span>
           <span class="text-[#9d174d]">COVER</span>
         </button>
-        <button type="button" class="btn-jump-page w-full text-left p-2 rounded hover:bg-[#fce7f3] text-[#4c0519] flex justify-between cursor-pointer" data-target="1">
+        <button type="button"
+          class="btn-jump-page w-full text-left p-2 rounded hover:bg-[#fce7f3] text-[#4c0519] flex justify-between cursor-pointer"
+          data-target="1">
           <span>1. Pembuka & Vinyl Adu Rayu</span>
           <span class="text-[#9d174d]">HAL. 00-01</span>
         </button>
-        <button type="button" class="btn-jump-page w-full text-left p-2 rounded hover:bg-[#fce7f3] text-[#4c0519] flex justify-between cursor-pointer" data-target="2">
+        <button type="button"
+          class="btn-jump-page w-full text-left p-2 rounded hover:bg-[#fce7f3] text-[#4c0519] flex justify-between cursor-pointer"
+          data-target="2">
           <span>2. Bab I: Foto Spesial & Puisi</span>
           <span class="text-[#9d174d]">HAL. 02-03</span>
         </button>
-        <button type="button" class="btn-jump-page w-full text-left p-2 rounded hover:bg-[#fce7f3] text-[#4c0519] flex justify-between cursor-pointer" data-target="3">
+        <button type="button"
+          class="btn-jump-page w-full text-left p-2 rounded hover:bg-[#fce7f3] text-[#4c0519] flex justify-between cursor-pointer"
+          data-target="3">
           <span>3. Bab II: Sastra & Wishlist</span>
           <span class="text-[#9d174d]">HAL. 04-05</span>
         </button>
-        <button type="button" class="btn-jump-page w-full text-left p-2 rounded hover:bg-[#fce7f3] text-[#4c0519] flex justify-between cursor-pointer" data-target="4">
+        <button type="button"
+          class="btn-jump-page w-full text-left p-2 rounded hover:bg-[#fce7f3] text-[#4c0519] flex justify-between cursor-pointer"
+          data-target="4">
           <span>4. Bab III: Will You Be Mine? 💖</span>
           <span class="text-[#9d174d]">HAL. 06-07</span>
         </button>
@@ -1138,7 +1324,7 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
   </main>
 
   <!-- Bottom Elegant Page Flip Navigator -->
-  <footer class="relative z-30 w-full max-w-5xl mx-auto px-2 sm:px-6 py-2 flex items-center justify-between gap-1.5 sm:gap-2 shrink-0">
+  <footer class="relative z-30 w-full max-w-[365px] sm:max-w-5xl mx-auto px-2 sm:px-6 py-2 flex items-center justify-between gap-1.5 sm:gap-2 shrink-0">
     <button id="btnPrevSpread" type="button"
       class="px-2.5 sm:px-3.5 py-1.5 rounded-full bg-[#3b1223]/90 hover:bg-[#be123c] disabled:opacity-25 disabled:pointer-events-none text-[#fce7f3] hover:text-white text-[11px] sm:text-xs font-medium border border-[#f472b6]/40 flex items-center gap-1 sm:gap-1.5 transition shadow cursor-pointer shrink-0">
       <span>⬅</span>
@@ -1146,22 +1332,28 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
     </button>
 
     <!-- Page Indicator Pills -->
-    <div class="flex items-center gap-1 sm:gap-1.5 bg-[#240a17]/90 px-2 sm:px-3 py-1 rounded-full border border-[#f472b6]/40 shadow-inner overflow-x-auto">
-      <button type="button" data-goto="0" class="page-dot px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-typewriter bg-[#be123c] text-white font-semibold transition shadow-sm cursor-pointer whitespace-nowrap">
+    <div
+      class="flex items-center gap-1 sm:gap-1.5 bg-[#240a17]/90 px-2 sm:px-3 py-1 rounded-full border border-[#f472b6]/40 shadow-inner overflow-x-auto">
+      <button type="button" data-goto="0"
+        class="page-dot px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-typewriter bg-[#be123c] text-white font-semibold transition shadow-sm cursor-pointer whitespace-nowrap">
         <span class="hidden sm:inline">Sampul Depan</span>
         <span class="inline sm:hidden">Sampul</span>
       </button>
-      <button type="button" data-goto="1" class="page-dot px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-typewriter text-[#fbcfe8] hover:text-white transition cursor-pointer whitespace-nowrap">
+      <button type="button" data-goto="1"
+        class="page-dot px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-typewriter text-[#fbcfe8] hover:text-white transition cursor-pointer whitespace-nowrap">
         <span class="hidden sm:inline">Pembuka</span>
         <span class="inline sm:hidden">Awal</span>
       </button>
-      <button type="button" data-goto="2" class="page-dot px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-typewriter text-[#fbcfe8] hover:text-white transition cursor-pointer whitespace-nowrap">
+      <button type="button" data-goto="2"
+        class="page-dot px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-typewriter text-[#fbcfe8] hover:text-white transition cursor-pointer whitespace-nowrap">
         Bab I
       </button>
-      <button type="button" data-goto="3" class="page-dot px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-typewriter text-[#fbcfe8] hover:text-white transition cursor-pointer whitespace-nowrap">
+      <button type="button" data-goto="3"
+        class="page-dot px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-typewriter text-[#fbcfe8] hover:text-white transition cursor-pointer whitespace-nowrap">
         Bab II
       </button>
-      <button type="button" data-goto="4" class="page-dot px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-typewriter text-[#fbcfe8] hover:text-white transition cursor-pointer whitespace-nowrap">
+      <button type="button" data-goto="4"
+        class="page-dot px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-typewriter text-[#fbcfe8] hover:text-white transition cursor-pointer whitespace-nowrap">
         <span class="hidden sm:inline">Bab III 💖</span>
         <span class="inline sm:hidden">Bab III</span>
       </button>
@@ -1175,23 +1367,31 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
   </footer>
 
   <!-- Lightbox Modal for Photo Enlarge -->
-  <div id="photoLightbox" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="relative bg-white p-4 sm:p-5 rounded-2xl max-w-sm sm:max-w-md w-full shadow-2xl border-4 border-[#fbcfe8]">
-      <button id="btnCloseLightbox" type="button" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-rose-100 hover:bg-rose-200 text-[#be123c] font-bold flex items-center justify-center transition cursor-pointer">
+  <div id="photoLightbox"
+    class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div
+      class="relative bg-white p-4 sm:p-5 rounded-2xl max-w-sm sm:max-w-md w-full shadow-2xl border-4 border-[#fbcfe8]">
+      <button id="btnCloseLightbox" type="button"
+        class="absolute top-2 right-2 w-8 h-8 rounded-full bg-rose-100 hover:bg-rose-200 text-[#be123c] font-bold flex items-center justify-center transition cursor-pointer">
         ✕
       </button>
-      <div class="relative w-full h-[65vh] max-h-[520px] rounded-xl overflow-hidden bg-black/95 border border-rose-300 flex items-center justify-center p-2">
-        <img id="lightboxImg" src="assets/special_memory.jpg" alt="Foto Spesial Jasmine ramadhania syarif" class="max-h-full max-w-full object-contain mx-auto rounded shadow-lg" />
+      <div
+        class="relative w-full h-[65vh] max-h-[520px] rounded-xl overflow-hidden bg-black/95 border border-rose-300 flex items-center justify-center p-2">
+        <img id="lightboxImg" src="assets/special_memory.jpg" alt="Foto Spesial Jasmine ramadhania syarif"
+          class="max-h-full max-w-full object-contain mx-auto rounded shadow-lg" />
       </div>
       <div class="mt-3 text-center">
-        <span class="text-[10px] font-typewriter text-[#9d174d] uppercase font-bold tracking-wider">BAB I: TENTANG SENYUMMU</span>
-        <p class="font-handwriting text-lg text-[#be123c] mt-1 leading-snug">Wajah yang selalu berhasil bikin hariku mendadak jauh lebih cerah 🌸</p>
+        <span class="text-[10px] font-typewriter text-[#9d174d] uppercase font-bold tracking-wider">BAB I: TENTANG
+          SENYUMMU</span>
+        <p class="font-handwriting text-lg text-[#be123c] mt-1 leading-snug">Wajah yang selalu berhasil bikin hariku
+          mendadak jauh lebih cerah 🌸</p>
       </div>
     </div>
   </div>
 
   <!-- Customize Modal -->
-  <div id="customizeModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-3">
+  <div id="customizeModal"
+    class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-xs flex items-center justify-center p-3">
     <div class="bg-[#fff1f2] border-2 border-[#f472b6] rounded-2xl p-5 max-w-md w-full shadow-2xl">
       <div class="flex items-center justify-between border-b border-[#fbcfe8] pb-2 mb-3">
         <strong class="font-serif-editorial text-sm text-[#831843]">Sesuaikan Buku Kecil</strong>
@@ -1200,25 +1400,31 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
       <div class="space-y-3 text-xs font-serif-editorial">
         <div>
           <label class="block font-typewriter text-[10px] text-[#9d174d] mb-1">NAMA PENERIMA (CRUSH):</label>
-          <input id="customRecipientInput" type="text" class="w-full p-2 rounded border border-[#fbcfe8] bg-white text-[#3b1223]" value="Jasmine ramadhania syarif" />
+          <input id="customRecipientInput" type="text"
+            class="w-full p-2 rounded border border-[#fbcfe8] bg-white text-[#3b1223]"
+            value="Jasmine ramadhania syarif" />
         </div>
         <div>
           <label class="block font-typewriter text-[10px] text-[#9d174d] mb-1">NAMA PENGIRIM (KAMU):</label>
-          <input id="customSenderInput" type="text" class="w-full p-2 rounded border border-[#fbcfe8] bg-white text-[#3b1223]" value="Aku yang Mengagumimu" />
+          <input id="customSenderInput" type="text"
+            class="w-full p-2 rounded border border-[#fbcfe8] bg-white text-[#3b1223]" value="Aku yang Mengagumimu" />
         </div>
         <div>
           <label class="block font-typewriter text-[10px] text-[#9d174d] mb-1">NOMOR WHATSAPP (UNTUK BALASAN):</label>
-          <input id="customWaInput" type="text" class="w-full p-2 rounded border border-[#fbcfe8] bg-white text-[#3b1223]" value="081221995470" />
+          <input id="customWaInput" type="text"
+            class="w-full p-2 rounded border border-[#fbcfe8] bg-white text-[#3b1223]" value="081221995470" />
         </div>
         <div class="pt-2 flex justify-end gap-2">
-          <button id="btnSaveCustomize" type="button" class="px-4 py-1.5 rounded-full bg-[#be123c] text-white text-xs font-bold cursor-pointer">Simpan</button>
+          <button id="btnSaveCustomize" type="button"
+            class="px-4 py-1.5 rounded-full bg-[#be123c] text-white text-xs font-bold cursor-pointer">Simpan</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Toast Notification -->
-  <div id="toastBanner" class="fixed bottom-14 left-1/2 -translate-x-1/2 z-50 hidden px-4 py-2 rounded-full bg-[#3b1223]/95 text-[#fce7f3] text-xs border border-[#f472b6]/60 shadow-xl backdrop-blur-sm">
+  <div id="toastBanner"
+    class="fixed bottom-14 left-1/2 -translate-x-1/2 z-50 hidden px-4 py-2 rounded-full bg-[#3b1223]/95 text-[#fce7f3] text-xs border border-[#f472b6]/60 shadow-xl backdrop-blur-sm">
     Tersimpan!
   </div>
 
@@ -1244,7 +1450,7 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
         if (p.sender) state.sender = p.sender;
         if (p.whatsappNumber) state.whatsapp = p.whatsappNumber;
       }
-    } catch (e) {}
+    } catch (e) { }
 
     function updateNamesInDOM() {
       document.querySelectorAll('.recipient-name-text').forEach(el => el.textContent = state.recipient);
@@ -1823,7 +2029,7 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
             sender: state.sender,
             whatsappNumber: state.whatsapp
           }));
-        } catch (e) {}
+        } catch (e) { }
         custModal.classList.add('hidden');
         showToast('Buku berhasil disesuaikan 💖');
       });
@@ -1846,4 +2052,5 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
     });
   </script>
 </body>
+
 </html>

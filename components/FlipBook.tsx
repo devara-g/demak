@@ -175,7 +175,7 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
       if (pageFlipRef.current) {
         try {
           (pageFlipRef.current as any).update();
-        } catch (e) {}
+        } catch (e) { }
       }
     };
     window.addEventListener('resize', handleResize);
@@ -370,7 +370,7 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
         origin: { y: 0.6 },
         colors: ['#f472b6', '#fb7185', '#fda4af', '#fef08a', '#be123c', '#ffffff'],
       });
-    } catch (e) {}
+    } catch (e) { }
 
     onAccept();
     showToast('Alhamdulillah! Selamat, kalian resmi berpacaran! 💖✨');
@@ -402,7 +402,7 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
           AUTHENTIC HARDCOVER BOOK CASING (VELVET BURGUNDY + ROSE GOLD ACCENTS)
           ========================================================================= */}
       <div
-        className="relative w-full h-full max-h-[580px] sm:max-h-[615px] bg-[#3b1223] rounded-2xl shadow-2xl border border-[#f472b6]/40 flex flex-col justify-between overflow-visible"
+        className="relative w-full max-w-[365px] sm:max-w-none h-full max-h-[580px] sm:max-h-[615px] bg-[#3b1223] rounded-2xl shadow-2xl border border-[#f472b6]/40 flex flex-col justify-between overflow-visible mx-auto"
         style={{
           padding: '8px',
           boxShadow: '0 25px 60px -10px rgba(0,0,0,0.85), inset 0 0 35px rgba(0,0,0,0.8)',
@@ -435,8 +435,8 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
         />
 
         {/* Spine Headband Fabric */}
-        <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-10 h-2 bg-gradient-to-r from-[#9d174d] via-[#f472b6] to-[#9d174d] rounded-full shadow pointer-events-none z-10" />
-        <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-10 h-2 bg-gradient-to-r from-[#9d174d] via-[#f472b6] to-[#9d174d] rounded-full shadow pointer-events-none z-10" />
+        <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-10 h-2 bg-gradient-to-r from-[#9d174d] via-[#f472b6] to-[#9d174d] rounded-full shadow pointer-events-none z-10 hidden sm:block" />
+        <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-10 h-2 bg-gradient-to-r from-[#9d174d] via-[#f472b6] to-[#9d174d] rounded-full shadow pointer-events-none z-10 hidden sm:block" />
 
         {/* Silk Bookmark Ribbon Tab */}
         <button
@@ -453,8 +453,8 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
         </button>
 
         {/* Inner Pages Open Shell */}
-        <div className="relative w-full h-full bg-[#3b1223] rounded-lg overflow-hidden shadow-inner flex min-h-0 [transform-style:preserve-3d]">
-          {/* Central Book Binding Valley Shadow */}
+        <div className="relative w-full h-full bg-[#3b1223] rounded-lg overflow-hidden shadow-inner block min-h-0 [transform-style:preserve-3d]">
+          {/* Central Book Binding Valley Shadow (Desktop spread only) */}
           <div className="book-gutter-valley" />
 
           {/* Dog-Ear Corner Curls */}
@@ -687,9 +687,8 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
                     <div className="absolute inset-0 rounded-full bg-[#120409] border-4 border-[#4a1428] shadow-inner" />
 
                     <div
-                      className={`relative w-32 h-32 sm:w-36 sm:h-36 rounded-full flex items-center justify-center border border-[#33111f] ${
-                        isAudioPlaying ? 'animate-spin-slow' : ''
-                      }`}
+                      className={`relative w-32 h-32 sm:w-36 sm:h-36 rounded-full flex items-center justify-center border border-[#33111f] ${isAudioPlaying ? 'animate-spin-slow' : ''
+                        }`}
                       style={{
                         background:
                           'repeating-radial-gradient(circle, #1a060f 0px, #1a060f 2px, #2d0d1b 3px, #14040b 4px)',
@@ -951,11 +950,10 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
                           setSelectedMood(mood);
                           showToast(`Mood: ${mood}`);
                         }}
-                        className={`text-[10px] font-typewriter py-1 px-2 rounded-lg border transition text-left cursor-pointer ${
-                          selectedMood === mood
-                            ? 'bg-[#be123c] text-white border-[#be123c] font-bold shadow-xs'
-                            : 'bg-white text-[#4c0519] border-[#fbcfe8] hover:bg-[#fce7f3]'
-                        }`}
+                        className={`text-[10px] font-typewriter py-1 px-2 rounded-lg border transition text-left cursor-pointer ${selectedMood === mood
+                          ? 'bg-[#be123c] text-white border-[#be123c] font-bold shadow-xs'
+                          : 'bg-white text-[#4c0519] border-[#fbcfe8] hover:bg-[#fce7f3]'
+                          }`}
                       >
                         {mood}
                       </button>
