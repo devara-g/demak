@@ -175,6 +175,7 @@ body {
   color: #be123c;
   font-family: var(--font-cinzel), monospace;
 }
+
 .curl-right {
   right: 0;
   background: linear-gradient(135deg, transparent 50%, #fbcfe8 50%, #fff1f2 100%);
@@ -182,6 +183,7 @@ body {
   box-shadow: -2px -2px 6px rgba(0, 0, 0, 0.15);
   justify-content: flex-end;
 }
+
 .curl-left {
   left: 0;
   background: linear-gradient(225deg, transparent 50%, #fbcfe8 50%, #fff1f2 100%);
@@ -190,31 +192,9 @@ body {
   justify-content: flex-start;
 }
 
-/* Deep Center Binding Gutter Valley Shadow */
+/* Deep Center Binding Gutter Valley Shadow - disabled to prevent shadow slicing through pages during 3D flip */
 .book-gutter-valley {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 40px;
-  transform: translateX(-50%);
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.18) 0%,
-    rgba(0, 0, 0, 0.38) 45%,
-    rgba(0, 0, 0, 0.45) 50%,
-    rgba(0, 0, 0, 0.38) 55%,
-    rgba(0, 0, 0, 0.18) 100%
-  );
-  pointer-events: none;
-  z-index: 22;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-@media (max-width: 639px) {
-  .book-gutter-valley {
-    display: none !important;
-  }
+  display: none !important;
 }
 
 .book-page-leaf {

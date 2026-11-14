@@ -16,7 +16,7 @@ export const defaultBookState: BookState = {
   sender: 'Aku yang Mengagumimu',
   bookTitle: 'Tentang Kamu, Jasmine',
   dateBadge: '11.11.2026',
-  finalQuestion: 'Will you be mine? 💖 Dari sekian banyak orang di dunia, hatiku cuma memilih kamu. Maukah kamu jadi pacarku dan berjalan berdua mulai hari ini?',
+  finalQuestion: 'Sebuah draf perasaan jujur untukmu.',
   whatsappNumber: '6281221995470',
   tiktokUsername: '',
   currentSpread: 0,

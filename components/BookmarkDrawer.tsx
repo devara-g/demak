@@ -22,12 +22,11 @@ export const BookmarkDrawer: React.FC<BookmarkDrawerProps> = ({
     { idx: 0, title: '0. Sampul Depan', page: 'SAMPUL' },
     { idx: 1, title: '1. Pembuka & Vinyl Adu Rayu', page: 'HAL. 00-01' },
     { idx: 2, title: '2. Bab I: Foto Spesial & Puisi', page: 'HAL. 02-03' },
-    { idx: 3, title: '3. Bab II: Sastra & Wishlist', page: 'HAL. 04-05' },
-    { idx: 4, title: '4. Bab III: Will You Be Mine? 💖', page: 'HAL. 06-07' },
+    { idx: 3, title: '3. Bab II: Draf Surat & Confession 💖', page: 'HAL. 04-05' },
   ];
 
   return (
-    <div className="absolute top-12 left-1/2 -translate-x-1/2 z-50 bg-[#fff1f2] border-2 border-[#f472b6] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] p-4 w-80 text-xs font-typewriter animate-fade-in">
+    <div className="absolute top-12 left-1/2 -translate-x-1/2 z-50 bg-[#fff1f2] border-2 border-[#f472b6] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] p-3.5 sm:p-4 w-[92vw] max-w-xs text-xs font-typewriter animate-fade-in">
       <div className="flex items-center justify-between border-b border-[#fbcfe8] pb-2 mb-2.5">
         <div className="flex items-center gap-1.5">
           <Bookmark className="w-4 h-4 text-[#be123c]" />

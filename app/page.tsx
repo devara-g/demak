@@ -32,6 +32,7 @@ export default function Home() {
         if (!parsed.recipient || parsed.recipient === 'Seseorang Spesial') {
           parsed.recipient = 'Jasmine ramadhania syarif';
         }
+        parsed.accepted = false;
         setState((prev) => ({
           ...prev,
           ...parsed,
