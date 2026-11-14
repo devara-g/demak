@@ -23,8 +23,8 @@ export default function Home() {
 
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (parsed.bookTitle && parsed.bookTitle.includes('Langit Biru')) {
-          parsed.bookTitle = 'Tentang Kamu & Nuansa Pink';
+        if (!parsed.bookTitle || parsed.bookTitle.includes('Nuansa Pink') || parsed.bookTitle.includes('Langit Biru')) {
+          parsed.bookTitle = 'Tentang Kamu, Jasmine';
         }
         if (!parsed.whatsappNumber || parsed.whatsappNumber === '6281234567890') {
           parsed.whatsappNumber = '6281221995470';

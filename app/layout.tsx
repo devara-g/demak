@@ -42,8 +42,8 @@ const courierPrime = Courier_Prime({
 });
 
 export const metadata: Metadata = {
-  title: 'Tentang Kamu & Nuansa Pink — Sebuah Buku Kecil Untukmu',
-  description: 'Buku kenangan dan pengakuan kecil interaktif bernuansa merah jambu bersama Snoopy.',
+  title: 'Tentang Kamu, Jasmine — Sebuah Buku Kecil Untukmu',
+  description: 'Buku kenangan dan pengakuan kecil interaktif bernuansa keharuman melati bersama Snoopy khusus untuk Jasmine ramadhania syarif.',
 };
 
 export default function RootLayout({

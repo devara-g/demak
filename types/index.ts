@@ -14,7 +14,7 @@ export interface BookState {
 export const defaultBookState: BookState = {
   recipient: 'Jasmine ramadhania syarif',
   sender: 'Aku yang Mengagumimu',
-  bookTitle: 'Tentang Kamu & Nuansa Pink',
+  bookTitle: 'Tentang Kamu, Jasmine',
   dateBadge: '11.11.2026',
   finalQuestion: 'Will you be mine? 💖 Dari sekian banyak orang di dunia, hatiku cuma memilih kamu. Maukah kamu jadi pacarku dan berjalan berdua mulai hari ini?',
   whatsappNumber: '6281221995470',

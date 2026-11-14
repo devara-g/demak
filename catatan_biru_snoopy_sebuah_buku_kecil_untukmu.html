@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>Tentang Kamu & Nuansa Pink — Sebuah Buku Kecil Untukmu</title>
+  <title>Tentang Kamu, Jasmine — Sebuah Buku Kecil Untukmu</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
   <script src="assets/page-flip.browser.js"></script>
@@ -369,8 +369,8 @@
         🐶
       </div>
       <div>
-        <span class="text-[9.5px] font-typewriter text-[#fbcfe8] uppercase tracking-wider block leading-none">
-          EDISI ARSIP · PINK SNOOPY
+        <span class="text-[9.5px] font-typewriter text-[#edd382] uppercase tracking-wider block leading-none font-semibold">
+          EDISI ARSIP · KHUSUS JASMINE ❀
         </span>
         <h1 class="font-serif-editorial text-sm sm:text-base font-bold text-white tracking-wide leading-tight drop-shadow">
           <span id="headerRecipientName">Buku Kecil Untuk Jasmine ramadhania syarif</span>
@@ -467,7 +467,7 @@
         <div id="flipBookContainer" class="w-full h-full">
 
           <!-- =========================================================================
-               PAGE 0: FRONT HARDCOVER (VINTAGE BAROQUE VECTOR FRAME)
+               PAGE 0: FRONT HARDCOVER (VINTAGE BAROQUE VECTOR FRAME & JASMINE BLOSSOM)
                ========================================================================= -->
           <div
             class="book-page-leaf h-full flex flex-col justify-between items-center text-center relative overflow-hidden select-none cursor-pointer group"
@@ -484,49 +484,102 @@
             <!-- Left Spine Crease -->
             <div class="absolute top-0 bottom-0 left-0 w-6 bg-gradient-to-r from-black/70 via-white/5 to-transparent pointer-events-none z-20"></div>
 
-            <div class="relative z-10 w-full h-full flex flex-col justify-between items-center px-6 sm:px-8 py-7 sm:py-9">
-              <div class="pt-2 sm:pt-3">
-                <span class="font-cinzel text-[9.5px] sm:text-[10px] tracking-[0.35em] text-[#fbcfe8] uppercase font-bold drop-shadow">
-                  PEANUTS ARCHIVAL · EDISI PINK
+            <div class="relative z-10 w-full h-full flex flex-col justify-between items-center px-5 sm:px-8 py-6 sm:py-8">
+              <!-- Top Archival Badge -->
+              <div class="pt-1 sm:pt-2 flex items-center justify-center gap-2">
+                <span class="text-[#ffd700] text-xs">❀</span>
+                <span class="font-cinzel text-[9px] sm:text-[10px] tracking-[0.32em] text-[#edd382] uppercase font-bold drop-shadow">
+                  ARCHIVAL EDITION · EDISI KHUSUS
                 </span>
+                <span class="text-[#ffd700] text-xs">❀</span>
               </div>
 
               <!-- Center Title & Snoopy Cameo -->
               <div class="my-auto flex flex-col items-center w-full">
-                <h1 class="font-cinzel text-xl sm:text-2xl md:text-3xl font-bold tracking-[0.16em] uppercase text-[#ffd700] drop-shadow-md leading-tight">
-                  TENTANG KAMU & NUANSA PINK
+                <div class="flex items-center justify-center gap-2 mb-1">
+                  <div class="h-[1px] w-6 sm:w-10 bg-gradient-to-r from-transparent via-[#ffd700] to-transparent"></div>
+                  <span class="font-cinzel text-[9.5px] sm:text-[10.5px] tracking-[0.28em] text-[#ffd700] uppercase font-semibold">
+                    SEBUAH BUKU KECIL UNTUK
+                  </span>
+                  <div class="h-[1px] w-6 sm:w-10 bg-gradient-to-r from-transparent via-[#ffd700] to-transparent"></div>
+                </div>
+
+                <h1 id="coverTitleEl" class="font-cinzel text-2xl sm:text-3xl md:text-[34px] font-extrabold tracking-[0.14em] uppercase text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] via-[#fff3cd] to-[#edd382] drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] leading-tight">
+                  TENTANG KAMU, JASMINE
                 </h1>
 
-                <p class="font-cinzel text-[10px] sm:text-[11px] tracking-[0.22em] text-[#fbcfe8] font-semibold mt-1">
-                  ✦ SEBUAH BUKU KECIL UNTUKMU ✦
-                </p>
+                <div class="flex items-center justify-center gap-2 mt-1.5">
+                  <span class="text-[10px] text-[#edd382]">✦</span>
+                  <p class="font-serif italic text-[11px] sm:text-xs text-[#fce7f3] tracking-wide drop-shadow">
+                    Keharuman Melati &amp; Kisah Hangat yang Tertulis Untukmu
+                  </p>
+                  <span className="text-[10px] text-[#edd382]">✦</span>
+                </div>
 
-                <!-- Snoopy Cameo Plaque -->
-                <div class="relative mt-4 p-1.5 sm:p-2 rounded-xl bg-gradient-to-b from-[#5c1d38] to-[#2a0c18] border-2 border-[#f472b6] shadow-[0_12px_28px_rgba(0,0,0,0.85)] group-hover:scale-105 transition-transform duration-500">
-                  <div class="relative w-40 sm:w-48 h-28 sm:h-32 rounded-lg overflow-hidden border border-[#fbcfe8]/60">
+                <!-- Snoopy Cameo Plaque Adorned with Jasmine Blossoms -->
+                <div class="relative mt-3.5 p-1.5 sm:p-2 rounded-xl bg-gradient-to-b from-[#5c1d38] to-[#1e0712] border-2 border-[#edd382] shadow-[0_12px_28px_rgba(0,0,0,0.85)] group-hover:scale-105 transition-transform duration-500">
+                  <!-- Top-Left Jasmine Blossom -->
+                  <div class="absolute -top-3.5 -left-3.5 z-20 pointer-events-none drop-shadow-[0_3px_6px_rgba(0,0,0,0.7)]">
+                    <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none">
+                      <path d="M 25 75 C 10 65 5 45 18 35 C 30 25 45 40 38 60 Z" fill="#2d5a3f" stroke="#4ade80" stroke-width="1.5" />
+                      <path d="M 75 25 C 65 10 45 5 35 18 C 25 30 40 45 60 38 Z" fill="#204631" stroke="#4ade80" stroke-width="1.5" />
+                      <circle cx="50" cy="28" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
+                      <circle cx="70" cy="44" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
+                      <circle cx="62" cy="70" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
+                      <circle cx="38" cy="70" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
+                      <circle cx="30" cy="44" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
+                      <ellipse cx="50" cy="34" rx="8" ry="5" fill="#fffef7" />
+                      <circle cx="50" cy="50" r="8" fill="#ffd700" stroke="#ca8a04" stroke-width="1" />
+                      <circle cx="50" cy="50" r="4" fill="#fef08a" />
+                    </svg>
+                  </div>
+
+                  <!-- Bottom-Right Jasmine Blossom -->
+                  <div class="absolute -bottom-3 -right-3 z-20 pointer-events-none drop-shadow-[0_3px_6px_rgba(0,0,0,0.7)]">
+                    <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none">
+                      <path d="M 75 75 C 85 60 85 40 70 30 C 55 20 40 35 48 55 Z" fill="#2d5a3f" stroke="#4ade80" stroke-width="1.5" />
+                      <circle cx="50" cy="28" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
+                      <circle cx="70" cy="44" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
+                      <circle cx="62" cy="70" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
+                      <circle cx="38" cy="70" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
+                      <circle cx="30" cy="44" r="14" fill="#ffffff" stroke="#fef08a" stroke-width="1" />
+                      <circle cx="50" cy="50" r="8" fill="#ffd700" stroke="#ca8a04" stroke-width="1" />
+                      <circle cx="50" cy="50" r="4" fill="#fef08a" />
+                    </svg>
+                  </div>
+
+                  <div class="relative w-40 sm:w-48 h-28 sm:h-32 rounded-lg overflow-hidden border border-[#edd382]/70 shadow-inner">
                     <img
                       src="assets/snoopy_starry_night.jpg"
-                      alt="Snoopy di atas rumah anjing menatap bintang malam"
+                      alt="Snoopy di bawah langit malam bertabur bintang untuk Jasmine"
                       class="w-full h-full object-cover"
                     />
                   </div>
-                  <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-[#be123c] text-white font-cinzel text-[8.5px] sm:text-[9px] font-bold tracking-wider uppercase shadow">
-                    SNOOPY & WOODSTOCK
+                  <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-gradient-to-r from-[#d4af37] via-[#f7e7a1] to-[#aa8022] text-[#240a17] font-cinzel text-[8.5px] sm:text-[9px] font-extrabold tracking-wider uppercase shadow-md border border-[#fff8d6] whitespace-nowrap">
+                    ❀ SNOOPY &amp; BUNGA MELATI ❀
                   </div>
                 </div>
 
-                <!-- Dedication Plate -->
-                <div class="mt-4 px-3 sm:px-4 py-1 rounded bg-[#240a17]/90 border border-[#f472b6]/70 shadow-md">
-                  <p class="font-cinzel text-[9.5px] sm:text-[10px] text-[#fce7f3] tracking-wider font-semibold">
-                    UNTUK: <span class="text-white font-bold recipient-name-text">Jasmine ramadhania syarif</span> · DARI: <span class="text-white font-bold sender-name-text">Aku</span>
-                  </p>
+                <!-- Dedication Plate for Jasmine -->
+                <div class="mt-3.5 px-4 py-1.5 rounded-xl bg-gradient-to-r from-[#180812]/95 via-[#2b0c1e]/95 to-[#180812]/95 border border-[#edd382]/70 shadow-[0_4px_16px_rgba(0,0,0,0.8)] backdrop-blur-xs flex flex-col items-center">
+                  <div class="flex items-center gap-1.5 text-[8px] sm:text-[8.5px] font-cinzel tracking-[0.25em] text-[#edd382] uppercase font-bold">
+                    <span>✦</span>
+                    <span>DIPERSEMBAHKAN KHUSUS UNTUK</span>
+                    <span>✦</span>
+                  </div>
+                  <span class="font-serif text-xs sm:text-sm text-white font-bold tracking-wider mt-0.5 drop-shadow recipient-name-text">
+                    Jasmine ramadhania syarif
+                  </span>
+                  <span class="text-[8.5px] font-typewriter text-[#fce7f3] mt-0.5">
+                    Dari: <strong class="text-white font-serif sender-name-text">Aku yang Mengagumimu</strong>
+                  </span>
                 </div>
               </div>
 
               <!-- Bottom Interactive Open Hint -->
-              <div class="pb-1 sm:pb-2">
-                <div class="px-5 py-2 rounded-full bg-gradient-to-r from-[#9d174d] via-[#be123c] to-[#9d174d] border border-[#fbcfe8]/80 text-white text-xs font-cinzel tracking-widest font-bold shadow-lg flex items-center gap-2 group-hover:scale-105 transition-transform">
-                  <span>❖ BUKA SAMPUL BUKU ➔ ❖</span>
+              <div class="pb-1">
+                <div class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#d4af37] via-[#f7e7a1] to-[#aa8022] hover:from-[#f7e7a1] hover:to-[#d4af37] text-[#240a17] text-xs sm:text-[13px] font-cinzel tracking-[0.16em] font-extrabold shadow-[0_8px_24px_rgba(212,175,55,0.45)] flex items-center gap-2 group-hover:scale-105 transition-all duration-300 border border-[#fff8d6] cursor-pointer">
+                  <span>❀ BUKA BUKU KECIL JASMINE ➔ ❀</span>
                 </div>
               </div>
             </div>
@@ -1177,9 +1230,10 @@ sudah terlanjur mengagumi lebih dari yang seharusnya.&quot;
       recipient: 'Jasmine ramadhania syarif',
       sender: 'Aku yang Mengagumimu',
       whatsapp: '081221995470',
+      title: 'Tentang Kamu, Jasmine',
       currentSpread: 0,
       accepted: false,
-      selectedMood: 'Senyum-senyum sendiri 😊'
+      selectedMood: 'Senyum-senyum sendiri'
     };
 
     try {

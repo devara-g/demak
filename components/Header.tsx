@@ -91,11 +91,11 @@ export const Header: React.FC<HeaderProps> = ({ state, onOpenCustomize, showToas
         </div>
         <div>
           <div className="flex items-center gap-2">
-            <span className="font-typewriter text-[10px] tracking-widest uppercase text-[#f472b6]">
-              EDISI ARSIP · PINK SNOOPY
+            <span className="font-typewriter text-[10px] tracking-widest uppercase text-[#edd382]">
+              EDISI ARSIP · KHUSUS JASMINE
             </span>
-            <span className="hidden sm:inline-block text-[10px] px-2 py-0.2 rounded-full bg-[#4c162b] text-[#fce7f3] font-medium">
-              Buku Scrapbook Pink
+            <span className="hidden sm:inline-block text-[10px] px-2 py-0.2 rounded-full bg-[#4c162b] text-[#fce7f3] font-medium border border-[#edd382]/30">
+              Buku Kenangan Jasmine ❀
             </span>
           </div>
           <h1 className="text-xs sm:text-sm font-serif text-[#fff1f2] tracking-wide">

@@ -48,8 +48,9 @@ export const AmbientBackground: React.FC = () => {
     const particles: Particle[] = [];
     const colors = [
       'rgba(212, 175, 55, ',   // Gold dust
-      'rgba(244, 114, 182, ',  // Soft Sakura Pink
-      'rgba(251, 113, 133, ',  // Romantic Rose Pink
+      'rgba(255, 255, 255, ',  // Pure Jasmine White Blossom glow
+      'rgba(254, 240, 138, ',  // Jasmine Stamen Golden glow
+      'rgba(244, 114, 182, ',  // Soft Rose
       'rgba(253, 164, 175, ',  // Blush Starlight
     ];
 
