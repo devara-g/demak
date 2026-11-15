@@ -425,10 +425,9 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
   };
 
   const isCover = state.currentSpread === 0 && !isFlipping;
-  const shouldCenterCover = isCover && isWideScreen;
 
   return (
-    <main className="relative z-20 flex-1 w-full max-w-5xl mx-auto px-1.5 sm:px-6 pt-0 pb-3 sm:py-2 flex items-center justify-center min-h-0 [perspective:2600px] -translate-y-2.5 sm:translate-y-0">
+    <main className="relative z-20 flex-1 w-full max-w-5xl mx-auto px-1.5 sm:px-6 pt-0 pb-6 sm:py-2 flex items-center justify-center min-h-0 [perspective:2600px] -translate-y-5 sm:translate-y-0">
       {/* Soft Ambient Desk Shadow */}
       <div className="absolute -bottom-5 left-8 right-8 h-14 bg-black/75 blur-2xl rounded-full pointer-events-none" />
 
@@ -436,14 +435,14 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
           AUTHENTIC HARDCOVER BOOK CASING (VELVET BURGUNDY + ROSE GOLD ACCENTS)
           ========================================================================= */}
       <div
-        className="relative w-full max-w-[390px] sm:max-w-none h-full max-h-[550px] sm:max-h-[615px] bg-[#3b1223] rounded-2xl shadow-2xl border border-[#f472b6]/40 flex flex-col justify-between overflow-visible mx-auto"
+        className="relative w-full max-w-[390px] sm:max-w-none h-full max-h-[485px] sm:max-h-[615px] bg-[#3b1223] rounded-2xl shadow-2xl border border-[#f472b6]/40 flex flex-col justify-between overflow-visible mx-auto"
         style={{
           padding: '8px',
           boxShadow: '0 25px 60px -10px rgba(0,0,0,0.85), inset 0 0 35px rgba(0,0,0,0.8)',
-          transform: shouldCenterCover ? 'translateX(-25%)' : 'translateX(0)',
-          WebkitMaskImage: shouldCenterCover ? 'linear-gradient(to right, transparent 50%, black 50%)' : 'none',
-          maskImage: shouldCenterCover ? 'linear-gradient(to right, transparent 50%, black 50%)' : 'none',
-          transition: 'transform 0.65s cubic-bezier(0.34, 1.25, 0.64, 1), -webkit-mask-image 0.25s ease, mask-image 0.25s ease',
+          transform: 'none',
+          WebkitMaskImage: 'none',
+          maskImage: 'none',
+          transition: 'transform 0.65s cubic-bezier(0.34, 1.25, 0.64, 1)',
         }}
       >
         {/* Metal Corner Guards */}
@@ -480,10 +479,10 @@ export const FlipBook = forwardRef<FlipBookRef, FlipBookProps>(function FlipBook
             sound.playPaperTurnSound();
             setIsDrawerOpen(!isDrawerOpen);
           }}
-          className="absolute -top-1 sm:-top-2 left-1/2 -translate-x-1/2 w-4 sm:w-5 h-7 sm:h-10 bg-gradient-to-r from-[#be123c] via-[#e11d48] to-[#9d174d] shadow-md z-30 rounded-t-sm hover:translate-y-1 transition-transform group cursor-pointer"
+          className="absolute top-0 sm:-top-2 left-1/2 -translate-x-1/2 w-3.5 sm:w-5 h-6 sm:h-10 bg-gradient-to-r from-[#be123c] via-[#e11d48] to-[#9d174d] shadow-md z-30 rounded-t-sm hover:translate-y-1 transition-transform group cursor-pointer"
           title="Klik untuk membuka Pembatas Buku & Daftar Isi"
         >
-          <div className="absolute -bottom-1.5 sm:-bottom-2 left-0 w-0 h-0 border-l-[8px] sm:border-l-[10px] border-l-[#9d174d] border-r-[8px] sm:border-r-[10px] border-r-[#9d174d] border-b-[6px] sm:border-b-[8px] border-b-transparent" />
+          <div className="absolute -bottom-1.5 sm:-bottom-2 left-0 w-0 h-0 border-l-[7px] sm:border-l-[10px] border-l-[#9d174d] border-r-[7px] sm:border-r-[10px] border-r-[#9d174d] border-b-[5px] sm:border-b-[8px] border-b-transparent" />
         </button>
 
         {/* Inner Pages Open Shell */}
